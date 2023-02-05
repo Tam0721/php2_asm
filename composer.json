@@ -1,0 +1,10 @@
+{
+    "name": "php2/asm",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "App\\Models\\": "app/models/",
+            "App\\Controllers\\": "app/controllers/"
+        }
+    }
+}

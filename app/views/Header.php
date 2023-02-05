@@ -58,7 +58,7 @@
 								<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
 								 aria-expanded="false">Cửa hàng</a>
 								<ul class="dropdown-menu">
-									<li class="nav-item"><a class="nav-link" href="index.php?act=category">Sản phẩm</a></li>
+									<li class="nav-item"><a class="nav-link" href="index.php?url=category">Sản phẩm</a></li>
 								<!--	<li class="nav-item"><a class="nav-link" href="index.php?act=single-product">Product Details</a></li>-->
 									<li class="nav-item"><a class="nav-link" href="index.php?act=checkout">Thanh toán</a></li>
 									<li class="nav-item"><a class="nav-link" href="index.php?act=cart">Giỏ hàng</a></li>

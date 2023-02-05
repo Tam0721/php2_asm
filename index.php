@@ -1,30 +1,40 @@
 <?php
+    require_once __DIR__ . '/vendor/autoload.php';
     ob_start(); 
     session_start();
-    include 'view/header.php';
-    include 'model/bill.php';
-    include 'model/chitietdh.php';
-    include 'model/pdo.php';
-    include 'model/taikhoan.php';
-    include 'model/sanpham.php';
-    include 'model/danhmuc.php';
-    include 'model/tintuc.php';
-    include 'model/cart.php';
-    include 'model/hinhanh.php';
-    include 'model/magiamgia.php';
-    include 'var.php';
-    $spnew =loadall_sanpham_home();
-    $topview = get_product_top9();
-    $ttnew=loadall_tintuc_home();
-    $dsdm =loadall_danhmuc();
-    $spdacbiet=get_product_special();
-    $cart=loadall_giohang();
-    $mgg=loadmgg(date('Y-m-d'));
+    $url = isset($_GET['url']) ? $_GET['url'] : "/";
+    include 'app/views/Header.php';
+    // // include 'model/bill.php';
+    // // include 'model/chitietdh.php';
+    // include 'app/models/BaseModels.php';
+    // // include 'model/taikhoan.php';
+    // include 'app/models/Products.php';
+    // include 'app/models/Categories.php';
+    // include 'model/tintuc.php';
+    // include 'model/cart.php';
+    // include 'model/hinhanh.php';
+    // include 'model/magiamgia.php';
+    // $ttnew=loadall_tintuc_home();
+    // $cart=loadall_giohang();
+    // $mgg=loadmgg(date('Y-m-d'));
     if(!isset($_SESSION['giohang'])) $_SESSION['giohang'] = [];
-    $note = 0;
-    if(isset($_GET['act'])){
-        $act = $_GET['act'];
-        switch ($act) {
+    // $note = 0;
+    // if(isset($_GET['act'])){
+    //     $act = $_GET['act'];
+    include 'app/controllers/Categories.php';
+    include 'app/controllers/Products.php';
+    use App\Controllers\Home;
+    use App\Controllers\Product;
+    use App\Controllers\Category;
+        switch ($url) {
+            case '/':
+                $u = new Home();
+                echo $u -> index();
+                break;
+            case 'category':
+                $c = new Category();
+                echo $c -> loadall_product();
+                break;
             case 'blog':
                 include 'view/blog.php';
                 break;
@@ -59,36 +69,7 @@
                 $spnew= loadall_sanpham1($kyw,$iddm);
                 include "view/category.php";
                 break;
-            case 'category':
-                $react = 0;
-                $spnew_tang = loadall_sanpham_tang();
-                $spnew_giam = loadall_sanpham_giam();
-                if(isset($_GET['react'])){
-                    if($_GET['react']==2)$react =2;
-                }else $react =3;
-                if(isset($_GET['iddm']) && $_GET['iddm']!=""){
-                    $filtersp=filter_sanpham($_GET['iddm']);
-                    $react =1; 
-                }
-                switch($react){
-                    case "0":
-                        $value=$spnew;
-                    break;
-                    case "1":
-                        $value=$filtersp;
-                    break;
-                    case "2":
-                        $value=$spnew_tang;
-                    break;
-                    case "3":
-                        $value=$spnew_giam;
-                    break;
-                    default:
-                        $value=$spnew;
-                    break;
-                }
-                include 'view/category.php';
-                break;
+            // 
             case 'checkout':
                 include 'view/checkout.php';
                 break;
@@ -161,7 +142,7 @@
                     $images = loadall_img($id);
                     include 'view/sanphamct.php';
                 }else{
-                    include 'view/home.php';
+                    include 'app/views/Home.php';
                 }
                 break;
             case 'login':
@@ -237,16 +218,16 @@
                 include 'view/banner.php';
                 break;
             default:
-                include 'view/home.php';
+                echo "Đường dẫn ko chính xác";
                 break;
         }
-    }
-    else{
-        include 'view/home.php';
-    }
+    // }
+    // else{
+    //     include 'app/views/Home.php';
+    // }
 
 
 
 
-    include 'view/footer.php';
+    include 'app/views/Footer.php';
 ?>

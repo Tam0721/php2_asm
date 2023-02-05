@@ -181,8 +181,9 @@
 				<div class="row">
 					<?php
 						
-						foreach($spnew as $sp){
+						foreach($products as $sp){
 							extract($sp);
+							$img_path="upload/";
 							$hinh=$img_path.$img;
 							$price_1 = $price_old;
 							if ($price_new > 0) $price_1 = $price_new;
@@ -570,17 +571,17 @@
 				<?php
 				$sphct="index.php?act=sanphamct&idsp=".$id;
 				echo'
-				<a href="'.$sphct.'"><img class="special-img" class="img-product" src="./upload/'.$spdacbiet['0']['img'].'" alt="" width="30%"></a>
+				<a href="'.$sphct.'"><img class="special-img" class="img-product" src="./upload/'.$special_product['0']['img'].'" alt="" width="30%"></a>
 					<div class="infor-recipe1">
-					<h1 style="color:white"> '.$spdacbiet['0']['name'].'</h1>';
-					if ($spdacbiet['0']['price_new'] > 0) {
+					<h1 style="color:white"> '.$special_product['0']['name'].'</h1>';
+					if ($special_product['0']['price_new'] > 0) {
 						echo '
-							<h2 style="color:red;"> '.number_format($spdacbiet[0]['price_new'], 0, '.', '.').'.000₫</h2>
-							<h4 style="color:black; text-decoration:line-through;"> '.number_format($spdacbiet[0]['price_old'], 0, '.', '.').'.000₫</h4>';
+							<h2 style="color:red;"> '.number_format($special_product[0]['price_new'], 0, '.', '.').'.000₫</h2>
+							<h4 style="color:black; text-decoration:line-through;"> '.number_format($special_product[0]['price_old'], 0, '.', '.').'.000₫</h4>';
 					} else {
-						echo '<h2 style="color:red"> '.number_format($spdacbiet[0]['price_old'], 0, '.', '.').'.000₫</h2>';
+						echo '<h2 style="color:red"> '.number_format($special_product[0]['price_old'], 0, '.', '.').'.000₫</h2>';
 					}
-				echo	'<p>'.$spdacbiet['0']['mota'].'</p>
+				echo	'<p>'.$special_product['0']['mota'].'</p>
 					<a href="'.$sphct.'"><button class="boujee-text">Xem thêm</button></a>
 					
 				</div>
@@ -607,7 +608,7 @@
 				<div class="col-lg-9">
 					<div class="row">
 						<?php
-							foreach ($topview as $sptop) {
+							foreach ($mostView_products as $sptop) {
 								extract($sptop);
 								$hinh=$img_path.$img;
 								$price_1 = $price_old;
@@ -634,7 +635,7 @@
 				<div class="col-lg-3">
 					<div class="ctg-right">
 						<a href="#" target="_blank">
-						<iframe src="view/banner.html" frameborder="0" width="100%" height="300px"></iframe>
+						<iframe src="app/views/banner.html" frameborder="0" width="100%" height="300px"></iframe>
 						</a>
 					</div>
 				</div>

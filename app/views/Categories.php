@@ -16,7 +16,8 @@
 		</div>
 	</section>
 	<?php
-		if($note ==1)
+		$note = 0;
+		if($note == 1)
 		echo "
 		<script>alert('Da them vao gio hang');</script>";
 
@@ -39,13 +40,13 @@
 							</ul>
 						</li> -->
 						<?php
-						$linkdm0="index.php?act=category";
+						$linkdm0="index.php?url=category";
 							echo'
 								<li class="main-nav-list"><a href="'.$linkdm0.'"><span
 									class="lnr lnr-arrow-right"></span>ALL<span class="number"></span></a></li>';
-							foreach ($dsdm as $dm) {
+							foreach ($categories as $dm) {
 								extract($dm);
-								$linkdm="index.php?act=category&iddm=".$ma_loai;
+								$linkdm="index.php?url=category&iddm=".$ma_loai;
 								echo'
 									
 									<li class="main-nav-list"><a href="'.$linkdm.'"><span
@@ -77,19 +78,19 @@
 			</div>
 			<div class="col-xl-9 col-lg-8 col-md-7">
 				<!-- Start Filter Bar -->
-				<div class="filter-bar d-flex flex-wrap align-items-center">
+				<!-- <div class="filter-bar d-flex flex-wrap align-items-center">
 					<div class="sorting">
 						<select>
 							<option value="1">Giá từ thấp tới cao</option>
-							<option value="1">Giá từ cao tới thấp</option>
+							<option value="2">Giá từ cao tới thấp</option>
 						</select>
 					</div>
 					<div class="sorting mr-auto">
-						<!-- <select>
+						<select>
 							<option value="1">Hiển thị 12</option>
 							<option value="1">Hiển thị 12</option>
 							<option value="1">Hiển thị 12</option>
-						</select> -->
+						</select>
 					</div>	
 					<div class="pagination">
 					<div class="form-group">
@@ -98,16 +99,16 @@
 					</div>
 						
 					</div>
-				</div>
+				</div> -->
 				<!-- End Filter Bar -->
 				<!-- Start Best Seller -->
 				<section class="lattest-product-area pb-40 category-list">
 					<div class="row">
 						<!-- single product -->
 						<?php
-						if($react==1){
-							foreach($filtersp as $sp){
+							foreach($products as $sp) {
 								extract($sp);
+								$img_path="upload/";
 								$hinh=$img_path.$img;
 								if ($price_new > 0) $price_1 = $price_new;
 								else $price_1 = $price_old;
@@ -148,72 +149,20 @@
 										</div>
 									</div>
 								</div>';
-						}
-					} else
-						foreach($spnew as $sp){
-							extract($sp);
-							$hinh=$img_path.$img;
-							$price_1 = $price_old;
-							if ($price_new > 0) $price_1 = $price_new;
-							$sphct="index.php?act=sanphamct&idsp=".$id;
-							echo '
-								<div class="col-lg-4 col-md-6">
-									<div class="single-product">
-										<a href="'.$sphct.'">
-											<img class="img-fluid" src="'.$hinh.'" alt="" style="height:250px; width:250px;">
-										</a>
-										<div class="product-details">
-											<h6>'.$name.'</h6>
-										<div class="price">
-											<h6>'.number_format($price_old, 0, '.', '.').'.000 ₫</h6>
-										</div>
-										
-										<form action="index.php?act=cartprocess" method="post">
-												<input type="hidden" name="id" value="'.$id.'">
-												<input type="hidden" name="name" value="'.$name.'">
-												<input type="hidden" name="price" value="'.$price_old.'">
-												<input type="hidden" name="img" value="'.$img.'">
-												<input type="hidden" name="soluong" value="1">
-										<div class="prd-bottom">
-											<lable for="them" class="social-info">
-												<span class="ti-bag"></span>
-												<p class="hover-text">
-													<input type="submit" name="addgiohang" id="them" value="Thêm giỏ" style="background: transparent;border: none !important;">
-												</p>
-											</lable>
-										</form>
-											<a href="#" class="social-info">
-												<span class="lnr lnr-heart"></span>
-												<p class="hover-text">Yêu thích</p>
-											</a>
-											<a href="" class="social-info">
-												<span class="lnr lnr-sync"></span>
-												<p class="hover-text">So sánh</p>
-											</a>
-											<a href="'.$sphct.'" class="social-info">
-												<span class="lnr lnr-move"></span>
-												<p class="hover-text">Xem thêm</p>
-											</a>
-										</div>
-									</div>
-								</div>
-							</div>';
-						}
-						
-					?>		
-				
+							}
+						?>		
 					</div>
 				</section>
 			
 				<!-- End Best Seller -->
 				<!-- Start Filter Bar -->
-				<div class="filter-bar d-flex flex-wrap align-items-center">
+				<!-- <div class="filter-bar d-flex flex-wrap align-items-center">
 					<div class="sorting mr-auto">
-						<!-- <select>
+						<select>
 							<option value="1">Hiển thị 12</option>
 							<option value="1">Hiển thị 12</option>
 							<option value="1">Hiển thị 12</option>
-						</select> -->
+						</select>
 					</div>
 					<div class="pagination">
 						<a href="#" class="prev-arrow"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></a>
@@ -224,7 +173,7 @@
 						<a href="#">6</a>
 						<a href="#" class="next-arrow"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
 					</div>
-				</div>
+				</div> -->
 				<!-- End Filter Bar -->
 			</div>
 		</div>
@@ -247,8 +196,9 @@
 				<div class="col-lg-9">
 					<div class="row">
 						<?php
-							foreach ($topview as $sptop) {
+							foreach ($mostView_products as $sptop) {
 								extract($sptop);
+								$img_path="upload/";
 								$hinh=$img_path.$img;
 								$price_1 = $price_old;
 								if ($price_new > 0) $price_1 = $price_new;
