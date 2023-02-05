@@ -132,21 +132,20 @@
             case 'historybill':
                 include 'view/historybill.php';
                 break;
-            case 'elements':
-                include 'view/elements.php';
-                break;
-            case 'filtersanpham':
-                break;
-            
             case 'sanphamct':
-                if (isset($_GET['idsp'])&&($_GET['idsp']>0)){
-                    $id=$_GET['idsp'];
-                    $sanpham=loadone_sanpham($id);
-                    $images = loadall_img($id);
-                    include 'view/sanphamct.php';
-                }else{
-                    include 'app/views/Home.php';
-                }
+                // 
+                $detail = new Product();
+                echo $detail -> load_detail_product();
+                break;
+                // 
+                // if (isset($_GET['idsp'])&&($_GET['idsp']>0)){
+                //     $id=$_GET['idsp'];
+                //     $sanpham=loadone_sanpham($id);
+                //     $images = loadall_img($id);
+                //     include 'view/sanphamct.php';
+                // } else {
+                //     include 'app/views/Home.php';
+                // }
                 break;
             case 'login':
                 if (isset($_POST['dangnhap']) && ($_POST['dangnhap'])){

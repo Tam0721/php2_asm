@@ -18,19 +18,19 @@
 	<!-- End Banner Area -->
 
     <?php
-        updateview($id);
-        extract($sanpham);
+        // updateview($id);
+        extract($detail_product);
         extract($images);
         // var_dump($_SESSION['giohang']);
         // echo $id;
-        $ha="upload/".$sanpham[0]['img'];
+        $ha="upload/".$detail_product[0]['img'];
         if (is_file($ha)) {
             $hinh="<img id='show' src='".$ha."' width='70%'>";
         }else{
             $hinh="Không tìm thấy hình";
         }
         // echo '<div>"'.$hinh.'"</div>'; 
-        // echo '<div>'.$sanpham[0]['mota'].'</div>';
+        // echo '<div>'.$detail_product[0]['mota'].'</div>';
     ?>
     <div class="container-fluid" style="margin-top: 30px;">
         <div class= "row">
@@ -50,25 +50,25 @@
 
                 <div style="margin-top: 20px;">
                     <h4>Mô tả</h4>
-                    <p style="margin-left: 20px;"><?=$sanpham[0]['mota'] ?></p>
+                    <p style="margin-left: 20px;"><?=$detail_product[0]['mota'] ?></p>
                 </div>
             </div>
             <div class ="col-sm-3">
-                <h1 style="text-align:center;font-size:22px;"><?php echo $sanpham[0]['name']?></h1>
+                <h1 style="text-align:center;font-size:22px;"><?php echo $detail_product[0]['name']?></h1>
                 <!-- <p style="font-weight:bold; text-align:center; color:red;font-size:25px;">$  -->
                     <?php 
-                        if ($sanpham[0]['price_new'] > 0) {
+                        if ($detail_product[0]['price_new'] > 0) {
                             echo 
                                 '<p style="font-weight:bold; text-align:center; color:red;font-size:25px;">'
-                                .number_format($sanpham[0]['price_new'], 0, '.', '.').'.000 ₫</p>'.
+                                .number_format($detail_product[0]['price_new'], 0, '.', '.').'.000 ₫</p>'.
                                 '<p style="text-align:center; color:black;font-size:15px; text-decoration: line-through;">'
-                                .number_format($sanpham[0]['price_old'], 0, '.', '.').'.000 ₫</p>';
+                                .number_format($detail_product[0]['price_old'], 0, '.', '.').'.000 ₫</p>';
                         } else {
                             echo 
                                 '<p style="font-weight:bold; text-align:center; color:red;font-size:25px;">'
-                                .number_format($sanpham[0]['price_old'], 0, '.', '.').'.000 ₫</p>';
+                                .number_format($detail_product[0]['price_old'], 0, '.', '.').'.000 ₫</p>';
                         }
-                        // echo $sanpham[0]['price_old'];
+                        // echo $detail_product[0]['price_old'];
                     ?>
                     <?php
                         echo'
@@ -106,23 +106,23 @@
                                 <div class="amount-form" style="margin-left: 20px;">
                                     <!-- <button class="btn-minus" id="minus" onclick="handleMinus()"><i class="fa-solid fa-minus"></i></button> -->   
                                     <input type="number" value="1"  name="soluong" step="1" min="1" max="900">
-                                    <input type="hidden" name="id" value="'.$sanpham[0]['id'].'">
-                                    <input type="hidden" name="name" value="'.$sanpham[0]['name'].'">
-                                    <input type="hidden" name="price" value="'.(($sanpham[0]['price_new'] > 0)? $sanpham[0]['price_new']:$sanpham[0]['price_old']).'">
-                                    <input type="hidden" name="img" value="'.$sanpham[0]['img'].'">
+                                    <input type="hidden" name="id" value="'.$detail_product[0]['id'].'">
+                                    <input type="hidden" name="name" value="'.$detail_product[0]['name'].'">
+                                    <input type="hidden" name="price" value="'.(($detail_product[0]['price_new'] > 0)? $detail_product[0]['price_new']:$detail_product[0]['price_old']).'">
+                                    <input type="hidden" name="img" value="'.$detail_product[0]['img'].'">
                                     <input type="hidden" name="note" value="0">
                         ';       
                     ?>
                         <!-- <button class="btn-plus" id="plus" onclick="handlePlus()"><i class="fa-solid fa-plus"></i></button>  -->
                         
 
-                        <input type="submit" name="addgiohang" value="<?=$sanpham[0]['trang_thai']? " Đặt hàng":"Hết hàng"?>" <?=$sanpham[0]['trang_thai']? "":"disabled"?> class="btn btn-default border-0" style="margin:0px 0 15px 15px; width:120px; background: linear-gradient(131deg, rgba(255,117,0,1) 12%, rgba(255,184,0,1) 86%); color:#fff;">
+                        <input type="submit" name="addgiohang" value="<?=$detail_product[0]['trang_thai']? " Đặt hàng":"Hết hàng"?>" <?=$detail_product[0]['trang_thai']? "":"disabled"?> class="btn btn-default border-0" style="margin:0px 0 15px 15px; width:120px; background: linear-gradient(131deg, rgba(255,117,0,1) 12%, rgba(255,184,0,1) 86%); color:#fff;">
 
                         
                         
                     </form>
                     </a>
-                        <!-- <input type="submit" name="addgiohang"  id="btn" value="<?=$sanpham[0]['trang_thai']? " Đặt hàng":"Hết hàng"?>" <?=$sanpham[0]['trang_thai']? "":"disabled"?> class="btn btn-default border-0" style="margin:0 0 15px 15px; width:120px; background: linear-gradient(131deg, rgba(255,117,0,1) 12%, rgba(255,184,0,1) 86%); color:#fff;"> -->
+                        <!-- <input type="submit" name="addgiohang"  id="btn" value="<?=$detail_product[0]['trang_thai']? " Đặt hàng":"Hết hàng"?>" <?=$detail_product[0]['trang_thai']? "":"disabled"?> class="btn btn-default border-0" style="margin:0 0 15px 15px; width:120px; background: linear-gradient(131deg, rgba(255,117,0,1) 12%, rgba(255,184,0,1) 86%); color:#fff;"> -->
                     </form>
                 </div>
             </div>
@@ -130,11 +130,11 @@
         
                 <div class="">
                     <h6 style="margin-top: 10px;">SKU</h6>
-                    <p style="margin-left: 20px;"><?=$sanpham[0]['ten_loai'] ?></p>
+                    <p style="margin-left: 20px;"><?=$detail_product[0]['ten_loai'] ?></p>
                 </div>
                 <div class="">
                     <h6 style="margin-top: 20px;">Loại: </h6>
-                    <p style="margin-left: 20px;">Giày <?=$sanpham[0]['ten_loai'] ?></p>
+                    <p style="margin-left: 20px;">Giày <?=$detail_product[0]['ten_loai'] ?></p>
                 </div>
                
             </div>
