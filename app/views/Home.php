@@ -11,33 +11,32 @@
 									<h1>Nike Bộ <br>Sưu Tập Mới!</h1>
 									<p>Tháng này, Nike ra mắt bộ sưu tập sản phẩm mới. Các bạn ơi hãy nhanh tay nhận ưu đãi cho sản phẩm mới.</p>
 									<div class="add-bag d-flex align-items-center">
-										<a class="add-btn" href=""><span class="lnr lnr-cross"></span></a>
-										<span class="add-text text-uppercase">Thêm giỏ hàng</span>
+										<a class="add-btn" href="index.php?url=category&iddm=36"><span class="lnr lnr-move"></span></a>
+										<a href="index.php?url=category&iddm=36"><span class="add-text text-uppercase">Xem sản phẩm</span></a>
 									</div>
 								</div>
 							</div>
 							<div class="col-lg-7">
 								<div class="banner-img">
-									<img class="img-fluid" src="img/banner/banner-img.png" alt="">
+									<a href="index.php?url=category&iddm=36"><img class="img-fluid" src="img/banner/banner-img.png" alt=""></a>
 								</div>
 							</div>
 						</div>
 						<!-- single-slide -->
-						<div class="row single-slide">
-							<div class="col-lg-5">
+						<div class="row single-slide align-items-center d-flex">
+							<div class="col-lg-5 col-md-6">
 								<div class="banner-content">
-									<h1>Nike New <br>Collection!</h1>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-										dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
+									<h1>Nike Bộ <br>Sưu Tập Mới!</h1>
+									<p>Tháng này, Nike ra mắt bộ sưu tập sản phẩm mới. Các bạn ơi hãy nhanh tay nhận ưu đãi cho sản phẩm mới.</p>
 									<div class="add-bag d-flex align-items-center">
-										<a class="add-btn" href=""><span class="lnr lnr-cross"></span></a>
-										<span class="add-text text-uppercase">Add to Bag</span>
+										<a class="add-btn" href="index.php?url=category&iddm=36"><span class="lnr lnr-move"></span></a>
+										<a href="index.php?url=category&iddm=36"><span class="add-text text-uppercase">Xem sản phẩm</span></a>
 									</div>
 								</div>
 							</div>
 							<div class="col-lg-7">
 								<div class="banner-img">
-									<img class="img-fluid" src="img/banner/banner-img.png" alt="">
+									<a href="index.php?url=category&iddm=36"><img class="img-fluid" src="img/banner/banner-img.png" alt=""></a>
 								</div>
 							</div>
 						</div>
@@ -199,7 +198,7 @@
 										<div class="price">
 											<h6>'.number_format($price_1, 0, '.', '.').'.000 ₫</h6>	
 										</div>
-										<form action="index.php?act=cartprocess" method="post">
+										<form action="index.php?url=cartprocess" method="post">
 											<input type="hidden" name="id" value="'.$id.'">
 											<input type="hidden" name="name" value="'.$name.'">
 											<input type="hidden" name="price" value="'.$price_1.'">
@@ -236,284 +235,72 @@
 		</div>
 		
 		<!-- single product -->
-		<div class="single-produc t-slider">
+		<div class="single-product-slider">
 			<div class="container">
 				<div class="row justify-content-center">
 					<div class="col-lg-6 text-center">
 						<div class="section-title">
-							<h1>Latest Products</h1>
-							<p style="padding:30px 50px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-								dolore
-								magna aliqua.</p>
+							<h1>Sản phẩm bán chạy</h1>
+							<p style="padding:30px 50px;"> Z-MOHN cập nhật nhiều sản phẩm mới từ các thương hiệu Vans, Converse, Adidas, Nike,... Đa dạng chức năng, mẫu mã. Chúng tôi luôn mong muốn mang lại cho bạn những sản phẩm mới lạ nhất.</p>
 						</div>
 					</div>
 				</div>
-			<div class="row">
+				<div class="row">
+					<?php
+						
+						foreach($mostView_products as $sp){
+							extract($sp);
+							$img_path = "upload/";
+							$hinh = $img_path . $img;
+							$price_1 = $price_old;
+							if ($price_new > 0) $price_1 = $price_new;
+							$sphct="index.php?url=sanphamct&idsp=" . $id;
+							echo '
+							<div class="col-lg-3 col-md-6">
+								<div class="single-product">
+									<a href="'.$sphct.'">
+										<img class="img-fluid" src="'.$hinh.'" alt="" style="height:270px; width:260;">
+									</a>
+									<div class="product-details">
+										<h6>'.$name.'</h6>
+										<div class="price">
+											<h6>'.number_format($price_1, 0, '.', '.').'.000 ₫</h6>	
+										</div>
+										<form action="index.php?url=cartprocess" method="post">
+											<input type="hidden" name="id" value="'.$id.'">
+											<input type="hidden" name="name" value="'.$name.'">
+											<input type="hidden" name="price" value="'.$price_1.'">
+											<input type="hidden" name="img" value="'.$img.'">
+											<input type="hidden" name="soluong" value="1">
+										<div class="prd-bottom">
+		
+											<a href="'.$sphct.'" class="social-info">
+												<span class="ti-bag"></span>
+												<p class="hover-text">Thêm giỏ</p>
+											</a>
+											<a href="" class="social-info">
+												<span class="lnr lnr-heart"></span>
+												<p class="hover-text">Yêu thích</p>
+											</a>
+											<a href="" class="social-info">
+												<span class="lnr lnr-sync"></span>
+												<p class="hover-text">So sánh</p>
+											</a>
+											<a href="'.$sphct.'" class="social-info">
+												<span class="lnr lnr-move"></span>
+												<p class="hover-text">Xem thêm</p>
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>';
+						}
 					
-				<div class="col-lg-3 col-md-6">
-					<div class="single-product">
-						<img class="img-fluid" src="img/product/p1.jpg" alt="">
-						<div class="product-details">
-							<h6>addidas New Hammer sole
-								for Sports person</h6>
-							<div class="price">
-								<h6>$150.00</h6>
-								<h6 class="l-through">$210.00</h6>
-							</div>
-							<div class="prd-bottom">
-
-								<a href="" class="social-info">
-									<span class="ti-bag"></span>
-									<p class="hover-text">add to bag</p>
-								</a>
-								<a href="" class="social-info">
-									<span class="lnr lnr-heart"></span>
-									<p class="hover-text">Wishlist</p>
-								</a>
-								<a href="" class="social-info">
-									<span class="lnr lnr-sync"></span>
-									<p class="hover-text">compare</p>
-								</a>
-								<a href="" class="social-info">
-									<span class="lnr lnr-move"></span>
-									<p class="hover-text">view more</p>
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
+					?>
 					
-				<div class="col-lg-3 col-md-6">
-					<div class="single-product">
-						<img class="img-fluid" src="img/product/p2.jpg" alt="">
-						<div class="product-details">
-							<h6>addidas New Hammer sole
-								for Sports person</h6>
-							<div class="price">
-								<h6>$150.00</h6>
-								<h6 class="l-through">$210.00</h6>
-							</div>
-							<div class="prd-bottom">
-
-								<a href="" class="social-info">
-									<span class="ti-bag"></span>
-									<p class="hover-text">add to bag</p>
-								</a>
-								<a href="" class="social-info">
-									<span class="lnr lnr-heart"></span>
-									<p class="hover-text">Wishlist</p>
-								</a>
-								<a href="" class="social-info">
-									<span class="lnr lnr-sync"></span>
-									<p class="hover-text">compare</p>
-								</a>
-								<a href="" class="social-info">
-									<span class="lnr lnr-move"></span>
-									<p class="hover-text">view more</p>
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-					
-				<div class="col-lg-3 col-md-6">
-					<div class="single-product">
-						<img class="img-fluid" src="img/product/p3.jpg" alt="">
-						<div class="product-details">
-							<h6>addidas New Hammer sole
-								for Sports person</h6>
-							<div class="price">
-								<h6>$150.00</h6>
-								<h6 class="l-through">$210.00</h6>
-							</div>
-							<div class="prd-bottom">
-								<a href="" class="social-info">
-									<span class="ti-bag"></span>
-									<p class="hover-text">add to bag</p>
-								</a>
-								<a href="" class="social-info">
-									<span class="lnr lnr-heart"></span>
-									<p class="hover-text">Wishlist</p>
-								</a>
-								<a href="" class="social-info">
-									<span class="lnr lnr-sync"></span>
-									<p class="hover-text">compare</p>
-								</a>
-								<a href="" class="social-info">
-									<span class="lnr lnr-move"></span>
-									<p class="hover-text">view more</p>
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-					
-				<div class="col-lg-3 col-md-6">
-					<div class="single-product">
-						<img class="img-fluid" src="img/product/p4.jpg" alt="">
-						<div class="product-details">
-							<h6>addidas New Hammer sole
-								for Sports person</h6>
-							<div class="price">
-								<h6>$150.00</h6>
-								<h6 class="l-through">$210.00</h6>
-							</div>
-							<div class="prd-bottom">
-
-								<a href="" class="social-info">
-									<span class="ti-bag"></span>
-									<p class="hover-text">add to bag</p>
-								</a>
-								<a href="" class="social-info">
-									<span class="lnr lnr-heart"></span>
-									<p class="hover-text">Wishlist</p>
-								</a>
-								<a href="" class="social-info">
-									<span class="lnr lnr-sync"></span>
-									<p class="hover-text">compare</p>
-								</a>
-								<a href="" class="social-info">
-									<span class="lnr lnr-move"></span>
-									<p class="hover-text">view more</p>
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				
-				<div class="col-lg-3 col-md-6">
-					<div class="single-product">
-						<img class="img-fluid" src="img/product/p5.jpg" alt="">
-						<div class="product-details">
-							<h6>addidas New Hammer sole
-								for Sports person</h6>
-							<div class="price">
-								<h6>$150.00</h6>
-								<h6 class="l-through">$210.00</h6>
-							</div>
-							<div class="prd-bottom">
-
-								<a href="" class="social-info">
-									<span class="ti-bag"></span>
-									<p class="hover-text">add to bag</p>
-								</a>
-								<a href="" class="social-info">
-									<span class="lnr lnr-heart"></span>
-									<p class="hover-text">Wishlist</p>
-								</a>
-								<a href="" class="social-info">
-									<span class="lnr lnr-sync"></span>
-									<p class="hover-text">compare</p>
-								</a>
-								<a href="" class="social-info">
-									<span class="lnr lnr-move"></span>
-									<p class="hover-text">view more</p>
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-					
-				<div class="col-lg-3 col-md-6">
-					<div class="single-product">
-						<img class="img-fluid" src="img/product/p6.jpg" alt="">
-						<div class="product-details">
-							<h6>addidas New Hammer sole
-								for Sports person</h6>
-							<div class="price">
-								<h6>$150.00</h6>
-								<h6 class="l-through">$210.00</h6>
-							</div>
-							<div class="prd-bottom">
-
-								<a href="" class="social-info">
-									<span class="ti-bag"></span>
-									<p class="hover-text">add to bag</p>
-								</a>
-								<a href="" class="social-info">
-									<span class="lnr lnr-heart"></span>
-									<p class="hover-text">Wishlist</p>
-								</a>
-								<a href="" class="social-info">
-									<span class="lnr lnr-sync"></span>
-									<p class="hover-text">compare</p>
-								</a>
-								<a href="" class="social-info">
-									<span class="lnr lnr-move"></span>
-									<p class="hover-text">view more</p>
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-					
-				<div class="col-lg-3 col-md-6">
-					<div class="single-product">
-						<img class="img-fluid" src="img/product/p7.jpg" alt="">
-						<div class="product-details">
-							<h6>addidas New Hammer sole
-								for Sports person</h6>
-							<div class="price">
-								<h6>$150.00</h6>
-								<h6 class="l-through">$210.00</h6>
-							</div>
-							<div class="prd-bottom">
-
-								<a href="" class="social-info">
-									<span class="ti-bag"></span>
-									<p class="hover-text">add to bag</p>
-								</a>
-								<a href="" class="social-info">
-									<span class="lnr lnr-heart"></span>
-									<p class="hover-text">Wishlist</p>
-								</a>
-								<a href="" class="social-info">
-									<span class="lnr lnr-sync"></span>
-									<p class="hover-text">compare</p>
-								</a>
-								<a href="" class="social-info">
-									<span class="lnr lnr-move"></span>
-									<p class="hover-text">view more</p>
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-					
-				<div class="col-lg-3 col-md-6">
-					<div class="single-product">
-						<img class="img-fluid" src="img/product/p8.jpg" alt="">
-						<div class="product-details">
-							<h6>addidas New Hammer sole
-								for Sports person</h6>
-							<div class="price">
-								<h6>$150.00</h6>
-								<h6 class="l-through">$210.00</h6>
-							</div>
-							<div class="prd-bottom">
-
-								<a href="" class="social-info">
-									<span class="ti-bag"></span>
-									<p class="hover-text">add to bag</p>
-								</a>
-								<a href="" class="social-info">
-									<span class="lnr lnr-heart"></span>
-									<p class="hover-text">Wishlist</p>
-								</a>
-								<a href="" class="social-info">
-									<span class="lnr lnr-sync"></span>
-									<p class="hover-text">compare</p>
-								</a>
-								<a href="" class="social-info">
-									<span class="lnr lnr-move"></span>
-									<p class="hover-text">view more</p>
-								</a>
-							</div>
-						</div>
-					</div>
 				</div>
 			</div>
-		</div> 
+		</div>
 	</section>
 	<!-- End exclusive deal Area -->
 	
@@ -569,7 +356,7 @@
 				background-attachment: fixed;
 				background-position: center; /*lấy giữa tấm hình*/">
 				<?php
-				$sphct="index.php?act=sanphamct&idsp=".$id;
+				$sphct="index.php?url=sanphamct&idsp=".$id;
 				echo'
 				<a href="'.$sphct.'"><img class="special-img" class="img-product" src="./upload/'.$special_product['0']['img'].'" alt="" width="30%"></a>
 					<div class="infor-recipe1">
@@ -613,7 +400,7 @@
 								$hinh=$img_path.$img;
 								$price_1 = $price_old;
 								if ($price_new > 0) $price_1 = $price_new;
-								$sphct="index.php?act=sanphamct&idsp=".$id;
+								$sphct="index.php?url=sanphamct&idsp=".$id;
 								echo '
 									<div class="col-lg-4 col-md-4 col-sm-6 mb-20">
 										<div class="single-related-product d-flex" id="imgTop">

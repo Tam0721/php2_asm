@@ -22,7 +22,7 @@
                 <?php
                     if(count($_SESSION['giohang']) == 0){
                         echo'
-                        <div class="notice info"><p> Không có sản phẩm nào trong giỏ hàng <a href="index.php?act=category">Xem sản phẩm</a>.</p></div>
+                        <div class="notice info"><p> Không có sản phẩm nào trong giỏ hàng <a href="index.php?url=category">Xem sản phẩm</a>.</p></div>
                         ';
                 ?>
                 <style>
@@ -104,12 +104,12 @@
                                         $ttien = 0;
                                         $ttien += $tong;
                                         $all +=$ttien;
-                                        $del="index.php?act=delcart&idsp=".$ma_hh."&size=".$size;
-                                        $upd="index.php?act=cart&id=".$ma_hh;
-                                        $up="index.php?act=cartupdate&id=".$ma_hh."&size=".$size;
-                                        $sphct="index.php?act=sanphamct&idsp=".$ma_hh;
+                                        $del="index.php?url=delcart&idsp=".$ma_hh."&size=".$size;
+                                        $upd="index.php?url=cart&id=".$ma_hh;
+                                        $up="index.php?url=cartupdate&id=".$ma_hh."&size=".$size;
+                                        $sphct="index.php?url=sanphamct&idsp=".$ma_hh;
                                         echo '
-                                            <form action="index.php?act=cartupdate" method="post">
+                                            <form action="index.php?url=cartupdate" method="post">
                                             <tr>
                                                 <td>
                                                     <div class="media" >
@@ -189,7 +189,7 @@
                                 <td>
                                     <div class="checkout_btn_inner d-flex align-items-center">
                                         <!-- <a class="gray_btn" href="#">Tiếp tục mua hàng</a> -->
-                                        <a class="primary-btn" href="index.php?act=checkout">Tiến hành thanh toán</a>
+                                        <a class="primary-btn" href="index.php?url=checkout">Tiến hành thanh toán</a>
                                     </div>
                                 </td>
                             </tr>

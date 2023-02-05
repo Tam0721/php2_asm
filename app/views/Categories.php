@@ -78,8 +78,8 @@
 			</div>
 			<div class="col-xl-9 col-lg-8 col-md-7">
 				<!-- Start Filter Bar -->
-				<!-- <div class="filter-bar d-flex flex-wrap align-items-center">
-					<div class="sorting">
+				<!-- <div class="sidebar-categories"> -->
+					<!-- <div class="sorting">
 						<select>
 							<option value="1">Giá từ thấp tới cao</option>
 							<option value="2">Giá từ cao tới thấp</option>
@@ -98,8 +98,8 @@
 						<input type="submit" name="listgo" value="Go" style="border:1px solid gray;border-radius:5px;">
 					</div>
 						
-					</div>
-				</div> -->
+					</div> -->
+				<!-- </div> -->
 				<!-- End Filter Bar -->
 				<!-- Start Best Seller -->
 				<section class="lattest-product-area pb-40 category-list">
@@ -198,8 +198,8 @@
 						<?php
 							foreach ($mostView_products as $sptop) {
 								extract($sptop);
-								$img_path="upload/";
-								$hinh=$img_path.$img;
+								$img_path = "upload/";
+								$hinh = $img_path . $img;
 								$price_1 = $price_old;
 								if ($price_new > 0) $price_1 = $price_new;
 								$sphct="index.php?act=sanphamct&idsp=".$id;

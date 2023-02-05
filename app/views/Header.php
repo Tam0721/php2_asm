@@ -59,8 +59,8 @@
 								 aria-expanded="false">Cửa hàng</a>
 								<ul class="dropdown-menu">
 									<li class="nav-item"><a class="nav-link" href="index.php?url=category">Sản phẩm</a></li>
-									<li class="nav-item"><a class="nav-link" href="index.php?act=checkout">Thanh toán</a></li>
-									<li class="nav-item"><a class="nav-link" href="index.php?act=cart">Giỏ hàng</a></li>
+									<li class="nav-item"><a class="nav-link" href="index.php?url=checkout">Thanh toán</a></li>
+									<li class="nav-item"><a class="nav-link" href="index.php?url=cart">Giỏ hàng</a></li>
 									<?php
 										if(isset($_SESSION['user'])&&($_SESSION['user']!="")){
 											echo'<li class="nav-item"><a class="nav-link" href="index.php?act=shippingbill">Đơn hàng đang giao</a></li>';
@@ -81,34 +81,34 @@
 							</li> -->
 							<li class="nav-item submenu dropdown">
 								<?php
-										if(isset($_SESSION['user'])&&($_SESSION['user']!="")){
-											echo '<a href="index.php?act=suatk&user='.$_SESSION['user'].'" class="nav-link"><span style="color:red;font-weight:800;"> '.$_SESSION['user'].'</span></a>';
-											echo'<li class="nav-item"><a href="index.php?act=thoat" class="nav-link"><span>Đăng xuất</span></a></li>';
+										if(isset($_SESSION['user']) && ($_SESSION['user'] != "")){
+											echo '<a href="index.php?url=suatk&user='.$_SESSION['user'].'" class="nav-link"><span style="color:red;font-weight:800;"> '.$_SESSION['user'].'</span></a>';
+											echo'<li class="nav-item"><a href="index.php?url=thoat" class="nav-link"><span>Đăng xuất</span></a></li>';
 										}else{
 									?>
 								<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
 								 aria-expanded="false">Thành viên</a>
 								<ul class="dropdown-menu">
-											<li class="nav-item"><a class="nav-link" href="index.php?act=login">Đăng nhập</a></li>
-											<li class="nav-item"><a class="nav-link" href="index.php?act=signup">Đăng ký</a></li>	
+											<li class="nav-item"><a class="nav-link" href="index.php?url=login">Đăng nhập</a></li>
+											<li class="nav-item"><a class="nav-link" href="index.php?url=signup">Đăng ký</a></li>	
 										
 								</ul>
 							</li> <?php } ?>
-							<li class="nav-item"><a class="nav-link" href="index.php?act=contact">Liên hệ</a></li>
+							<li class="nav-item"><a class="nav-link" href="index.php?url=contact">Liên hệ</a></li>
 						</ul>
 						<ul class="nav navbar-nav navbar-right">
 							<?php
 								if(isset($_SESSION['giohang'])&& count($_SESSION['giohang'],1)>0){
 									$dem = count($_SESSION['giohang']);
 									echo '
-										<li class="nav-link"><a href="index.php?act=cart" class="cart"><span class="ti-bag"></span></a>
+										<li class="nav-link"><a href="index.php?url=cart" class="cart"><span class="ti-bag"></span></a>
 											<span class="badge text-secondary rounded-circle" style="padding-bottom: 2px;">'.$dem.'</span>
 										</li>
 									
 									';
 								}else{
 									echo '
-										<li class="nav-link"><a href="index.php?act=cart" class="cart"><span class="ti-bag"></span></a>
+										<li class="nav-link"><a href="index.php?url=cart" class="cart"><span class="ti-bag"></span></a>
 											<span class="badge text-secondary rounded-circle" style="padding-bottom: 2px;">0</span>
 										</li>
 									';	

@@ -46,13 +46,13 @@
                 echo $b -> loadall_blog();
                 break;
             case 'cart':
-                include "view/cart.php";
+                include "app/views/Cart.php";
                 break;
             case 'cartprocess':
-                include 'view/cartprocess.php';
+                include 'app/views/cartprocess.php';
                 break;
             case 'cartupdate':
-                include 'view/cartupdate.php';
+                include 'app/views/cartupdate.php';
                 break;
             case 'delcart':
                 if (isset($_GET['idsp'])&&($_GET['idsp']>=0)){
@@ -61,7 +61,7 @@
                     array_splice($_SESSION['giohang'],$ma_dh && $size,1);
                     delete_giohang($ma_hh,$size);
                 }
-                include 'view/delcart.php';
+                include 'app/views/delcart.php';
                 break;
             case 'listsp':
                 if (isset($_POST['listgo'])&&($_POST['listgo'])){
@@ -74,11 +74,11 @@
                 $sql = "select * from loai order by ten_loai desc";
                 $listdanhmuc= pdo_query($sql);
                 $spnew= loadall_sanpham1($kyw,$iddm);
-                include "view/category.php";
+                include "app/views/category.php";
                 break;
             // 
             case 'checkout':
-                include 'view/checkout.php';
+                include 'app/views/checkout.php';
                 break;
             case 'confirmation':
                     if(isset($_POST['confirmation'])&&($_POST['confirmation'])){
@@ -111,30 +111,30 @@
                         unset($_SESSION['giohang']);
                         
                     }
-                include 'view/confirmation.php';
+                include 'app/views/confirmation.php';
                 break;
             case 'shippingbill':
-                include "view/shippingbill.php";
+                include "app/views/shippingbill.php";
                 break;
             case 'listshippeddetail':
                 if(isset($_GET['ma_dh'])&&($_GET['ma_dh']>0)){
                     $listchitietdh = loadone_chitietdh($_GET['ma_dh']);
                     $bill_mgg = loaddetailbill_mgg($_GET['ma_dh']);
                 }
-                include "view/shippeddetail.php";
+                include "app/views/shippeddetail.php";
                 break;
             case 'listshippingdetail':
                 if(isset($_GET['ma_dh'])&&($_GET['ma_dh']>0)){
                     $listchitietdh = loadone_chitietdh($_GET['ma_dh']);
                     $bill_mgg = loaddetailbill_mgg($_GET['ma_dh']);
                 }
-                include "view/shippingdetail.php";
+                include "app/views/shippingdetail.php";
                 break;
             case 'contact':
-                include 'view/contact.php';
+                include 'app/views/contact.php';
                 break;
             case 'historybill':
-                include 'view/historybill.php';
+                include 'app/views/historybill.php';
                 break;
             case 'sanphamct':
                 $detail = new Product();
@@ -160,7 +160,7 @@
                         break;
                     }
                 }
-                include 'view/login.php';
+                include 'app/views/login.php';
                 break;
             case 'signup':
                 if(isset($_POST['dangky'])&&($_POST['dangky'])){
@@ -173,14 +173,14 @@
                     insert_taikhoan($email,$fullname,$user,$pass,$address,$tel);    
                     $thongbao="Đăng ký thành công. Vui lòng <a href='index.php?act=login'>đăng nhập</a>";
                 }
-                include 'view/signup.php';
+                include 'app/views/signup.php';
                 break;
             case 'suatk':
                 if(isset($_GET['ma_tk'])&&($_GET['ma_tk'])){
                     $sql = "SELECT * FROM tai_khoan WHERE ma_tk =".$_GET['ma_tk'];
                     $dm = pdo_query_one($sql);
                 }
-                include "view/capnhat_tk.php";
+                include "app/views/capnhat_tk.php";
                 break;     
             case 'capnhat_tk':
                 if(isset($_POST['capnhap'])&&($_POST['capnhap'])){
@@ -192,10 +192,10 @@
                     $tel = $_POST['tel'];
                     update_taikhoan($ma_tk,$fullname,$user,$pass,$address,$tel); 
                 }
-                include 'view/capnhat_tk.php';
+                include 'app/views/capnhat_tk.php';
                 break;
             case 'quenmk':
-                include "view/quenmk.php";
+                include "app/views/quenmk.php";
                 break;
             case 'thoat':
                 unset($_SESSION['user']);
@@ -204,13 +204,13 @@
                 header('location: index.php');
                 break;
             case 'single-blog':
-                include 'view/single-blog.php';
+                include 'app/views/single-blog.php';
                 break;
             case 'single-product':
-                include 'view/single-product.php';
+                include 'app/views/single-product.php';
                 break;
             case 'banner':
-                include 'view/banner.php';
+                include 'app/views/banner.php';
                 break;
             default:
                 echo "Đường dẫn ko chính xác";
