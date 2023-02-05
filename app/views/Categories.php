@@ -108,12 +108,12 @@
 						<?php
 							foreach($products as $sp) {
 								extract($sp);
-								$img_path="upload/";
-								$hinh=$img_path.$img;
+								$img_path = "upload/";
+								$hinh = $img_path.$img;
 								if ($price_new > 0) $price_1 = $price_new;
 								else $price_1 = $price_old;
 								if($price_old == $price_1) $price_old = 0;
-								$sphct="index.php?act=sanphamct&idsp=".$id;
+								$sphct="index.php?url=sanphamct&idsp=".$id;
 								echo '
 									<div class="col-lg-4 col-md-6">
 										<div class="single-product">
