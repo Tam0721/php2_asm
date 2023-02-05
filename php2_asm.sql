@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 08, 2022 at 02:36 PM
--- Server version: 10.4.25-MariaDB
--- PHP Version: 8.1.10
+-- Generation Time: Feb 05, 2023 at 07:29 AM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -49,6 +49,14 @@ CREATE TABLE `chi_tiet_don_hang` (
   `quantity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `chi_tiet_don_hang`
+--
+
+INSERT INTO `chi_tiet_don_hang` (`ma_ctdh`, `ma_dh`, `ma_hh`, `size`, `quantity`) VALUES
+(10, 17, 112, 35, 1),
+(11, 18, 106, 35, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -70,6 +78,14 @@ CREATE TABLE `don_hang` (
   `ghi_chu_kh` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `ghi_chu_ad` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `don_hang`
+--
+
+INSERT INTO `don_hang` (`ma_dh`, `ma_tk`, `ngay_dat`, `nguoi_nhan`, `sdt_nhan`, `dia_chi_nhan`, `email`, `payment`, `ma_gg`, `trang_thai_tt`, `trang_thai_gh`, `ghi_chu_kh`, `ghi_chu_ad`) VALUES
+(17, 191, '2022-12-09', 'ce', '123', 'Thới An, Quận 12', 'ng.tanduy261203@gmail.com', 1, NULL, 1, 0, NULL, NULL),
+(18, 191, '2022-12-09', 'ce', '123', 'Thới An, Quận 12', 'ng.tanduy261203@gmail.com', 2, NULL, 2, 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -109,12 +125,12 @@ CREATE TABLE `hang_hoa` (
 
 INSERT INTO `hang_hoa` (`id`, `name`, `price_old`, `price_new`, `img`, `mota`, `iddm`, `luotxem`, `trang_thai`, `special`) VALUES
 (101, 'Ralph Sampson', 4998, 0, 'puma-Ralph-Sampson.jpg', 'Kiểu dáng giày sneaker thể thao cổ thấp \r\nPhom ôm dáng chân, dễ dàng di chuyển\r\nPhần đệm lót trong thấm hút mồ hôi tốt\r\nĐế giữa có độ đàn hồi tốt, hỗ trợ mọi hoạt động\r\nGam màu hiện đại dễ dàng phối với nhiều trang phục và phụ kiện', 38, 16, 1, 0),
-(103, 'Vans Classic Slip On ', 5559, 0, 'vans-classic-slipon.jpg', 'Họa tiết kẻ caro hay còn gọi là họa tiết kẻ caro là một trong những thương hiệu “độc quyền” của nhà Vans. Đây cũng là một trong những ấn tượng đáng nhớ nhất khi mọi người nhắc về giày Vans. Đôi giày này vẫn mang phiên bản Slip-on cổ điển nhưng chất liệu Canvas được phát huy và sử dụng một cách đặc biệt để tạo cảm giác thoải mái, mát mẻ cho đôi chân. Giày vải đế thấp đơn giản với rất ít dây buộc Logo thương hiệu VANS phía sau kết hợp với đế cao su siêu mềm đàn hồi.', 39, 12, 1, 0),
+(103, 'Vans Classic Slip On ', 5559, 0, 'vans-classic-slipon.jpg', 'Họa tiết kẻ caro hay còn gọi là họa tiết kẻ caro là một trong những thương hiệu “độc quyền” của nhà Vans. Đây cũng là một trong những ấn tượng đáng nhớ nhất khi mọi người nhắc về giày Vans. Đôi giày này vẫn mang phiên bản Slip-on cổ điển nhưng chất liệu Canvas được phát huy và sử dụng một cách đặc biệt để tạo cảm giác thoải mái, mát mẻ cho đôi chân. Giày vải đế thấp đơn giản với rất ít dây buộc Logo thương hiệu VANS phía sau kết hợp với đế cao su siêu mềm đàn hồi.', 39, 15, 1, 0),
 (104, 'ADIDAS HYPERTURF', 3199, 0, 'adidas-HYPERTURF.jpg', 'Dạo phố với phong cách mượn cảm hứng từ thiên nhiên hùng vĩ. Đôi Giày adidas Hyperturf mang đến cho bạn sự thoải mái khi khám phá những con phố mới hoặc dạo bước đến quán cà phê yêu thích. Các chất liệu vải ripstop, da nubuck, da lộn và vải lưới kết hợp tạo nên thân giày bền bỉ. Lớp đệm EVA siêu nhẹ kết hợp công nghệ Adiprene+ và FORMOTION để mang lại cảm giác nhẹ nhàng và nâng đỡ cho từng bước chân.', 37, 88, 1, 0),
 (105, 'Puma RS-X', 2135, 0, 'puma-RS-X.jpg', 'Mẫu Sneaker Puma RSX là một trong những thiết kế huyền thoại của Puma. Đây là mẫu giày Chunky được đánh giá là xuất sắc nhất của hãng, thu hút được sự yêu thích của đông đảo giới trẻ. Đây thực sự là mẫu giày đã góp phần làm nên tên tuổi của Puma như hiện tại.', 38, 31, 1, 1),
-(106, 'Jordan Series Mid', 4485, 0, 'Jordan-Series-Mid.jpg', 'Phần giữa của mô hình thời trang phía trước của Jordan Brand đã được lựa chọn cực kỳ kỹ lưỡng trong suốt cả năm, với ít hơn một số đề xuất được tung ra chỉ sau vài tháng bị loại bỏ kể từ cuối năm 2022. Tuy nhiên, thời tiết bắt đầu vào mùa thu mang đến thời điểm thích hợp cho Jordan Series Mid trở lại sau khi hợp tác với Maison Château Rouge vào tháng 6.', 36, 8, 1, 0),
-(112, 'VANS VN0A5', 890, 0, 'vans-VN0A5KRDBZW.jpg', 'Vans VN0A5KRDBZW thuộc dòng Authentic Collage Black/White mới nhất trong bộ sưu tập của thương hiệu Vans', 39, 13, 1, 0),
-(113, 'SuperStart', 2145, 0, 'superstart1.jpg', 'Suốt hơn 50 năm, đôi sneaker adidas Superstar luôn là lựa chọn hàng đầu của các huyền thoại thể thao và thời trang đường phố, kết nối các nhà kiến tạo đến từ mọi nền văn hóa. Mũi giày vỏ sò dễ dàng nhận diện ngay lập tức kết hợp với ba sọc viền răng cưa và các điểm nhấn adidas Originals. Luôn hợp mốt, giày có kiểu dáng kinh điển với chất liệu da cật tăng cường độ bền chắc và thoải mái.', 37, 20, 1, 0),
+(106, 'Jordan Series Mid', 4485, 0, 'Jordan-Series-Mid.jpg', 'Phần giữa của mô hình thời trang phía trước của Jordan Brand đã được lựa chọn cực kỳ kỹ lưỡng trong suốt cả năm, với ít hơn một số đề xuất được tung ra chỉ sau vài tháng bị loại bỏ kể từ cuối năm 2022. Tuy nhiên, thời tiết bắt đầu vào mùa thu mang đến thời điểm thích hợp cho Jordan Series Mid trở lại sau khi hợp tác với Maison Château Rouge vào tháng 6.', 36, 10, 1, 0),
+(112, 'VANS VN0A5', 890, 0, 'vans-VN0A5KRDBZW.jpg', 'Vans VN0A5KRDBZW thuộc dòng Authentic Collage Black/White mới nhất trong bộ sưu tập của thương hiệu Vans', 39, 15, 1, 0),
+(113, 'SuperStart', 2145, 0, 'superstart1.jpg', 'Suốt hơn 50 năm, đôi sneaker adidas Superstar luôn là lựa chọn hàng đầu của các huyền thoại thể thao và thời trang đường phố, kết nối các nhà kiến tạo đến từ mọi nền văn hóa. Mũi giày vỏ sò dễ dàng nhận diện ngay lập tức kết hợp với ba sọc viền răng cưa và các điểm nhấn adidas Originals. Luôn hợp mốt, giày có kiểu dáng kinh điển với chất liệu da cật tăng cường độ bền chắc và thoải mái.', 37, 24, 1, 0),
 (114, 'LeBron 19', 4382, 1000, 'le19.webp', 'LeBron phát triển mạnh khi tiền đặt cược cao và áp lực tăng lên. LeBron 19 khai thác năng lượng đó bằng hệ thống đệm vừa khít và cập nhật. Ống lót bên trong vừa khít được kéo lại với nhau bằng một lớp phủ điêu khắc mà dây buộc xuyên qua để giúp ngăn bàn chân từ việc di chuyển bên trong giày. Các miếng đệm nhúng ở lưỡi gà và xung quanh cổ giày giúp giảm trọng lượng, giữ thẳng cổ chân và mang lại cho người chơi cảm giác an toàn cũng như sự tự tin để dốc hết sức khi trận đấu đang diễn ra.', 36, 18, 0, 0);
 
 -- --------------------------------------------------------
@@ -193,13 +209,6 @@ CREATE TABLE `ma_giam_gia` (
   `ngay_kt` date NOT NULL,
   `giatri` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `ma_giam_gia`
---
-
-INSERT INTO `ma_giam_gia` (`ma_gg`, `ngay_bd`, `ngay_kt`, `giatri`) VALUES
-('Z39599', '2022-12-07', '2022-12-08', 30);
 
 -- --------------------------------------------------------
 
@@ -333,25 +342,25 @@ ALTER TABLE `tin_tuc`
 -- AUTO_INCREMENT for table `binh_luan`
 --
 ALTER TABLE `binh_luan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `chi_tiet_don_hang`
 --
 ALTER TABLE `chi_tiet_don_hang`
-  MODIFY `ma_ctdh` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `ma_ctdh` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `don_hang`
 --
 ALTER TABLE `don_hang`
-  MODIFY `ma_dh` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `ma_dh` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `gio_hang`
 --
 ALTER TABLE `gio_hang`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=173;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=177;
 
 --
 -- AUTO_INCREMENT for table `hang_hoa`

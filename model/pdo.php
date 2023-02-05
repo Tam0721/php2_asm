@@ -4,7 +4,7 @@
  */
 // error_reporting(0);
 function pdo_get_connection(){
-    $dburl = "mysql:host=localhost;dbname=shoes26_store;charset=utf8";
+    $dburl = "mysql:host=localhost;dbname=php2_asm;charset=utf8";
     $username = 'root';
     $password = '';
 
