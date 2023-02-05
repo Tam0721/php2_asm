@@ -3,16 +3,6 @@
     
     class Categories extends BaseModels {
         var $table = "loai";
-
-        
-
-        // public static function special() {
-        //     $model = new static;
-        //     $sql = "SELECT * FROM " . $model -> table . " WHERE special = 1";
-        //     $stmt = $model -> conn -> prepare($sql);
-        //     $stmt -> execute();
-        //     return $stmt -> fetchAll();
-        // }
     }
 
     // function loadall_danhmuc(){

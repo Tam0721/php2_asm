@@ -73,9 +73,10 @@
                     <div class="blog_left_sidebar">
                         <?php
                         
-                        foreach($ttnew as $ttuc){
+                        foreach($blogs as $ttuc){
 							extract($ttuc);
-							$hinh=$img_path.$img;
+                            $img_path = "upload/";
+							$hinh = $img_path . $img;
 							echo '
                             
                             <article class="row blog_item">

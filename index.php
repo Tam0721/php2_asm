@@ -23,9 +23,11 @@
     //     $act = $_GET['act'];
     include 'app/controllers/Categories.php';
     include 'app/controllers/Products.php';
+    include 'app/controllers/Blogs.php';
     use App\Controllers\Home;
     use App\Controllers\Product;
     use App\Controllers\Category;
+    use App\Controllers\Blog;
         switch ($url) {
             case '/':
                 $u = new Home();
@@ -36,7 +38,8 @@
                 echo $c -> loadall_product();
                 break;
             case 'blog':
-                include 'view/blog.php';
+                $b = new Blog();
+                echo $b -> loadall_blog();
                 break;
             case 'cart':
                 include "view/cart.php";
