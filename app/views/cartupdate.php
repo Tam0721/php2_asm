@@ -17,7 +17,7 @@
             } else {
                 // $note = 1;        
                     update_giohang($sl,$ma_hh,$size);
-                    header('location: index.php?act=cart'); 
+                    header('location: index.php?url=cart'); 
             }
         }
     }

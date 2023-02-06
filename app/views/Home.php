@@ -356,7 +356,7 @@
 				background-attachment: fixed;
 				background-position: center; /*lấy giữa tấm hình*/">
 				<?php
-				$sphct="index.php?url=sanphamct&idsp=".$id;
+				$sphct="index.php?url=sanphamct&idsp=" . $special_product['0']['id'];
 				echo'
 				<a href="'.$sphct.'"><img class="special-img" class="img-product" src="./upload/'.$special_product['0']['img'].'" alt="" width="30%"></a>
 					<div class="infor-recipe1">

@@ -24,7 +24,7 @@
 						<div class="hover">
 							<h4>Bạn đã có tài khoản thành viên?</h4>
 							<p>Đăng nhập để sử dụng những ưu đãi tuyệt vời dành cho bạn nào</p>
-							<a class="primary-btn" href="index.php?act=login">Đăng nhập ngay</a>
+							<a class="primary-btn" href="index.php?url=login">Đăng nhập ngay</a>
 						</div>
 					</div>
 				</div>
@@ -32,7 +32,7 @@
 					<div class="login_form_inner">
 						<h3>Tạo tài khoản thành viên</h3>
 						<
-						<form class="row login_form requires-validation" action="index.php?act=signup" method="post" id="contactForm" novalidate="novalidate" >
+						<form class="row login_form requires-validation" action="index.php?url=signup" method="post" id="contactForm" novalidate="novalidate" >
 							<div class="col-md-12 form-group">
 								<input type="email" class="form-control" id="name" name="email" placeholder="Nhập Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nhập Email'" required>
 								<!-- <div class="valid-feedback">Email field is valid!</div> -->

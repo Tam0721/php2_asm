@@ -10,8 +10,8 @@
              // $note = 1;        
                 $sl += $giohang['so_luong'];
                 update_giohang($sl,$_POST['id'],$_POST['size']);
-                if($note==0)header('location: index.php?act=sanphamct&idsp='.$ma_hh.'');
-                else header('location: index.php?act=category');
+                if($note==0)header('location: index.php?url=sanphamct&idsp='.$ma_hh.'');
+                else header('location: index.php?url=category');
                  $fg=$sl;
                  break;
              }
@@ -32,10 +32,10 @@
                 array_push($_SESSION['giohang'], $cartsp);
             }
         } else {
-            header('location: index.php?act=sanphamct&idsp=' . $ma_hh . '');
+            header('location: index.php?url=sanphamct&idsp=' . $ma_hh . '');
         }
     }
-        if($note ==0)header('location: index.php?act=sanphamct&idsp='.$ma_hh.'');
-        else header('location: index.php?act=category');
+        if($note ==0)header('location: index.php?url=sanphamct&idsp='.$ma_hh.'');
+        else header('location: index.php?url=category');
     
 ?>

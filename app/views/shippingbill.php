@@ -60,7 +60,7 @@
                                     $giamgia = $gg['giatri'];
                                 }
                             }
-                            $chitiet_dh="index.php?act=listshippingdetail&ma_dh=".$ma_dh;
+                            $chitiet_dh="index.php?url=listshippingdetail&ma_dh=".$ma_dh;
                             echo '
                             <tbody>
                                 <tr>
