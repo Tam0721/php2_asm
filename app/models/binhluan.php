@@ -1,5 +1,25 @@
 <?php 
+    namespace App\Models;
 
+    class Comment extends BaseModels{
+        var $table = "binhluan bl";
+
+        public static function loadone_binhluan($id){
+            $model = new static;
+            $sql = "SELECT * FROM" .$model->table ."WHERE bl.id =" .$id;
+            $stmt = $model -> conn -> prepare($sql);
+            $stmt -> execute();
+            return $stmt -> fetchAll();
+        }
+
+        public static function delete_binhluan($id) {
+            $model = new static;
+            $sql = "DELETE FROM" .$model->table ."WHERE bl.id =" .$id;
+            $stmt = $model -> conn -> prepare($sql);
+            $stmt -> execute();
+            return $stmt -> fetchAll();
+    }
+}
     // function insert_binhluan($noidung,$idpro,$iduser,$ngaybinhluan){
     //     // $sql = "INSERT INTO hang_hoa (name,price,img,mo_ta,iddm) VALUES ('$tensp','$giasp','$hinh','$mota','$iddm')";
     //     $sql = "INSERT INTO binh_luan(noi_dung, idpro, iduser, ngay_bl)
@@ -21,7 +41,6 @@
     //     pdo_execute($sql);
     // }
     // function update_binhluan($id,$noidung){
-
     //     $sql = "UPDATE binh_luan SET noi_dung='".$noidung."' WHERE id=".$id;
     //     pdo_execute($sql);
     // }

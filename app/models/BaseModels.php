@@ -5,9 +5,7 @@
     class BaseModels {
         public $conn;
 
-        public 
-
-        function __construct() {
+        public function __construct() {
             $this -> conn = new PDO("mysql:host=localhost;dbname=php2_asm;charset=utf8", "root", "");
         }
 
