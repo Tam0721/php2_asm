@@ -18,7 +18,7 @@
 	<!-- End Banner Area -->
 
     <?php
-        // updateview($id);
+        // Products::updateview($id);
         extract($detail_product);
         extract($images);
         // var_dump($_SESSION['giohang']);

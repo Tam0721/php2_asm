@@ -45,6 +45,13 @@
             return $stmt -> fetchAll();
         }
 
+        public static function updateview($id) {
+            $model = new static;
+            $sql = "UPDATE " . $model -> table . " SET luotxem = luotxem + 1 WHERE id = " . $id;
+            $stmt = $model -> conn -> prepare($sql);
+            $stmt -> execute();
+        }
+
         public static function filter_sanpham($iddm) {
             $model = new static;
             $sql = "SELECT * FROM " . $model -> table . " WHERE iddm = " . $iddm;
@@ -89,16 +96,4 @@
     //     $sql = "UPDATE hang_hoa SET luotxem = luotxem + 1 WHERE id=".$id;
     //     pdo_execute($sql);
     // }
-    // function load_ten_dm($iddm){
-    //     if($iddm>0){
-    //         $sql="select * from hang_hoa where id=".$iddm;
-    //         $dm=pdo_query_one($sql);
-    //         extract($dm);
-    //         return $name;
-
-    //     } else {
-    //         return "";
-    //     }
-    // }
-    
 ?>
