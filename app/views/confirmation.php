@@ -88,12 +88,12 @@
 											}
 										}
 										$tien=($all - $giamgia) + 20;
-                                        $del="index.php?act=delcart&idsp=".$id;
-                                        $upd="index.php?act=cart&id=".$id;
-                                        $up="index.php?act=cartupdate&id=".$id;
-                                        $sphct="index.php?act=sanphamct&idsp=".$id;
+                                        $del="index.php?url=delcart&idsp=".$id;
+                                        $upd="index.php?url=cart&id=".$id;
+                                        $up="index.php?url=cartupdate&id=".$id;
+                                        $sphct="index.php?url=sanphamct&idsp=".$id;
                                         echo '
-                                            <form action="index.php?act=cartupdate" method="post">
+                                            <form action="index.php?url=cartupdate" method="post">
                                             <tr>
                                                 <td>
                                                     <div class="media" >

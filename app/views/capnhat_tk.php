@@ -32,7 +32,7 @@
                             $sql = "SELECT * FROM tai_khoan WHERE user = '".$_SESSION['user']."'";
                             extract(pdo_query_one($sql));
                         ?>
-                        <form action="index.php?act=capnhat_tk" method="POST" enctype="multipart/form-data" class="row login_form requires-validation">
+                        <form action="index.php?url=capnhat_tk" method="POST" enctype="multipart/form-data" class="row login_form requires-validation">
                                 <div class="col-md-12 form-group">
                                     <input type="text" class="form-control" name="fullname" placeholder="Họ tên" value="<?=$ho_ten?>">
                                 </div>

@@ -63,8 +63,8 @@
 									<li class="nav-item"><a class="nav-link" href="index.php?url=cart">Giỏ hàng</a></li>
 									<?php
 										if(isset($_SESSION['user'])&&($_SESSION['user']!="")){
-											echo'<li class="nav-item"><a class="nav-link" href="index.php?act=shippingbill">Đơn hàng đang giao</a></li>';
-											echo'<li class="nav-item"><a class="nav-link" href="index.php?act=historybill">Lịch sử mua hàng</a></li>';
+											echo'<li class="nav-item"><a class="nav-link" href="index.php?url=shippingbill">Đơn hàng đang giao</a></li>';
+											echo'<li class="nav-item"><a class="nav-link" href="index.php?url=historybill">Lịch sử mua hàng</a></li>';
 										}
 									?>
 										
@@ -72,11 +72,11 @@
 							</li>
 							<li class="nav-item"><a class="nav-link" href="index.php?url=blog">Blog</a></li>
 							<!-- <li class="nav-item submenu dropdown">
-								<a href="index.php?act=blog" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+								<a href="index.php?url=blog" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
 								 aria-expanded="false">Blog</a>
 								 <ul class="dropdown-menu">
-									<li class="nav-item"><a class="nav-link" href="index.php?act=blog">Blog</a></li>
-									<li class="nav-item"><a class="nav-link" href="index.php?act=single-blog">Blog Details</a></li>
+									<li class="nav-item"><a class="nav-link" href="index.php?url=blog">Blog</a></li>
+									<li class="nav-item"><a class="nav-link" href="index.php?url=single-blog">Blog Details</a></li>
 								</ul> 
 							</li> -->
 							<li class="nav-item submenu dropdown">

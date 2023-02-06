@@ -24,7 +24,7 @@
 						<div class="hover">
 							<h4>Lần đầu tiên bạn vào trang web?</h4>
 							<p>Bạn có thể sở hữu ngay một tài khoản thành viên, rất nhiều ưu đãi dành cho bạn!</p>
-							<a class="primary-btn" href="index.php?act=signup">Đăng kí ngay</a>
+							<a class="primary-btn" href="index.php?url=signup">Đăng kí ngay</a>
 						</div>
 					</div>
 				</div>
@@ -45,7 +45,7 @@
 
 
 						?>
-						<form class="row login_form requires-validation" action="index.php?act=login" method="post" id="contactForm" novalidate="novalidate">
+						<form class="row login_form requires-validation" action="index.php?url=login" method="post" id="contactForm" novalidate="novalidate">
 							<div class="col-md-12 form-group">
 								<input type="text" class="form-control" id="name" name="user" placeholder="Username" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'" required>
 								<div class="invalid-feedback">Không được để trống!</div>
@@ -65,7 +65,7 @@
 							</div>
 							<div class="col-md-12 form-group">
 								<input type="submit" value="Đăng nhập" class="primary-btn" name="dangnhap" id="submit"></input>
-								<a href="index.php?act=quenmk">Quên mật khẩu?</a>
+								<a href="index.php?url=quenmk">Quên mật khẩu?</a>
 							</div>
 						</form>
 						<!-- Kiểm tra tính hợp lệ -->

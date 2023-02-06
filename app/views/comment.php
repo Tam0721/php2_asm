@@ -29,7 +29,6 @@
       <div class="col-md-12 col-lg-10 col-xl-8">
         <div class="card">
           <?php 
-            // echo"Duy nè".$idpro;
             foreach($dsbl as $bl){
                 extract($bl);
                 // var_dump($bl);
@@ -58,7 +57,7 @@
             <div class="d-flex flex-start w-100">
             <?php
                 if (!isset($_SESSION['user'])) {
-                    echo '<h6 class="text-danger"><a href="index.php?act=login">Đăng nhập</a> để bình luận</h6>';
+                    echo '<h6 class="text-danger"><a href="index.php?url=login">Đăng nhập</a> để bình luận</h6>';
                 } else {
             ?>
                 <form action="<?=$_SERVER['PHP_SELF'];?>" method="post">

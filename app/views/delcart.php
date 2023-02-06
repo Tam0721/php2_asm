@@ -17,7 +17,7 @@
     $ma_hh =$_GET['idsp'];
     $size =$_GET['size'];
     delete_giohang($ma_hh,$size);
-    header('location: index.php?act=cart');
+    header('location: index.php?url=cart');
   }
   
 // unset($_SESSION['giohang']);  

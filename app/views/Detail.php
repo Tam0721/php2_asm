@@ -7,8 +7,8 @@
 					<h1>Chi tiết sản phẩm</h1>
 					<nav class="d-flex align-items-center">
 						<a href="index.php">Trang chủ<span class="lnr lnr-arrow-right"></span></a>
-						<a href="index.php?act=category">Sản phẩm <span class="lnr lnr-arrow-right"></span></a>
-						<a href="index.php?act=sanphamct">Chi tiết</a>
+						<a href="index.php?url=category">Sản phẩm <span class="lnr lnr-arrow-right"></span></a>
+						<a href="index.php?url=sanphamct">Chi tiết</a>
 						
 					</nav>
 				</div>
@@ -72,7 +72,7 @@
                     ?>
                     <?php
                         echo'
-                        <form action="index.php?act=cartprocess" method="post">
+                        <form action="index.php?url=cartprocess" method="post">
                             <div class="btn-size">
                                 <h6>Chọn size:</h6>
                                 <div class="switch-field">

@@ -51,9 +51,9 @@
 											}
 										}
 										$tien=($all - $giamgia) + 20;
-                                        $sphct="index.php?act=sanphamct&idsp=".$id;
+                                        $sphct="index.php?url=sanphamct&idsp=".$id;
                                         echo '
-                                            <form action="index.php?act=cartupdate" method="post">
+                                            <form action="index.php?url=cartupdate" method="post">
                                             <tr>
                                                 <td>
                                                     <div class="media" >

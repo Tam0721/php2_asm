@@ -19,10 +19,10 @@
         <div class="container">
             <?php
                 if (!isset($_SESSION['user'])) {
-                    echo '<h4 class="text-danger"><a href="index.php?act=login">Đăng nhập</a> để thanh toán</h4>';
+                    echo '<h4 class="text-danger"><a href="index.php?url=login">Đăng nhập</a> để thanh toán</h4>';
                 } else if (count($_SESSION['giohang']) == 0) {
                     echo'
-                    <div class="notice info"><p> Không có sản phẩm nào trong giỏ hàng <a href="index.php?act=category">Xem sản phẩm</a>.</p></div>
+                    <div class="notice info"><p> Không có sản phẩm nào trong giỏ hàng <a href="index.php?url=category">Xem sản phẩm</a>.</p></div>
                     ';
             ?>
             <style>
@@ -76,7 +76,7 @@
                 <div class="row">
                     <div class="col-lg-8">
                         <h3>Thông tin giao hàng</h3>
-                        <form class="row contact_form" action="index.php?act=confirmation" method="post" novalidate="novalidate">
+                        <form class="row contact_form" action="index.php?url=confirmation" method="post" novalidate="novalidate">
                             <input placeholder="ID" type="text" class="form-control" id="first" name="ma_tk" value="<?=$ma_tk?>" style="display:none;">
                             <div class="col-md-6 form-group p_star">
                                 <label>Họ tên</label>
@@ -149,12 +149,12 @@
                                         $ttien += $tong;
                                         $all +=$ttien;
                                         $tien=$all+20;
-                                        $del="index.php?act=delcart&idsp=".$ma_hh;
-                                        $upd="index.php?act=cart&id=".$ma_hh;
-                                        $up="index.php?act=cartupdate&id=".$ma_hh;
-                                        $sphct="index.php?act=sanphamct&idsp=".$ma_hh;
+                                        $del="index.php?url=delcart&idsp=".$ma_hh;
+                                        $upd="index.php?url=cart&id=".$ma_hh;
+                                        $up="index.php?url=cartupdate&id=".$ma_hh;
+                                        $sphct="index.php?url=sanphamct&idsp=".$ma_hh;
                                         echo '
-                                            <form action="index.php?act=cartupdate" method="post">
+                                            <form action="index.php?url=cartupdate" method="post">
                                             <tr>
                                                 <td>
                                                     <div class="media" >

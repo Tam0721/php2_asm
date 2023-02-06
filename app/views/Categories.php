@@ -43,7 +43,7 @@
 						$linkdm0="index.php?url=category";
 							echo'
 								<li class="main-nav-list"><a href="'.$linkdm0.'"><span
-									class="lnr lnr-arrow-right"></span>ALL<span class="number"></span></a></li>';
+									class="lnr lnr-arrow-right"></span>Tất cả sản phẩm<span class="number"></span></a></li>';
 							foreach ($categories as $dm) {
 								extract($dm);
 								$linkdm="index.php?url=category&iddm=".$ma_loai;
@@ -202,7 +202,7 @@
 								$hinh = $img_path . $img;
 								$price_1 = $price_old;
 								if ($price_new > 0) $price_1 = $price_new;
-								$sphct="index.php?act=sanphamct&idsp=".$id;
+								$sphct="index.php?url=sanphamct&idsp=".$id;
 								echo '
 									<div class="col-lg-4 col-md-4 col-sm-6 mb-20">
 										<div class="single-related-product d-flex" id="imgDeal">
