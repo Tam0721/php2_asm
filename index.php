@@ -1,5 +1,7 @@
 <?php
-    require_once __DIR__ . '/vendor/autoload.php';
+    require_once './vendor/autoload.php';
+    require_once './commons/database-config.php';
+
     ob_start(); 
     session_start();
     $url = isset($_GET['url']) ? $_GET['url'] : "/";
@@ -21,16 +23,16 @@
     // $note = 0;
     // if(isset($_GET['act'])){
     //     $act = $_GET['act'];
-    include 'app/controllers/Categories.php';
-    include 'app/controllers/Products.php';
-    include 'app/controllers/Blogs.php';
-    use App\Controllers\Home;
+    // include 'app/controllers/Categories.php';
+    // include 'app/controllers/Products.php';
+    // include 'app/controllers/Blogs.php';
+    use App\Controllers\HomeController;
     use App\Controllers\Product;
     use App\Controllers\Category;
     use App\Controllers\Blog;
         switch ($url) {
             case '/':
-                $u = new Home();
+                $u = new HomeController();
                 echo $u -> index();
                 break;
             case 'category':

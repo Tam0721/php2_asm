@@ -1,8 +1,10 @@
 <?php
     namespace App\Models;
+    use Illuminate\Database\Eloquent\Model;
     
-    class Products extends BaseModels {
-        var $table = "hang_hoa hh";
+    class Products extends Model {
+        protected $table = "hang_hoa";
+        public $timestamps = false;
 
         public static function special() {
             $model = new static;
@@ -15,22 +17,6 @@
         public static function mostView() {
             $model = new static;
             $sql = "SELECT * FROM " . $model -> table . " ORDER BY luotxem DESC";
-            $stmt = $model -> conn -> prepare($sql);
-            $stmt -> execute();
-            return $stmt -> fetchAll();
-        }
-
-        public static function loadall_product_asc() {
-            $model = new static;
-            $sql = "SELECT * FROM " . $model -> table . " ORDER BY price_old";
-            $stmt = $model -> conn -> prepare($sql);
-            $stmt -> execute();
-            return $stmt -> fetchAll();
-        }
-
-        public static function loadall_product_desc() {
-            $model = new static;
-            $sql = "SELECT * FROM " . $model -> table . " ORDER BY price_old DESC";
             $stmt = $model -> conn -> prepare($sql);
             $stmt -> execute();
             return $stmt -> fetchAll();

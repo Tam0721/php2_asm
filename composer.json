@@ -1,10 +1,13 @@
 {
     "name": "php2/asm",
-    "require": {},
+    "require": {
+        "illuminate/database": "^8.83",
+        "illuminate/events": "^8.83",
+        "jenssegers/blade": "*"
+    },
     "autoload": {
         "psr-4": {
-            "App\\Models\\": "app/models/",
-            "App\\Controllers\\": "app/controllers/"
+            "App\\": "app/"
         }
     }
 }
