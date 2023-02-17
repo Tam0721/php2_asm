@@ -3,7 +3,7 @@
     use Jenssegers\Blade\Blade;
 
     class BaseController {
-        protected function render($view,$data =[]){
+        protected function render($view,$data = []){
             $blade = new Blade('./app/views', 'storage');
 
             echo $blade->make($view,$data)->render();

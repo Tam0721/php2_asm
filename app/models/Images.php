@@ -1,17 +1,10 @@
 <?php
     namespace App\Models;
+    use Illuminate\Database\Eloquent\Model;
     
-    class Images extends BaseModels {
-        var $table = "hinh_anh ha";
-
-        public static function loadall_img($ma_hh) {
-            $model = new static;
-            $product = new Products();
-            $sql = "SELECT ha.id, ha.img FROM " . $model -> table . " INNER JOIN " . $product -> table . " ON ha.ma_hh = hh.id WHERE hh.id = " . $ma_hh;
-            $stmt = $model -> conn -> prepare($sql);
-            $stmt -> execute();
-            return $stmt -> fetchAll();
-        }
+    class Images extends Model {
+        protected $table = "hinh_anh";
+        public $timestamps = false;
     }
 
     // function insert_img($ma_hh, $img) {

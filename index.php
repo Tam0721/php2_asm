@@ -23,25 +23,21 @@
     // $note = 0;
     // if(isset($_GET['act'])){
     //     $act = $_GET['act'];
-    // include 'app/controllers/Categories.php';
-    // include 'app/controllers/Products.php';
+    include 'app/controllers/CategoryController.php';
+    include 'app/controllers/ProductController.php';
     // include 'app/controllers/Blogs.php';
     use App\Controllers\HomeController;
-    use App\Controllers\Product;
-    use App\Controllers\Category;
+    use App\Controllers\ProductController;
+    use App\Controllers\CategoryController;
     use App\Controllers\Blog;
         switch ($url) {
             case '/':
                 $u = new HomeController();
-                echo $u -> index();
+                $u -> index();
                 break;
             case 'category':
-                $c = new Category();
-                echo $c -> loadfilter_product();
-                break;
-            case 'category':
-                $c = new Category();
-                echo $c -> loadfilter_product();
+                $c = new CategoryController();
+                $c -> loadfilter_product();
                 break;
             case 'blog':
                 $b = new Blog();
@@ -139,8 +135,8 @@
                 include 'app/views/historybill.php';
                 break;
             case 'sanphamct':
-                $detail = new Product();
-                echo $detail -> load_detail_product();
+                $detail = new ProductController();
+                $detail -> load_detail_product();
                 break;
             case 'login':
                 if (isset($_POST['dangnhap']) && ($_POST['dangnhap'])){

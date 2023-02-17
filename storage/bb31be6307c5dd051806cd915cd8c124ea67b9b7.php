@@ -16,62 +16,40 @@
 		</div>
 	</section>
 	<!-- End Banner Area -->
-
-    <?php
-        // Products::updateview($id);
-        extract($detail_product);
-        extract($images);
-        // var_dump($_SESSION['giohang']);
-        // echo $id;
-        $ha="upload/".$detail_product[0]['img'];
-        if (is_file($ha)) {
-            $hinh="<img id='show' src='".$ha."' width='70%'>";
-        }else{
-            $hinh="Không tìm thấy hình";
-        }
-        // echo '<div>"'.$hinh.'"</div>'; 
-        // echo '<div>'.$detail_product[0]['mota'].'</div>';
-    ?>
+        
     <div class="container-fluid" style="margin-top: 30px;">
         <div class= "row">
             <div class ="col-sm-5">
-                <?php echo '<div style="text-align: center; border:1px solid #ccc;">'.$hinh.'</div>';?>
+                <div style="text-align: center; border:1px solid #ccc;">
+                    <img id="show" width="70%" src="upload/<?php echo e($detail_product->img); ?>" alt="">
+                </div>
 
                 <!-- demo -->
                 <div style="text-align: center; margin-top: 10px;">
-                    <?php
-                       // echo '<img src='.$ha.' width=15% onclick="myFunction(this)">';
-                        foreach ($images as $img) {
-                            echo '<img src=upload/'.$img['img'].' width=15% onclick="myFunction(this)">';
-                        }
-                    ?>
+                    <img src="upload/<?php echo e($detail_product->img); ?>" width="15%" onclick="myFunction(this)">
+                    <?php $__currentLoopData = $listImages; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $img): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?> 
+                        <img src="upload/<?php echo e($img->img); ?>" width="15%" onclick="myFunction(this)">
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </div>
                 <!-- end demo -->
 
                 <div style="margin-top: 20px;">
                     <h4>Mô tả</h4>
-                    <p style="margin-left: 20px;"><?=$detail_product[0]['mota'] ?></p>
+                    <p style="margin-left: 20px;"><?php echo e($detail_product->mota); ?></p>
                 </div>
             </div>
             <div class ="col-sm-3">
-                <h1 style="text-align:center;font-size:22px;"><?php echo $detail_product[0]['name']?></h1>
+                <h1 style="text-align:center;font-size:22px;"><?php echo $detail_product['name']?></h1>
                 <!-- <p style="font-weight:bold; text-align:center; color:red;font-size:25px;">$  -->
-                    <?php 
-                        if ($detail_product[0]['price_new'] > 0) {
-                            echo 
-                                '<p style="font-weight:bold; text-align:center; color:red;font-size:25px;">'
-                                .number_format($detail_product[0]['price_new'], 0, '.', '.').'.000 ₫</p>'.
-                                '<p style="text-align:center; color:black;font-size:15px; text-decoration: line-through;">'
-                                .number_format($detail_product[0]['price_old'], 0, '.', '.').'.000 ₫</p>';
-                        } else {
-                            echo 
-                                '<p style="font-weight:bold; text-align:center; color:red;font-size:25px;">'
-                                .number_format($detail_product[0]['price_old'], 0, '.', '.').'.000 ₫</p>';
-                        }
-                        // echo $detail_product[0]['price_old'];
-                    ?>
-                    <?php
-                        echo'
+                        <?php if($detail_product->price_new > 0): ?>
+                            <p style="font-weight:bold; text-align:center; color:red;font-size:25px;">
+                                <?php echo e(number_format($detail_product->price_new, 0, '.', '.')); ?>.000 ₫</p>
+                            <p style="text-align:center; color:black;font-size:15px; text-decoration: line-through;">
+                                <?php echo e(number_format($detail_product->price_old, 0, '.', '.')); ?>.000 ₫</p>
+                        <?php else: ?>
+                            <p style="font-weight:bold; text-align:center; color:red;font-size:25px;">
+                                <?php echo e(number_format($detail_product->price_old, 0, '.', '.')); ?>.000 ₫</p>
+                        <?php endif; ?>
                         <form action="index.php?url=cartprocess" method="post">
                             <div class="btn-size">
                                 <h6>Chọn size:</h6>
@@ -106,23 +84,22 @@
                                 <div class="amount-form" style="margin-left: 20px;">
                                     <!-- <button class="btn-minus" id="minus" onclick="handleMinus()"><i class="fa-solid fa-minus"></i></button> -->   
                                     <input type="number" value="1"  name="soluong" step="1" min="1" max="900">
-                                    <input type="hidden" name="id" value="'.$detail_product[0]['id'].'">
-                                    <input type="hidden" name="name" value="'.$detail_product[0]['name'].'">
-                                    <input type="hidden" name="price" value="'.(($detail_product[0]['price_new'] > 0)? $detail_product[0]['price_new']:$detail_product[0]['price_old']).'">
-                                    <input type="hidden" name="img" value="'.$detail_product[0]['img'].'">
+                                    <input type="hidden" name="id" value="<?php echo e($detail_product->id); ?>">
+                                    <input type="hidden" name="name" value="<?php echo e($detail_product->name); ?>">
+                                    <input type="hidden" name="price" value="<?php echo e(($detail_product->price_new > 0)? $detail_product->price_new:$detail_product->price_old); ?>">
+                                    <input type="hidden" name="img" value="<?php echo e($detail_product->img); ?>">
                                     <input type="hidden" name="note" value="0">
-                        ';       
-                    ?>
+
                         <!-- <button class="btn-plus" id="plus" onclick="handlePlus()"><i class="fa-solid fa-plus"></i></button>  -->
                         
 
-                        <input type="submit" name="addgiohang" value="<?=$detail_product[0]['trang_thai']? " Đặt hàng":"Hết hàng"?>" <?=$detail_product[0]['trang_thai']? "":"disabled"?> class="btn btn-default border-0" style="margin:0px 0 15px 15px; width:120px; background: linear-gradient(131deg, rgba(255,117,0,1) 12%, rgba(255,184,0,1) 86%); color:#fff;">
+                        <input type="submit" name="addgiohang" value="<?php echo e(($detail_product->trang_thai)? "Đặt hàng":"Hết hàng"); ?>" <?php echo e($detail_product->trang_thai? "":"disabled"); ?> class="btn btn-default border-0" style="margin:0px 0 15px 15px; width:120px; background: linear-gradient(131deg, rgba(255,117,0,1) 12%, rgba(255,184,0,1) 86%); color:#fff;">
 
                         
                         
                     </form>
                     </a>
-                        <!-- <input type="submit" name="addgiohang"  id="btn" value="<?=$detail_product[0]['trang_thai']? " Đặt hàng":"Hết hàng"?>" <?=$detail_product[0]['trang_thai']? "":"disabled"?> class="btn btn-default border-0" style="margin:0 0 15px 15px; width:120px; background: linear-gradient(131deg, rgba(255,117,0,1) 12%, rgba(255,184,0,1) 86%); color:#fff;"> -->
+                        <!-- <input type="submit" name="addgiohang"  id="btn" value="<?=$detail_product['trang_thai']? " Đặt hàng":"Hết hàng"?>" <?=$detail_product['trang_thai']? "":"disabled"?> class="btn btn-default border-0" style="margin:0 0 15px 15px; width:120px; background: linear-gradient(131deg, rgba(255,117,0,1) 12%, rgba(255,184,0,1) 86%); color:#fff;"> -->
                     </form>
                 </div>
             </div>
@@ -130,11 +107,11 @@
         
                 <div class="">
                     <h6 style="margin-top: 10px;">SKU</h6>
-                    <p style="margin-left: 20px;"><?=$detail_product[0]['ten_loai'] ?></p>
+                    <p style="margin-left: 20px;"><?php echo e($detail_product->ten_loai); ?></p>
                 </div>
                 <div class="">
                     <h6 style="margin-top: 20px;">Loại: </h6>
-                    <p style="margin-left: 20px;">Giày <?=$detail_product[0]['ten_loai'] ?></p>
+                    <p style="margin-left: 20px;">Giày <?php echo e($detail_product->ten_loai); ?></p>
                 </div>
                
             </div>
@@ -161,14 +138,14 @@
             $(document).ready(function(){
             // $("input").keyup(function(){
             //     txt = $("input").val();
-                $("#binhluan").load("view/comment.php", {idpro: <?=$id?>});
+                $("#binhluan").load("view/comment.php", {idpro: <?php echo e($detail_product->id); ?>});
             // });
             });
 
             function myFunction(imgs) {
                 var expandImg = document.getElementById("show");
                 expandImg.src = imgs.src;
-            }
+            };
         </script>
         <div class="form-group" id="binhluan">
             
@@ -286,4 +263,4 @@
         }
         
     </style>
-</div>
+</div><?php /**PATH C:\xampp\htdocs\PHP2\php2_asm\app\views/product/detail.blade.php ENDPATH**/ ?>
