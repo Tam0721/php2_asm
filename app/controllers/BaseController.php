@@ -8,12 +8,13 @@
 
             echo $blade->make($view,$data)->render();
         }
-        protected function renderadmin($view,$data = []){
+
+        // protected function renderadmin($view,$data = []){
             
-            $blades = new Blade('./admin/views', 'storage');
+        //     $blade = new Blade('./admin/views', 'storage');
 
-            echo $blades->make($view,$data)->render();
+        //     echo $blade->make($view,$data)->render();
 
-        }
+        // }
     }
 ?>

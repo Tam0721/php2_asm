@@ -6,12 +6,12 @@
     class Blog extends BaseController {
         public function loadall_blog() {
             $blogs = Blogs::all();
-            include 'app/views/Blog.php';
+            include 'app/views/blog.php';
         }
         
         public function load_blogs_admin(){
             $blogs = Blogs::all();
-            include '/admin/views/tintuc.php';
+            include './admin/views/tintuc.php';
         }
     }
 ?>

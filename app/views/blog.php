@@ -71,14 +71,7 @@
             <div class="row">
                 <div class="col-lg-8">
                     <div class="blog_left_sidebar">
-                        <?php
-                        
-                        foreach($blogs as $ttuc){
-							extract($ttuc);
-                            $img_path = "upload/";
-							$hinh = $img_path . $img;
-							echo '
-                            
+                        <?php foreach ($blogs as $ttuc):?>
                             <article class="row blog_item">
                             <div class="col-md-3">
                                 <div class="blog_info text-right">
@@ -90,7 +83,7 @@
                                     </div>
                                     <ul class="blog_meta list">
                                         <li><a href="#">Admin<i class="lnr lnr-user"></i></a></li>
-                                        <li><a href="#">'.$ngaydang.'<i class="lnr lnr-calendar-full"></i></a></li>
+                                        <li><a href="#"><?= $ttuc['ngaydang']?><i class="lnr lnr-calendar-full"></i></a></li>
                                         <li><a href="#">1.2M Views<i class="lnr lnr-eye"></i></a></li>
                                         <li><a href="#">06 Comments<i class="lnr lnr-bubble"></i></a></li>
                                     </ul>
@@ -101,15 +94,54 @@
                                     <img src="'.$hinh.'" alt="">
                                     <div class="blog_details">
                                         <a href="single-blog.html">
-                                            <h2>'.$name.'</h2>
+                                            <h2><?= $ttuc['name']?></h2>
                                         </a>
-                                        <p>'.$mota.'</p>
+                                        <p><?= $ttuc['ngaydang']?></p>
                                     </div>
                                 </div>
                             </div>
                         </article>
-                        ';
-                        }
+                        '
+                            <?php endforeach;?>
+                        <?php
+                        
+                        // foreach($blogs as $ttuc){
+						// 	// extract($ttuc);
+                        //     $img_path = "upload/";
+						// 	$hinh = $img_path . $img;
+						// 	echo '
+                            
+                        //     <article class="row blog_item">
+                        //     <div class="col-md-3">
+                        //         <div class="blog_info text-right">
+                        //             <div class="post_tag">
+                        //                 <a href="#">Thể thao,</a>
+                        //                 <a class="active" href="#">Khuyến mãi,</a>
+                        //                 <a href="#">Tin tức,</a>
+                        //                 <a href="#">Giày</a>
+                        //             </div>
+                        //             <ul class="blog_meta list">
+                        //                 <li><a href="#">Admin<i class="lnr lnr-user"></i></a></li>
+                        //                 <li><a href="#">'.$ngaydang.'<i class="lnr lnr-calendar-full"></i></a></li>
+                        //                 <li><a href="#">1.2M Views<i class="lnr lnr-eye"></i></a></li>
+                        //                 <li><a href="#">06 Comments<i class="lnr lnr-bubble"></i></a></li>
+                        //             </ul>
+                        //         </div>
+                        //     </div>
+                        //     <div class="col-md-9">
+                        //         <div class="blog_post">
+                        //             <img src="'.$hinh.'" alt="">
+                        //             <div class="blog_details">
+                        //                 <a href="single-blog.html">
+                        //                     <h2>'.$name.'</h2>
+                        //                 </a>
+                        //                 <p>'.$mota.'</p>
+                        //             </div>
+                        //         </div>
+                        //     </div>
+                        // </article>
+                        // ';
+                        // }
                         
                         ?>
                         <!-- <article class="row blog_item">

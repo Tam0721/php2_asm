@@ -105,7 +105,7 @@ use App\Models\Blogs;
                     break;
                 case 'lisdm':
                     $c = new CategoryController();
-                    $c -> loadcateadmin();
+                    echo $c -> loadcateadmin();
                     break;
                 case 'xoadm':
                     if (isset($_GET['ma_loai'])&&($_GET['ma_loai']>0)) {
