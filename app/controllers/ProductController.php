@@ -14,5 +14,9 @@
             $listImages = Images::where('ma_hh', $id)->get();
             $this -> render('product.detail', compact('detail_product', 'listImages'));
         }
+
+        public function load_pro_admin(){
+            $pro = Products::all();
+            include"../admin/views/sanpham.php";        }
     }
 ?>

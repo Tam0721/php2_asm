@@ -4,6 +4,7 @@
     
     class Categories extends Model {
         protected $table = "loai";
+        public $fillable = ['ma_loai','ten_loai'];
         public $timestamps = false;
     }
 

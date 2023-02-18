@@ -1,8 +1,11 @@
 <?php
     namespace App\Models;
 
-    class Blogs extends BaseModels {
-        var $table = "tin_tuc tt";
+    use Illuminate\Database\Eloquent\Model;
+
+    class Blogs extends Model {
+        protected $table = "tin_tuc";
+        public $timestamps = false;
     }
 
     // function insert_tintuc($name,$hinh,$mota,$ngaydang){

@@ -37,5 +37,10 @@
                 $this -> render('account.login', compact('account'));
             }
         }
+
+        public function load_acc_admin(){
+            $accounts = Accounts::all();
+            include "../admin/views/taikhoan.php";
+        }
     }
 ?>
