@@ -34,18 +34,16 @@
 						
 						
 						<?php
-
 							if(isset($_SESSION['user'])){
-								extract($_SESSION['user']);
+								// extract($_SESSION['user']);
 								// var_dump($user);}
 						?>
 						<?php
 
 							}else{
-
-
+                                
 						?>
-						<form class="row login_form requires-validation" action="./login-process" method="post" id="contactForm" novalidate="novalidate">
+						<form class="row login_form requires-validation" action="index.php?url=login" method="post" id="contactForm" novalidate="novalidate">
 							<div class="col-md-12 form-group">
 								<input type="text" class="form-control" id="name" name="user" placeholder="Username" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'" required>
 								<div class="invalid-feedback">Không được để trống!</div>
@@ -107,3 +105,4 @@
 		</div>
 	</section>
 	<!--================End Login Box Area =================-->
+<?php /**PATH C:\xampp\htdocs\PHP2\php2_asm\app\views/account/login.blade.php ENDPATH**/ ?>

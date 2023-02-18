@@ -1,4 +1,12 @@
 <?php
+    namespace App\Models;
+    use Illuminate\Database\Eloquent\Model;
+    
+    class Accounts extends Model {
+        protected $table = "tai_khoan";
+        public $timestamps = false;
+    }
+
     // function insert_taikhoan($email,$fullname,$user,$pass,$address,$tel){
     //     $sql = "INSERT INTO tai_khoan(email,ho_ten,user,pass,address,tel) VALUES ('$email','$fullname','$user','$pass','$address','$tel')";
     //     // use exec() because no results are returned

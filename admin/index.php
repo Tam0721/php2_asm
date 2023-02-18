@@ -3,17 +3,17 @@
     session_start();
     ob_start();
     if(isset($_SESSION['role'])&&($_SESSION['role']==1)){
-        include "../model/pdo.php";
-        include "../model/taikhoan.php";
-        include "../model/danhmuc.php";
-        include "../model/sanpham.php";
-        include "../model/thongke.php";
-        include "../model/tintuc.php";
-        include "../model/binhluan.php";
-        include "../model/hinhanh.php";
-        include "../model/bill.php";
-        include "../model/chitietdh.php";
-        include "../model/magiamgia.php";  
+        // include "../model/pdo.php";
+        // include "../model/taikhoan.php";
+        // include "../model/danhmuc.php";
+        // include "../model/sanpham.php";
+        // include "../model/thongke.php";
+        // include "../model/tintuc.php";
+        // include "../model/binhluan.php";
+        // include "../model/hinhanh.php";
+        // include "../model/bill.php";
+        // include "../model/chitietdh.php";
+        // include "../model/magiamgia.php";  
         include "header.php";
         if (isset($_GET['act'])) {
             $act = $_GET['act'];
@@ -190,8 +190,10 @@
                     include "magiamgia/list.php";
                     break;
                 case 'thoat':
-                    if(isset($_SESSION['role'])) unset($_SESSION['role']);
-                    header('location: ../index.php');
+                    unset($_SESSION['user']);
+                    unset($_SESSION['iduser']);
+                    unset($_SESSION['role']);
+                    header('location: index.php');
                     break;
                 case 'thongke':
                     $listtk=loadall_thongke();

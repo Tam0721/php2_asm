@@ -29,6 +29,7 @@
     use App\Controllers\HomeController;
     use App\Controllers\ProductController;
     use App\Controllers\CategoryController;
+    use App\Controllers\AccountController;
     use App\Controllers\Blog;
         switch ($url) {
             case '/':
@@ -139,26 +140,8 @@
                 $detail -> load_detail_product();
                 break;
             case 'login':
-                if (isset($_POST['dangnhap']) && ($_POST['dangnhap'])){
-                    $user = $_POST['user'];
-                    $pass = $_POST['pass'];
-                    $kq = getuserinfo($user,$pass);
-                    $role = $kq[0]['role'];
-                    if($role==1){
-                        $_SESSION['role']=$role;
-                        header('location: admin/index.php'); //note
-                    }elseif ($role==2){ 
-                        $_SESSION['role']=$role;
-                        header('location: admin/index.php'); 
-                    }elseif ($role==0){
-                        $_SESSION['role']=$role;
-                        $_SESSION['iduser']= $kq[0]['id'];
-                        $_SESSION['user']= $kq[0]['user'];
-                        header('location: index.php'); //note
-                        break;
-                    }
-                }
-                include 'app/views/login.php';
+                $acc = new AccountController();
+                $acc -> loginForm();
                 break;
             case 'signup':
                 if(isset($_POST['dangky'])&&($_POST['dangky'])){
