@@ -25,7 +25,7 @@
     //     $act = $_GET['act'];
     include 'app/controllers/CategoryController.php';
     include 'app/controllers/ProductController.php';
-    // include 'app/controllers/Blogs.php';
+    include 'app/controllers/BlogController.php';
     use App\Controllers\HomeController;
     use App\Controllers\ProductController;
     use App\Controllers\CategoryController;

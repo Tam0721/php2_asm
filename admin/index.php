@@ -1,4 +1,16 @@
 <?php
+      require_once '../vendor/autoload.php';
+      require_once '../commons/database-config.php';
+
+    //   include '..app/controllers/CategoryController.php';
+    // include 'app/controllers/ProductController.php';
+    //include '..app/controllers/BlogController.php';
+    use App\Controllers\HomeController;
+    use App\Controllers\ProductController;
+    use App\Controllers\CategoryController;
+    use App\Controllers\AccountController;
+    use App\Controllers\Blog;
+use App\Models\Blogs;
 
     session_start();
     ob_start();
@@ -39,8 +51,8 @@
                     include "tintuc/add.php";
                     break; 
                 case 'listtt':
-                    $listtintuc = loadall_tintuc();
-                    include "tintuc/list.php";
+                    $blog = new Blog();
+                    $blog -> load_blogs_admin() ;
                     break;
                 case 'xoatt':
                     if (isset($_GET['id'])&&($_GET['id']>0)) {
@@ -76,19 +88,24 @@
                     include "tintuc/update.php";
                     break;
                 case 'adddm':
+                    $c = new CategoryController();
+                    $c -> add_cate_admin();
+                    break;
                     //kiểm tra click nút add
-                    if (isset($_POST['themmoi'])&&($_POST['themmoi'])) {
-                        $tenloai = $_POST['tenloai'];
-                        $sql="insert into loai(ten_loai) values('$tenloai')";
-                        pdo_execute($sql);
-                        $thongbao ="Thêm thành công";
-                    }
-                    include "danhmuc/add.php";
+                    // if (isset($_POST['themmoi'])&&($_POST['themmoi'])) {
+                    //     $tenloai = $_POST['tenloai'];
+                    //     $sql="insert into loai(ten_loai) values('$tenloai')";
+                    //     pdo_execute($sql);
+                    //     $thongbao ="Thêm thành công";
+                    // }
+                    // include "danhmuc/add.php";
+                case 'save-add':
+                    $c = new CategoryController();
+                    $c -> saveaddCate();
                     break;
                 case 'lisdm':
-                    $sql = "select * from loai order by ten_loai desc";
-                    $listdanhmuc= pdo_query($sql);
-                    include "danhmuc/list.php";
+                    $c = new CategoryController();
+                    echo $c -> loadcateadmin();
                     break;
                 case 'xoadm':
                     if (isset($_GET['ma_loai'])&&($_GET['ma_loai']>0)) {
@@ -149,8 +166,8 @@
                     include "taikhoann/list.php";
                     break; 
                 case 'dskh':
-                    $listtaikhoan= loadall_taikhoan();
-                    include "taikhoann/list.php";
+                    $acc = new AccountController();
+                    $acc -> load_acc_admin();
                     break;
                 case 'suatk':
                     if(isset($_GET['ma_tk'])&&($_GET['ma_tk'])){
@@ -253,18 +270,21 @@
                     include "sanpham/add.php";
                     break;
                 case 'listsp':
-                    if (isset($_POST['listgo'])&&($_POST['listgo'])){
-                        $kyw =$_POST['kyw'];
-                        $iddm =$_POST['iddm'];
-                    }else{
-                        $kyw='';
-                        $iddm=0;
-                    }
-                    $sql = "select * from loai order by ten_loai desc";
-                    $listdanhmuc= pdo_query($sql);
-                    $listsanpham= loadall_sanpham($kyw,$iddm);
-                    include "sanpham/list.php";
+                    $pr = new ProductController();
+                    $pr->load_pro_admin();
                     break;
+                    // if (isset($_POST['listgo'])&&($_POST['listgo'])){
+                    //     $kyw =$_POST['kyw'];
+                    //     $iddm =$_POST['iddm'];
+                    // }else{
+                    //     $kyw='';
+                    //     $iddm=0;
+                    // }
+                    // $sql = "select * from loai order by ten_loai desc";
+                    // $listdanhmuc= pdo_query($sql);
+                    // $listsanpham= loadall_sanpham($kyw,$iddm);
+                    // include "sanpham/list.php";
+                    // break;
                 case 'xoasp':
                     if (isset($_GET['id'])&&($_GET['id']>0)) {
                         delete_sanpham($_GET['id']);

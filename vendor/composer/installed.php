@@ -3,7 +3,7 @@
         'name' => 'php2/asm',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '9c4ac07ffcee9ed6a1e10f352922ddbfb1b85b09',
+        'reference' => '253726f95f7f8de12a0ee759693cff80eff55bef',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -139,7 +139,7 @@
         'php2/asm' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '9c4ac07ffcee9ed6a1e10f352922ddbfb1b85b09',
+            'reference' => '253726f95f7f8de12a0ee759693cff80eff55bef',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
