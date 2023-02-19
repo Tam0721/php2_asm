@@ -5,6 +5,7 @@
     class Accounts extends Model {
         protected $table = "tai_khoan";
         public $timestamps = false;
+        public $fillable = ['ho_ten', 'user', 'pass', 'email', 'address', 'tel', 'role'];
     }
 
     // function insert_taikhoan($email,$fullname,$user,$pass,$address,$tel){

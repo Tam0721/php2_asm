@@ -144,17 +144,19 @@
                 $acc -> loginForm();
                 break;
             case 'signup':
-                if(isset($_POST['dangky'])&&($_POST['dangky'])){
-                    $email = $_POST['email'];
-                    $fullname = $_POST['fullname'];
-                    $user = $_POST['user'];
-                    $pass = $_POST['pass'];
-                    $address = $_POST['address'];
-                    $tel = $_POST['tel'];
-                    insert_taikhoan($email,$fullname,$user,$pass,$address,$tel);    
-                    $thongbao="Đăng ký thành công. Vui lòng <a href='index.php?act=login'>đăng nhập</a>";
-                }
-                include 'app/views/signup.php';
+                // if(isset($_POST['dangky'])&&($_POST['dangky'])){
+                //     $email = $_POST['email'];
+                //     $fullname = $_POST['fullname'];
+                //     $user = $_POST['user'];
+                //     $pass = $_POST['pass'];
+                //     $address = $_POST['address'];
+                //     $tel = $_POST['tel'];
+                //     insert_taikhoan($email,$fullname,$user,$pass,$address,$tel);    
+                //     $thongbao="Đăng ký thành công. Vui lòng <a href='index.php?act=login'>đăng nhập</a>";
+                // }
+                // include 'app/views/signup.php';
+                $acc = new AccountController();
+                $acc -> registForm();
                 break;
             case 'suatk':
                 if(isset($_GET['ma_tk'])&&($_GET['ma_tk'])){
