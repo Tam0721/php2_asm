@@ -53,15 +53,6 @@
 								<div class="invalid-feedback">Không được để trống!</div>
 							</div>
 							<div class="col-md-12 form-group">
-								<div class="creat_account form-check">
-                                    <div class="col-md-12 form-group">
-									    <input type="checkbox" id="invalidCheck"  class="form-check-input">
-									    <label for="f-option2" class="form-check-label">Nhớ mật khẩu</label>
-                                        <div class="invalid-feedback">Vui lòng xác nhận rằng tất cả dữ liệu đã nhập đều chính xác!</div>
-                                    </div>
-								</div>
-							</div>
-							<div class="col-md-12 form-group">
 								<input type="submit" value="Đăng nhập" class="primary-btn" name="dangnhap" id="submit"></input>
 								<a href="index.php?url=quenmk">Quên mật khẩu?</a>
 							</div>

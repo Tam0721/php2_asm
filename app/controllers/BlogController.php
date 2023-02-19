@@ -3,10 +3,10 @@
     use App\Models\Blogs;
     use App\Controllers\BaseController;
 
-    class Blog extends BaseController {
+    class BlogController extends BaseController {
         public function loadall_blog() {
             $blogs = Blogs::all();
-            include 'app/views/blog.php';
+            $this -> render('blog.blog', compact('blogs'));
         }
         
         public function load_blogs_admin(){

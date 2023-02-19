@@ -71,7 +71,7 @@
             <div class="row">
                 <div class="col-lg-8">
                     <div class="blog_left_sidebar">
-                        <?php foreach ($blogs as $ttuc):?>
+                        <?php $__currentLoopData = $blogs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $tt): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <article class="row blog_item">
                             <div class="col-md-3">
                                 <div class="blog_info text-right">
@@ -83,7 +83,7 @@
                                     </div>
                                     <ul class="blog_meta list">
                                         <li><a href="#">Admin<i class="lnr lnr-user"></i></a></li>
-                                        <li><a href="#"><?= $ttuc['ngaydang']?><i class="lnr lnr-calendar-full"></i></a></li>
+                                        <li><a href="#"><?php echo e($tt->ngaydang); ?><i class="lnr lnr-calendar-full"></i></a></li>
                                         <li><a href="#">1.2M Views<i class="lnr lnr-eye"></i></a></li>
                                         <li><a href="#">06 Comments<i class="lnr lnr-bubble"></i></a></li>
                                     </ul>
@@ -91,18 +91,18 @@
                             </div>
                             <div class="col-md-9">
                                 <div class="blog_post">
-                                    <img src="'.$hinh.'" alt="">
+                                    <img src="upload/<?php echo e($tt->img); ?>" alt="">
                                     <div class="blog_details">
                                         <a href="single-blog.html">
-                                            <h2><?= $ttuc['name']?></h2>
+                                            <h2><?php echo e($tt->name); ?></h2>
                                         </a>
-                                        <p><?= $ttuc['ngaydang']?></p>
+                                        <p><?php echo e($tt->ngaydang); ?></p>
                                     </div>
                                 </div>
                             </div>
                         </article>
-                        '
-                            <?php endforeach;?>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
                         <?php
                         
                         // foreach($blogs as $ttuc){
@@ -337,3 +337,4 @@
             margin:5px;
         }
     </style>
+<?php /**PATH C:\xampp\htdocs\PHP2\php2_asm\app\views/blog/blog.blade.php ENDPATH**/ ?>

@@ -30,7 +30,7 @@
     use App\Controllers\ProductController;
     use App\Controllers\CategoryController;
     use App\Controllers\AccountController;
-    use App\Controllers\Blog;
+    use App\Controllers\BlogController;
         switch ($url) {
             case '/':
                 $u = new HomeController();
@@ -41,8 +41,8 @@
                 $c -> loadfilter_product();
                 break;
             case 'blog':
-                $b = new Blog();
-                echo $b -> loadall_blog();
+                $b = new BlogController();
+                $b -> loadall_blog();
                 break;
             case 'cart':
                 include "app/views/Cart.php";
