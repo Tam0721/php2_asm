@@ -27,12 +27,12 @@
                     </tr>
                 </thead> 
                 <tbody>
-                    @foreach(($cates as $c))
+                    @foreach($cates as $c)
                     <tr>
                         <td>{{$c->ma_loai}}</td>
                         <td>{{$c->ten_loai}}</td>
                         <td>
-                            <a href="'.$suadm.'"><input type="button" value="Sửa" ></a> 
+                            <a href="./updatecate&id={{$c->ma_loai}}"><input type="button" value="Sửa" ></a> 
                             <a href="'.$xoadm.'"><input type="button" value="Xóa"></a>
                         </td>
                     </tr>

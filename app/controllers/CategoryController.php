@@ -18,28 +18,24 @@
             $this -> render('category.category', ['listItem' => $cates, 'listProduct' => $products, 'listProd' => $prod]);
         }
 
-        public function loadcateadmin(){
+        public function loadcateadmin() {
             $cates = Categories::all();
-            $this->render('admin.danhmuc',['cates' => $cates]);
-
-            //include"../admin/views/cate/danhmuc.blade.php";
+            $this -> renderAdmin('category.category', ['cates' => $cates]);
         }
 
-        // public function add_cate_admin(){
-        //     $cates = Categories::all();
-        //     $this -> renderadmin('cate.add-cate',['cates' => $cates]);
+        public function add_cate_admin(){
+            // $cates = Categories::all();
+            $this -> renderadmin('category.add-cate');
+        }
 
-        // }
-
-        // public function saveaddCate(){
-        //     $requestDB = $_POST;
-        //     $model = new Categories();
+        public function saveaddCate(){
+            $requestDB = $_POST;
+            $model = new Categories();
     
-        //     $model->fill($requestDB);
+            $model->fill($requestDB);
     
-        //     $model->save();
-        //     header('http://localhost/php2_asm/admin/index.php?act=lisdm');
-    
-        // }    
+            $model->save();
+            header('location: ./index.php?act=listdm');
+        }    
     }
 ?>

@@ -9,8 +9,7 @@
     use App\Controllers\ProductController;
     use App\Controllers\CategoryController;
     use App\Controllers\AccountController;
-    use App\Controllers\Blog;
-use App\Models\Blogs;
+    use App\Controllers\BlogController;
 
     session_start();
     ob_start();
@@ -51,7 +50,7 @@ use App\Models\Blogs;
                     include "tintuc/add.php";
                     break; 
                 case 'listtt':
-                    $blog = new Blog();
+                    $blog = new BlogController();
                     $blog -> load_blogs_admin() ;
                     break;
                 case 'xoatt':
@@ -103,9 +102,9 @@ use App\Models\Blogs;
                     $c = new CategoryController();
                     $c -> saveaddCate();
                     break;
-                case 'lisdm':
+                case 'listdm':
                     $c = new CategoryController();
-                    echo $c -> loadcateadmin();
+                    $c -> loadcateadmin();
                     break;
                 case 'xoadm':
                     if (isset($_GET['ma_loai'])&&($_GET['ma_loai']>0)) {

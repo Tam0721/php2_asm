@@ -52,7 +52,7 @@
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
 						<ul class="nav navbar-nav menu_nav ml-auto">
-							<li class="nav-item"><a class="nav-link" href="index.php?act=lisdm">Danh mục</a></li>
+							<li class="nav-item"><a class="nav-link" href="index.php?act=listdm">Danh mục</a></li>
 							<li class="nav-item"><a class="nav-link" href="index.php?act=listsp">Sản phẩm</a></li>
 							<li class="nav-item"><a class="nav-link" href="index.php?act=dsmgg">Mã Giảm Giá</a></li>
 							<li class="nav-item"><a class="nav-link" href="index.php?act=dskh">Tài khoản</a></li>

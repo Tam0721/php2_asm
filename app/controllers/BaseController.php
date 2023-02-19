@@ -9,12 +9,12 @@
             echo $blade->make($view,$data)->render();
         }
 
-        // protected function renderadmin($view,$data = []){
+        protected function renderAdmin($view,$data = []){
             
-        //     $blade = new Blade('./admin/views', 'storage');
+            $blade = new Blade('../app/views/admin', '../storage');
 
-        //     echo $blade->make($view,$data)->render();
+            echo $blade->make($view,$data)->render();
 
-        // }
+        }
     }
 ?>

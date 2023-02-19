@@ -18,14 +18,14 @@
                 <h3>Thêm danh mục mới</h3>
             </div>
             <div class="container">
-                <form action="index.php?act=adddm" method="post">
+                <form action="index.php?act=save-add" method="post">
                     <div class="form-group">
                         <label for="email">Mã danh mục</label>
-                        <input placeholder="Auto Increment" type="text" name="maloai" id="" disabled class=" form-control"> 
+                        <input placeholder="Auto Increment" type="text" name="ma_loai" id="" disabled class=" form-control"> 
                     </div>
                     <div class="form-group">
                         <label for="pwd">Tên danh mục</label>
-                        <input type="text" name="tenloai" id="" class=" form-control" required>
+                        <input type="text" name="ten_loai" id="" class=" form-control" required>
                     </div>
                     <div class="d-flex justify-content-center">
                         <input type="submit" value="Thêm mới" name="themmoi" class="form-control " style=" width:120px;background: linear-gradient(131deg, rgba(255,117,0,1) 12%, rgba(255,184,0,1) 86%); color:#fff;">
@@ -41,4 +41,4 @@
                 </form>
             </div>
         </div>
-    </div>
+    </div><?php /**PATH C:\xampp\htdocs\PHP2\php2_asm\app\views\admin/category/add-cate.blade.php ENDPATH**/ ?>
