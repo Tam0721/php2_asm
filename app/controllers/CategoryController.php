@@ -18,15 +18,13 @@
             $this -> render('category.category', ['listItem' => $cates, 'listProduct' => $products, 'listProd' => $prod]);
         }
 
-        public function loadcateadmin() {
-            $cates = Categories::all();
-            // $msg = isset($_GET['msg']) ? $_GET['msg'] : null; , 'errmsg'=>$msg 
-            $this -> renderAdmin('category.category', ['cates' => $cates]);
+        public function add_cate_admin() {
+            $this -> renderAdmin('category.add-cate');
         }
 
-        public function add_cate_admin(){
-            // $cates = Categories::all();
-            $this -> renderadmin('category.add-cate');
+        public function loadcateadmin() {
+            $cates = Categories::all();
+            $this -> renderAdmin('category.category', ['cates' => $cates]);
         }
 
         public function saveaddCate(){
@@ -40,18 +38,10 @@
         }  
         
         public function editcatesave(){
-            $id=$_GET['ma_loai'];
-            $id = isset($_GET['ma_loai']) ? $_GET['ma_loai']: null;
-            if(!$id){
-                header('location: ./index.php?act=listdm');
-                die;
-            }
+            $id = $_GET['id'];
+            $id = isset($_GET['id']) ? $_GET['id']: null;
+            
             $model = Categories::find($id);
-            if(!$model){
-                header('location: ./index.php?act=listdm');
-                die;   
-            }
-
             $requestDB = $_POST;    
             $model->fill($requestDB);
     
@@ -60,48 +50,20 @@
         }
 
         public function editcateform(){
-            $removeId = isset($_GET['ma_loai']) ? $_GET['ma_loai']:null;
-            if(!$removeId){
-                header('location: ./index.php?act=listdm');
-                die;
-            }
+            $removeId = isset($_GET['id']) ? $_GET['id']:null;
+
             $model = Categories::find($removeId);
-            if(!$model){
-                header('location: ./index.php?act=listdm');
-                die;
-            }
-            $cates = Categories::all();
-            $this->renderAdmin('category.edit',['cates'=>$cates,'model'=>$model]);
+
+            $this -> renderAdmin('category.edit', ['model' => $model]);
         }
         
         public function remove_cate_admin(){
-            // $cates = Categories::all();
-            // if(isset($_GET['ma_loai']) && ($_GET['ma_loai'] > 0)){
-            //     $id = $_GET['ma_loai'];
-            //     $cates = Categories::where('ma_loai', $id) -> delete($id);
-            //     $this->renderAdmin('category.category',['cates'=>$cates]);
-            // }
+            $removeId = isset($_GET['id'])? $_GET['id']:"";
 
-             $removeId = isset($_GET['ma_loai'])? $_GET['ma_loai']:"";
-            // // Categories::destroy($removeId);
-
-            // if($removeId!="") $this->cates::where("ma_loai",$removeId)->delete();
-            //     header('location: ../admin/index.php?act=listdm');
-
-            if(!$removeId){
-                header('location: ./index.php?act=listdm/$msg=khongthexoa');
-                die;
-            }
             $model = Categories::find($removeId);
+            Categories::destroy($removeId);
             
-            if(!$model){
-                $msg ="id không tồn tại";
-            }else{
-                Categories::destroy($removeId);
-                $msg="Xóa danh mục thành công";
-            }
-            header('location: ./index.php?act=listdm/?$msg=$msg');
-            die;
-         }
+            header('location: ./index.php?act=listdm');
+        }
     }
 ?>

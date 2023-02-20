@@ -29,11 +29,11 @@
                 <tbody>
                     @foreach($cates as $c)
                     <tr>
-                        <td>{{$c->ma_loai}}</td>
+                        <td>{{$c->id}}</td>
                         <td>{{$c->ten_loai}}</td>
                         <td>
-                            <a href="./updatecate&id={{$c->ma_loai}}"><input type="button" value="Sửa" ></a> 
-                            <a href="./index.php?act=removecate&id={{$c->ma_loai}}"><input type="button" value="Xóa"></a>
+                            <a href="./index.php?act=updatecate&id={{$c->id}}"><input type="button" value="Sửa" ></a> 
+                            <a href="./index.php?act=removecate&id={{$c->id}}"><input type="button" value="Xóa"></a>
                         </td>
                     </tr>
                     @endforeach

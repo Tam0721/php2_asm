@@ -91,14 +91,6 @@ use App\Models\Categories;
                     $c = new CategoryController();
                     $c -> add_cate_admin();
                     break;
-                    //kiểm tra click nút add
-                    // if (isset($_POST['themmoi'])&&($_POST['themmoi'])) {
-                    //     $tenloai = $_POST['tenloai'];
-                    //     $sql="insert into loai(ten_loai) values('$tenloai')";
-                    //     pdo_execute($sql);
-                    //     $thongbao ="Thêm thành công";
-                    // }
-                    // include "danhmuc/add.php";
                 case 'save-add':
                     $c = new CategoryController();
                     $c -> saveaddCate();
@@ -110,38 +102,14 @@ use App\Models\Categories;
                 case 'removecate':
                     $c = new CategoryController();
                     $c -> remove_cate_admin();
-                    // if (isset($_GET['ma_loai'])&&($_GET['ma_loai']>0)) {
-                    //     $sql = "DELETE from loai where ma_loai=".$_GET['ma_loai'];
-                    //     pdo_execute($sql);
-                    // }
-                    // $sql = "SELECT * FROM loai ORDER BY ten_loai DESC";
-                    // $listdanhmuc= pdo_query($sql);
-                    // include "danhmuc/list.php";
                     break;
-                // code thành phần sản phẩm
+                case 'updatecate':
+                    $c = new CategoryController();
+                    $c -> editcateform();
+                    break;
                 case 'editcate':
                     $c = new CategoryController();
-                    $c-> editcateform();
-                    // if(isset($_GET['ma_loai'])&&($_GET['ma_loai']>0)){
-                    //     // $id=$_GET['id'];
-                    //     $sql = "SELECT * FROM loai WHERE ma_loai =".$_GET['ma_loai'];
-                    //     $dm = pdo_query_one($sql);
-                    // }
-                    // include "danhmuc/update.php";
-                    break;
-                case 'updatedm':
-                    $c= new CategoryController();
-                    $c->editcatesave();
-                    // if (isset($_POST['capnhapdm'])&&($_POST['capnhapdm'])) {
-                    //     $tenloai = $_POST['tenloai'];
-                    //     $id = $_POST['id'];
-                    //     $sql="UPDATE loai SET ten_loai = '$tenloai' WHERE ma_loai = '$id'";
-                    //     pdo_execute($sql);
-                    //     // echo $tenloai;
-                    // }
-                    // $sql = "SELECT * FROM loai ORDER BY ten_loai DESC";
-                    // $listdanhmuc= pdo_query($sql);
-                    // include "danhmuc/list.php";
+                    $c -> editcatesave();
                     break;
                 case 'addtk':
                     if(isset($_POST['themtk'])&&($_POST['themtk'])){
