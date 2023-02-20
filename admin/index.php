@@ -10,7 +10,6 @@
     use App\Controllers\CategoryController;
     use App\Controllers\AccountController;
     use App\Controllers\BlogController;
-use App\Models\Categories;
 
     session_start();
     ob_start();
@@ -31,62 +30,62 @@ use App\Models\Categories;
             $act = $_GET['act'];
             switch ($act) {
                 // tin tức
-                case 'addtt':
-                    //kiểm tra click nút add
-                    if (isset($_POST['themmoi'])&&($_POST['themmoi'])) {
-                    $name = $_POST['name'];
-                    $hinh = $_FILES['hinh']['name'];
-                    $mota = $_POST['mota'];
-                    $ngaydang = date(' d M, y');;
-                    $target_dir = "../upload/";
-                    $target_file = $target_dir . basename($_FILES["hinh"]["name"]);
-                    if (move_uploaded_file($_FILES["hinh"]["tmp_name"], $target_file)) {
-                        // echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
-                    } else {
-                        // echo "Sorry, there was an error uploading your file.";
-                    }
-                    insert_tintuc($name,$hinh,$mota,$ngaydang);  
-                    $thongbao = "Thêm mới thành công";
-                    }
-                    include "tintuc/add.php";
-                    break; 
-                case 'listtt':
-                    $blog = new BlogController();
-                    $blog -> load_blogs_admin() ;
-                    break;
-                case 'xoatt':
-                    if (isset($_GET['id'])&&($_GET['id']>0)) {
-                        delete_tintuc($_GET['id']);
-                    }
-                    $listtintuc = loadall_tintuc();
-                    include "tintuc/list.php";
-                    break;
-                case 'updatett':
-                    if (isset($_POST['capnhap'])&&($_POST['capnhap'])) {
-                        $id=$_POST['id'];
-                        $name = $_POST['name'];
-                        $hinh = $_FILES['hinh']['name'];
-                        $mota = $_POST['mota'];
-                        $target_dir = "../upload/";
-                        $target_file = $target_dir . basename($_FILES["hinh"]["name"]);
-                        if (move_uploaded_file($_FILES["hinh"]["tmp_name"], $target_file)) {
-                            // echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
-                        } else {
-                            // echo "Sorry, there was an error uploading your file.";
-                        }
-                        update_tintuc($id,$name,$hinh,$mota);   
-                        // update_sanpham($id,$tensp,$giasp,$mota,$hinh,$iddm);
-                        $thongbao="Cập nhập thành công";
-                    }
-                    $listtintuc= loadall_tintuc();
-                    include "tintuc/list.php";
-                    break;
-                case 'suatt':
-                    if(isset($_GET['id'])&&($_GET['id']>0)){
-                        $tintuc = loadone_tintuc($_GET['id']);
-                    }
-                    include "tintuc/update.php";
-                    break;
+                // case 'addtt':
+                //     //kiểm tra click nút add
+                //     if (isset($_POST['themmoi'])&&($_POST['themmoi'])) {
+                //     $name = $_POST['name'];
+                //     $hinh = $_FILES['hinh']['name'];
+                //     $mota = $_POST['mota'];
+                //     $ngaydang = date(' d M, y');;
+                //     $target_dir = "../upload/";
+                //     $target_file = $target_dir . basename($_FILES["hinh"]["name"]);
+                //     if (move_uploaded_file($_FILES["hinh"]["tmp_name"], $target_file)) {
+                //         // echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+                //     } else {
+                //         // echo "Sorry, there was an error uploading your file.";
+                //     }
+                //     insert_tintuc($name,$hinh,$mota,$ngaydang);  
+                //     $thongbao = "Thêm mới thành công";
+                //     }
+                //     include "tintuc/add.php";
+                //     break; 
+                // case 'listtt':
+                //     $blog = new BlogController();
+                //     $blog -> load_blogs_admin() ;
+                //     break;
+                // case 'xoatt':
+                //     if (isset($_GET['id'])&&($_GET['id']>0)) {
+                //         delete_tintuc($_GET['id']);
+                //     }
+                //     $listtintuc = loadall_tintuc();
+                //     include "tintuc/list.php";
+                //     break;
+                // case 'updatett':
+                //     if (isset($_POST['capnhap'])&&($_POST['capnhap'])) {
+                //         $id=$_POST['id'];
+                //         $name = $_POST['name'];
+                //         $hinh = $_FILES['hinh']['name'];
+                //         $mota = $_POST['mota'];
+                //         $target_dir = "../upload/";
+                //         $target_file = $target_dir . basename($_FILES["hinh"]["name"]);
+                //         if (move_uploaded_file($_FILES["hinh"]["tmp_name"], $target_file)) {
+                //             // echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+                //         } else {
+                //             // echo "Sorry, there was an error uploading your file.";
+                //         }
+                //         update_tintuc($id,$name,$hinh,$mota);   
+                //         // update_sanpham($id,$tensp,$giasp,$mota,$hinh,$iddm);
+                //         $thongbao="Cập nhập thành công";
+                //     }
+                //     $listtintuc= loadall_tintuc();
+                //     include "tintuc/list.php";
+                //     break;
+                // case 'suatt':
+                //     if(isset($_GET['id'])&&($_GET['id']>0)){
+                //         $tintuc = loadone_tintuc($_GET['id']);
+                //     }
+                //     include "tintuc/update.php";
+                //     break;
                 case 'adddm':
                     $c = new CategoryController();
                     $c -> add_cate_admin();
@@ -165,147 +164,83 @@ use App\Models\Categories;
                     $listtaikhoan= pdo_query($sql);
                     include "taikhoann/list.php";
                     break;
-                case 'addmgg':
-                    if (isset($_POST['themma'])&&($_POST['themma'])) {
-                        $ma_gg="Z".rand(0,99999);
-                        $ngay_bd=$_POST['ngay_bd'];
-                        $ngay_kt=$_POST['ngay_kt'];
-                        $giatri = $_POST['giatri'];
-                        insert_magiam($ma_gg,$ngay_bd,$ngay_kt,$giatri);
-                        $thongbao ="Thêm thành công";
-                    }
-                    include "magiamgia/add.php";
-                    break;
-                case 'dsmgg':
-                    $listmagiam=loadall_magiam();
-                    include "magiamgia/list.php";
-                    break;
+                // case 'addmgg':
+                //     if (isset($_POST['themma'])&&($_POST['themma'])) {
+                //         $ma_gg="Z".rand(0,99999);
+                //         $ngay_bd=$_POST['ngay_bd'];
+                //         $ngay_kt=$_POST['ngay_kt'];
+                //         $giatri = $_POST['giatri'];
+                //         insert_magiam($ma_gg,$ngay_bd,$ngay_kt,$giatri);
+                //         $thongbao ="Thêm thành công";
+                //     }
+                //     include "magiamgia/add.php";
+                //     break;
+                // case 'dsmgg':
+                //     $listmagiam=loadall_magiam();
+                //     include "magiamgia/list.php";
+                //     break;
                 case 'thoat':
                     unset($_SESSION['user']);
                     unset($_SESSION['iduser']);
                     unset($_SESSION['role']);
                     header('location: index.php');
                     break;
-                case 'thongke':
-                    $listtk=loadall_thongke();
-                    include "thongke/list.php";
-                    break;
-                case 'binhluan':
-                    $listbl=loadall_binhluan_admin();
-                    include "binhluan/list.php";
-                    break;
-                case 'xoabl':
-                    if (isset($_GET['id'])&&($_GET['id']>0)) {
-                        delete_binhluan($_GET['id']);
-                    }
-                    $listbl= loadall_binhluan_admin();
-                    include "binhluan/list.php";
-                    break;
-                case 'suabl':
-                    if(isset($_GET['id'])&&($_GET['id']>0)){
-                        $binhl = loadone_binhluan($_GET['id']);
-                    }
-                    include "binhluan/update.php";
-                    break;
-                case 'updatebl':
-                    if (isset($_POST['capnhapbl'])&&($_POST['capnhapbl'])) {
-                        $id=$_POST['id'];
-                        // $iddm = $_POST['iddm']; //
-                        $noidung = $_POST['noidung'];
-                        update_binhluan($id,$noidung);
-                        $thongbao="Cập nhập thành công";
-                    }
-                    $listbl= loadall_binhluan_admin();
-                    include "binhluan/list.php";
-                    break;
+                // case 'thongke':
+                //     $listtk=loadall_thongke();
+                //     include "thongke/list.php";
+                //     break;
+                // case 'binhluan':
+                //     $listbl=loadall_binhluan_admin();
+                //     include "binhluan/list.php";
+                //     break;
+                // case 'xoabl':
+                //     if (isset($_GET['id'])&&($_GET['id']>0)) {
+                //         delete_binhluan($_GET['id']);
+                //     }
+                //     $listbl= loadall_binhluan_admin();
+                //     include "binhluan/list.php";
+                //     break;
+                // case 'suabl':
+                //     if(isset($_GET['id'])&&($_GET['id']>0)){
+                //         $binhl = loadone_binhluan($_GET['id']);
+                //     }
+                //     include "binhluan/update.php";
+                //     break;
+                // case 'updatebl':
+                //     if (isset($_POST['capnhapbl'])&&($_POST['capnhapbl'])) {
+                //         $id=$_POST['id'];
+                //         // $iddm = $_POST['iddm']; //
+                //         $noidung = $_POST['noidung'];
+                //         update_binhluan($id,$noidung);
+                //         $thongbao="Cập nhập thành công";
+                //     }
+                //     $listbl= loadall_binhluan_admin();
+                //     include "binhluan/list.php";
+                //     break;
                 // -----------------------------------------------------thuộc về sản phẩm
                 case 'addsp':
                     $pr = new ProductController();
                     $pr -> add_pro_admin();
                     break;
-                    //kiểm tra click nút add
-                    // if (isset($_POST['themmoi'])&&($_POST['themmoi'])) {
-                    //     $iddm = $_POST['iddm'];
-                    //     $tensp = $_POST['tensp'];
-                    //     $giasp = $_POST['giasp'];
-                    //     $giaspnew = $_POST['giaspnew'];
-                    //     $mota = $_POST['mota'];
-                    //     $hinh = $_FILES['hinh']['name'];
-                    //     $target_dir = "../upload/";
-                    //     $target_file = $target_dir . basename($_FILES["hinh"]["name"]);
-                    //     if (move_uploaded_file($_FILES["hinh"]["tmp_name"], $target_file)) {
-                    //         // echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
-                    //     } else {
-                    //         // echo "Sorry, there was an error uploading your file.";
-                    //     }
-                    //     insert_sanpham($tensp,$giasp,$giaspnew,$hinh,$mota,$iddm);
-                    //     $thongbao = "Thêm mới thành công";
-                    // }
-                    // $sql = "select * from loai order by ten_loai desc";
-                    // $listdanhmuc= pdo_query($sql);
-                    // var_dump($listdanhmuc);
-                    // include "sanpham/add.php";
-                    break;
-                case 'save-add-pro':
+                case 'addpro':
                     $pr = new ProductController();
                     $pr -> saveaddPro();
                 case 'listsp':
                     $pr = new ProductController();
-                    $pr->load_pro_admin();
+                    $pr -> load_pro_admin();
                     break;
-                    // if (isset($_POST['listgo'])&&($_POST['listgo'])){
-                    //     $kyw =$_POST['kyw'];
-                    //     $iddm =$_POST['iddm'];
-                    // }else{
-                    //     $kyw='';
-                    //     $iddm=0;
-                    // }
-                    // $sql = "select * from loai order by ten_loai desc";
-                    // $listdanhmuc= pdo_query($sql);
-                    // $listsanpham= loadall_sanpham($kyw,$iddm);
-                    // include "sanpham/list.php";
-                    // break;
-                case 'xoasp':
-                    if (isset($_GET['id'])&&($_GET['id']>0)) {
-                        delete_sanpham($_GET['id']);
-                    }
-                    $listsanpham= loadall_sanpham("", 0);
-                    include "sanpham/list.php";
+                case 'deletepro':
+                    $pr = new ProductController();
+                    $pr -> remove_pro_admin();
                     break;
                 // code thành phần sản phẩm
-                case 'suasp':
-                    if(isset($_GET['id'])&&($_GET['id']>0)){
-                        $sanpham = loadone_sanpham($_GET['id']);
-                    }
-                    $sql = "select * from loai order by ten_loai desc";
-                    $listdanhmuc= pdo_query($sql);
-                    include "sanpham/update.php";
+                case 'updatepro':
+                    $p = new ProductController();
+                    $p -> editproform();
                     break;
                 case 'updatesp':
-                    if (isset($_POST['capnhap'])&&($_POST['capnhap'])) {
-                        $id=$_POST['id'];
-                        // $iddm = $_POST['iddm']; //
-                        $tensp = $_POST['tensp'];
-                        $giasp = $_POST['giasp'];
-                        $giaspnew = $_POST['giaspnew'];
-                        $mota = $_POST['mota'];
-                        $hinh = $_FILES['hinh']['name'];
-                        $trang_thai = $_POST['trang_thai'];
-                        $target_dir = "../upload/";
-                        $target_file = $target_dir . basename($_FILES["hinh"]["name"]);
-                        if (move_uploaded_file($_FILES["hinh"]["tmp_name"], $target_file)) {
-                            // echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
-                        } else {
-                            // echo "Sorry, there was an error uploading your file.";
-                        }
-                        update_sanpham($id,$tensp,$giasp,$giaspnew,$mota,$hinh,$trang_thai); 
-                        // update_sanpham($id,$tensp,$giasp,$mota,$hinh,$iddm);
-                        $thongbao="Cập nhập thành công";
-                    }
-                    $sql = "select * from loai order by ten_loai desc";
-                    $listdanhmuc= pdo_query($sql);
-                    $listsanpham= loadall_sanpham("", 0);
-                    include "sanpham/list.php";
+                    $p = new ProductController();
+                    $p -> editprosave();
                     break;
                 case 'addimg':
                     if (isset($_POST['themmoi'])&&($_POST['themmoi'])) {

@@ -25,14 +25,14 @@
         <div class= "row">
             <div class ="col-sm-5">
                 <div style="text-align: center; border:1px solid #ccc;">
-                    <img id="show" width="70%" src="upload/{{$detail_product->img}}" alt="">
+                    <img id="show" width="70%" src="./public/upload/{{$detail_product->img}}" alt="">
                 </div>
 
                 <!-- demo -->
                 <div style="text-align: center; margin-top: 10px;">
-                    <img src="upload/{{$detail_product->img}}" width="15%" onclick="myFunction(this)">
+                    <img src="./public/upload/{{$detail_product->img}}" width="15%" onclick="myFunction(this)">
                     @foreach ($listImages as $img) 
-                        <img src="upload/{{$img->img}}" width="15%" onclick="myFunction(this)">
+                        <img src="./public/upload/{{$img->img}}" width="15%" onclick="myFunction(this)">
                     @endforeach
                 </div>
                 <!-- end demo -->

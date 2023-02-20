@@ -30,42 +30,43 @@
                     //     $hinh="Không tìm thấy hình";
                     // }
                 ?>
-                <form action="index.php?act=updatesp&id={{$model->id}}" method="post" enctype="multipart/form-data">
+                <form action="index.php?act=updatesp&id=<?php echo e($model->id); ?>" method="post" enctype="multipart/form-data">
                     <div class="form-group">
                         <select name="iddm" id="" class="form-select form-select-lg mb-3" aria-label=".form-select-sm example">
-                            @foreach ($cates as $ca)
-                                <option @if($ca->id == $model->iddm) selected @endif value="{{$ca->id}}">{{$ca->ten_loai}}</option>
-                            @endforeach
+                            <?php $__currentLoopData = $cates; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $ca): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <option <?php if($ca->id == $model->iddm): ?> selected <?php endif; ?> value="<?php echo e($ca->id); ?>"><?php echo e($ca->ten_loai); ?></option>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </select>
                     </div>
                     <div class="form-group">
                         <label>Tên sản phẩm</label>
-                        <input type="text" name="name" id="" class=" form-control" value="{{$model->name}}">
+                        <input type="text" name="name" id="" class=" form-control" value="<?php echo e($model->name); ?>">
                     </div>
                     <div class="form-group">
                         <label>Giá</label>
-                        <input type="text" name="price_old" id="" class=" form-control" value="{{number_format($model->price_old, 0, '.', '.')}}.000">
+                        <input type="text" name="price_old" id="" class=" form-control" value="<?php echo e(number_format($model->price_old, 0, '.', '.')); ?>.000">
                     </div>
                     <div class="form-group">
                         <label>Giá giảm</label>
-                        <input type="text" name="price_new" id="" class=" form-control" value="{{number_format($model->price_new, 0, '.', '.')}}.000">
+                        <input type="text" name="price_new" id="" class=" form-control" value="<?php echo e(number_format($model->price_new, 0, '.', '.')); ?>.000">
                     </div>
                     <div class="form-group">
                         <label>Hình ảnh</label><br>
                         <input type="file" name="img" id="" class="" value="">
-                        {{$model->img}}
+                        <?php echo e($model->img); ?>
+
                     </div>
                     <div class="form-group">
                         <label>Trạng thái</label><br>
-                        <label><input name="trang_thai" type="radio" @if ($model->trang_thai == 0) checked @endif value="0">Hết hàng</label>
-                        <label><input name="trang_thai" type="radio" @if ($model->trang_thai == 1) checked @endif value="1">Còn hàng</label>
+                        <label><input name="trang_thai" type="radio" <?php if($model->trang_thai == 0): ?> checked <?php endif; ?> value="0">Hết hàng</label>
+                        <label><input name="trang_thai" type="radio" <?php if($model->trang_thai == 1): ?> checked <?php endif; ?> value="1">Còn hàng</label>
                     </div>
                     <div class="form-group">
                         <label>Mô tả</label>
-                        <textarea name="mota" id="" cols="30" rows="10" class=" form-control" value="">{{$model->mota}}</textarea>
+                        <textarea name="mota" id="" cols="30" rows="10" class=" form-control" value=""><?php echo e($model->mota); ?></textarea>
                     </div>
                     <div class="d-flex justify-content-center">
-                        <input type="hidden" name="id" value="{{$model->id}}">
+                        <input type="hidden" name="id" value="<?php echo e($model->id); ?>">
                         <input type="submit" value="Cập nhật" name="capnhap" class="form-control " style=" width:120px;background: linear-gradient(131deg, rgba(255,117,0,1) 12%, rgba(255,184,0,1) 86%); color:#fff;">
                         <input type="reset" value="Nhập lại" class="btn btn-default border-0" style="margin:0 0 15px 15px; width:120px; background: linear-gradient(131deg, rgba(255,117,0,1) 12%, rgba(255,184,0,1) 86%); color:#fff;">
                         <a href="index.php?act=listsp"><input type="button" value="Danh sách" class="btn btn-default border-0" style="margin:0 0 15px 15px; width:120px; background: linear-gradient(131deg, rgba(255,117,0,1) 12%, rgba(255,184,0,1) 86%); color:#fff;"></a>
@@ -79,4 +80,4 @@
                 </form>
             </div>
         </div>
-    </div>
+    </div><?php /**PATH C:\xampp\htdocs\PHP2\php2_asm\app\views\admin/product/edit.blade.php ENDPATH**/ ?>

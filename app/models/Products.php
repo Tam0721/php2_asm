@@ -4,7 +4,7 @@
     
     class Products extends Model {
         protected $table = "hang_hoa";
-        public $fillable = ['id','name','price_old','price_new','img','mota','iddm','luotxem','trangthai'];
+        public $fillable = ['name','price_old','price_new','mota','iddm','trang_thai'];
 
         public $timestamps = false;
 

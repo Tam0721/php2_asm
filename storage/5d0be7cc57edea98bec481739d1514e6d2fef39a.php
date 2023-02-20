@@ -23,13 +23,10 @@
                         <label for="email">Danh mục</label> <br>
                         <select name="iddm" id="" class="form-select form-select-lg mb-3" aria-label=".form-select-sm example" required>
                             <option>Chọn danh mục</option>
-                             @foreach($cates as $danhmuc)
-                                <option value="{{$danhmuc->id}}" >{{$danhmuc->ten_loai}}</option>
-                            @endforeach
-                                {{-- foreach ($listdanhmuc as $danhmuc) {
-                                    extract($danhmuc);
-                                    echo'<option value="'.$ma_loai.'" >'.$ten_loai.'</option>';
-                                } --}}
+                             <?php $__currentLoopData = $cates; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $danhmuc): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <option value="<?php echo e($danhmuc->id); ?>" ><?php echo e($danhmuc->ten_loai); ?></option>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                
                             
                         </select>
                     </div> <br><br>
@@ -78,3 +75,4 @@
         </div>
     </div>
 
+<?php /**PATH C:\xampp\htdocs\PHP2\php2_asm\app\views\admin/product/add-pro.blade.php ENDPATH**/ ?>

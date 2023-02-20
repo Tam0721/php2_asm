@@ -19,27 +19,25 @@
     </div>
     <div class="table-responsive-sm">
         <div class="d-flex ">
-            <a href="index.php?act=save-add-pro"><input type="submit" value="Thêm mới" class="btn btn-default border-0" style="margin:0 0 15px 15px; width:120px; background: linear-gradient(131deg, rgba(255,117,0,1) 12%, rgba(255,184,0,1) 86%); color:#fff;"></a>
+            <a href="index.php?act=addsp"><input type="submit" value="Thêm mới" class="btn btn-default border-0" style="margin:0 0 15px 15px; width:120px; background: linear-gradient(131deg, rgba(255,117,0,1) 12%, rgba(255,184,0,1) 86%); color:#fff;"></a>
             
             <a href="index.php?act=addimg"><input type="submit" value="Thêm hình ảnh mới" class="btn btn-default border-0" style="margin:0 0 15px 15px; width:120px; background: linear-gradient(131deg, rgba(255,117,0,1) 12%, rgba(255,184,0,1) 86%); color:#fff;"></a>
         </div>
-        <form action="index.php?act=listsp" method="post">
+        {{-- <form action="index.php?act=listsp" method="post">
             <select name="iddm" id="" class="form-select form-select-lg mb-3" aria-label=".form-select-sm example">
                 <option selected value="0">Chọn danh mục</option>
-                @foreach($cates as $danhmuc)
-                <option value="{{$danhmuc->ma_loai}}" >{{$danhmuc->ten_loai}}</option>
-
                 <?php 
-                    // foreach ($cates as $danhmuc) {
-                    //     echo'<option value="'.$ma_loai.'" >'.$ten_loai.'</option>';
-                    // }
+                    foreach ($listdanhmuc as $danhmuc) {
+                        extract($danhmuc);
+                        echo'<option value="'.$ma_loai.'" >'.$ten_loai.'</option>';
+                    }
                 ?>
             </select>
             <div class="form-group">
                 <input type="text" name="kyw" class="" placeholder="Tìm..." style="border: 1px solid gray;border-radius:5px;outline:none;padding-left:5px;">
                 <input type="submit" name="listgo" value="Go" style="border:1px solid gray;border-radius:5px;">
             </div>
-        </form>
+        </form> --}}
         <table class="table table-bordered">
             <thead class="thead-light">
                 <tr>
@@ -50,40 +48,38 @@
                     <th>Giá giảm</th>
                     <th style="width:400px">Mô tả</th>
                     <th>View</th>
-                    <th>Trạng thái</th>
                     <th style="width:150px">Cài đặt</th>
                 </tr>
             </thead>
-            
-                @foreach($product as $pr)
-                <tr>
-                    <td>{{$pr->id}}</td>
-                    <td>{{$pr->name}}</td>
-                    <td class="text-center">{{$pr->img}}</td>
-                    <td>{{$pr->price_old}}</td>
-                    <td>{{$pr->price_new}}</td>
-                    <td>{{$pr->mota}}</td>
-                    <td>{{$pr->luotxem}}</td>
-                    <td>{{$pr->trang_thai}}</td>
-                    <td class="text-center">
-                        <a href="'.$suasp.'"><input type="button" value="Sửa" style="width:120px; margin:5px; border:none;" ></a>
-                        <a href="'.$xoasp.'"><input type="button" value="Xóa" style="width:120px;margin:5px; border:none;"></a>
-                        <a href="'.$imgsp.'"><input type="button" value="Hình ảnh" style="width:120px;margin:5px; border:none;"></a>
-                    </td>
-                </tr>
-                @endforeach
-                <?php
-            //     foreach ($pro as $pr) {
-            //         $xoasp="index.php?act=xoasp&id=".$id;
-            //         $suasp="index.php?act=suasp&id=".$id;
-            //         $imgsp="index.php?act=listimg&id=".$id;
-            //         $ha="../upload/".$img;
-            //         if (is_file($ha)) {
-            //            $hinh="<img src='".$ha."' height='150' width='45%'>";
-            //         }else{
-            //             $hinh="Không tìm thấy hình";
-            //         }
-            //         echo '?>
+            @foreach ($pro as $sanpham)
+                {{-- extract($sanpham); --}}
+                {{-- $xoasp="index.php?act=xoasp&id=".$id;
+                $suasp="index.php?act=suasp&id=".$id;
+                $imgsp="index.php?act=listimg&id=".$id;
+                $ha="../upload/".$img; --}}
+                    {{-- if (is_file($ha)) {
+                       $hinh="<img src='".$ha."' height='150' width='45%'>";
+                    }else{
+                        $hinh="Không tìm thấy hình";
+                    }
+                    echo ' --}}
+                <tbody>
+                    <tr>
+                        <td>{{$sanpham->id}}</td>
+                        <td>{{$sanpham->name}}</td>
+                        <td class="text-center"><img src='../public/upload/{{$sanpham->img}}' height='150' width='45%'></td>
+                        <td>{{number_format($sanpham->price_old, 0, '.', '.')}}.000 ₫</td>
+                        <td>{{number_format($sanpham->price_new, 0, '.', '.')}}.000 ₫</td>
+                        <td>{{$sanpham->mota}}</td>
+                        <td>{{$sanpham->luotxem}}</td>
+                        <td class="text-center">
+                            <a href="./index.php?act=updatepro&id={{$sanpham->id}}"><input type="button" value="Sửa" style="width:120px; margin:5px; border:none;" ></a>
+                            <a href="./index.php?act=deletepro&id={{$sanpham->id}}"><input type="button" value="Xóa" style="width:120px;margin:5px; border:none;"></a>
+                            <a href="'.$imgsp.'"><input type="button" value="Hình ảnh" style="width:120px;margin:5px; border:none;"></a>
+                        </td>
+                    </tr>
+                </tbody>
+            @endforeach
         </table>
     </div>
 </div>
