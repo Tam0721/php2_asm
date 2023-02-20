@@ -53,24 +53,25 @@
 					<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
 						<ul class="nav navbar-nav menu_nav ml-auto">
 							<li class="nav-item visited"><a class="nav-link" href="index.php">Trang chủ</a></li>
+							<li class="nav-item"><a class="nav-link" href="index.php?url=category">Sản phẩm</a></li>
 							
-							<li class="nav-item submenu dropdown">
-								<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-								 aria-expanded="false">Cửa hàng</a>
-								<ul class="dropdown-menu">
-									<li class="nav-item"><a class="nav-link" href="index.php?url=category">Sản phẩm</a></li>
-									<li class="nav-item"><a class="nav-link" href="index.php?url=checkout">Thanh toán</a></li>
-									<li class="nav-item"><a class="nav-link" href="index.php?url=cart">Giỏ hàng</a></li>
+							<!-- <li class="nav-item submenu dropdown"> -->
+								<!-- <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+								 aria-expanded="false">Cửa hàng</a> -->
+								<!-- <ul class="dropdown-menu"> -->
+									<!-- <li class="nav-item"><a class="nav-link" href="index.php?url=category">Sản phẩm</a></li> -->
+									<!-- <li class="nav-item"><a class="nav-link" href="index.php?url=checkout">Thanh toán</a></li>
+									<li class="nav-item"><a class="nav-link" href="index.php?url=cart">Giỏ hàng</a></li> -->
 									<?php
 										if(isset($_SESSION['user'])&&($_SESSION['user']!="")){
-											echo'<li class="nav-item"><a class="nav-link" href="index.php?url=shippingbill">Đơn hàng đang giao</a></li>';
-											echo'<li class="nav-item"><a class="nav-link" href="index.php?url=historybill">Lịch sử mua hàng</a></li>';
+											// echo'<li class="nav-item"><a class="nav-link" href="index.php?url=shippingbill">Đơn hàng đang giao</a></li>';
+											// echo'<li class="nav-item"><a class="nav-link" href="index.php?url=historybill">Lịch sử mua hàng</a></li>';
 										}
 									?>
 										
-								</ul>
-							</li>
-							<li class="nav-item"><a class="nav-link" href="index.php?url=blog">Blog</a></li>
+								<!-- </ul> -->
+							<!-- </li> -->
+							<!-- <li class="nav-item"><a class="nav-link" href="index.php?url=blog">Blog</a></li> -->
 							<!-- <li class="nav-item submenu dropdown">
 								<a href="index.php?url=blog" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
 								 aria-expanded="false">Blog</a>
@@ -94,30 +95,30 @@
 										
 								</ul>
 							</li> <?php } ?>
-							<li class="nav-item"><a class="nav-link" href="index.php?url=contact">Liên hệ</a></li>
+							<!-- <li class="nav-item"><a class="nav-link" href="index.php?url=contact">Liên hệ</a></li> -->
 						</ul>
 						<ul class="nav navbar-nav navbar-right">
 							<?php
 								if(isset($_SESSION['giohang'])&& count($_SESSION['giohang'],1)>0){
 									$dem = count($_SESSION['giohang']);
-									echo '
-										<li class="nav-link"><a href="index.php?url=cart" class="cart"><span class="ti-bag"></span></a>
-											<span class="badge text-secondary rounded-circle" style="padding-bottom: 2px;">'.$dem.'</span>
-										</li>
+									// echo '
+									// 	<li class="nav-link"><a href="index.php?url=cart" class="cart"><span class="ti-bag"></span></a>
+									// 		<span class="badge text-secondary rounded-circle" style="padding-bottom: 2px;">'.$dem.'</span>
+									// 	</li>
 									
-									';
+									// ';
 								}else{
-									echo '
-										<li class="nav-link"><a href="index.php?url=cart" class="cart"><span class="ti-bag"></span></a>
-											<span class="badge text-secondary rounded-circle" style="padding-bottom: 2px;">0</span>
-										</li>
-									';	
-									}
+									// echo '
+									// 	<li class="nav-link"><a href="index.php?url=cart" class="cart"><span class="ti-bag"></span></a>
+									// 		<span class="badge text-secondary rounded-circle" style="padding-bottom: 2px;">0</span>
+									// 	</li>
+									// ';	
+								}
 								
 							?>
-							<li class="nav-link">
+							<!-- <li class="nav-link">
 								<button class="search"><span class="lnr lnr-magnifier" id="search"></span></button>
-							</li>
+							</li> -->
 						</ul>
 					</div>
 				</div>

@@ -45,7 +45,7 @@
 							<?php $__currentLoopData = $listItem; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cates): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?> 
 								
 								
-									<li class="main-nav-list"><a href="index.php?url=category&iddm=<?php echo e($cates->ma_loai); ?>"><span
+									<li class="main-nav-list"><a href="index.php?url=category&iddm=<?php echo e($cates->id); ?>"><span
 									class="lnr lnr-arrow-right"></span><?php echo e($cates->ten_loai); ?><span class="number"></span></a></li>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 					</ul>

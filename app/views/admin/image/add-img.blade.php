@@ -4,10 +4,10 @@
 			<div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
 				<div class="col-first">
 					<h1>Admin</h1>
-					<nav class="d-flex align-items-center">
+					{{-- <nav class="d-flex align-items-center">
 						<a href="index.php">Home<span class="lnr lnr-arrow-right"></span></a>
 						<a href="category.html">Product Type</a>
-					</nav>
+					</nav> --}}
 				</div>
 			</div>
 		</div>
@@ -18,22 +18,20 @@
                 <h3>Thêm ảnh mới</h3>
             </div>
             <div class="container">
-                <form action="index.php?act=addimg" method="post" enctype="multipart/form-data">
+                <form action="index.php?act=save-img" method="post" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="email">Sản phẩm</label> <br>
                         <select name="ma_hh" id="" class="form-select form-select-lg mb-3" aria-label=".form-select-sm example" required>
-                            <option selected>Chọn sản phẩm</option>
-                            <?php 
-                                $listsanpham = loadall_sanpham($kyw="",$iddm=0);
-                                foreach ($listsanpham as $sanpham) {
-                                    extract($sanpham);
-                                    echo'<option value="'.$id.'" >'.$name.'</option>';
-                                }
-                            ?>
+                            <option selected>Chọn sản phẩm</option> 
+                                {{-- // $listsanpham = loadall_sanpham($kyw="",$iddm=0); --}}
+                            @foreach ($pro as $sanpham) 
+                                    {{-- // extract($sanpham); --}}
+                                <option value="{{$sanpham->id}}" >{{$sanpham->name}}</option>
+                            @endforeach
                         </select>
                     </div> <br><br>
-                        <label for="pwd">Hình</label> <br>
-                        <input type="file" name="hinh[]" id="" class="" multiple required>
+                        <label>Hình</label> <br>
+                        <input type="file" name="img[]" id="" class="" multiple required>
                     </div>
                     <div class="d-flex justify-content-center">
                         <input type="submit" value="Thêm mới" name="themmoi" class="form-control " style=" width:120px;background: linear-gradient(131deg, rgba(255,117,0,1) 12%, rgba(255,184,0,1) 86%); color:#fff;">

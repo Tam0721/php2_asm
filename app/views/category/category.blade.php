@@ -47,7 +47,7 @@
 								{{-- $linkdm="index.php?url=category&iddm=".$ma_loai;
 								echo'
 									 --}}
-									<li class="main-nav-list"><a href="index.php?url=category&iddm={{$cates->ma_loai}}"><span
+									<li class="main-nav-list"><a href="index.php?url=category&iddm={{$cates->id}}"><span
 									class="lnr lnr-arrow-right"></span>{{$cates->ten_loai}}<span class="number"></span></a></li>
                             @endforeach
 					</ul>

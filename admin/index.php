@@ -243,21 +243,12 @@
                     $pr -> editprosave();
                     break;
                 case 'addimg':
-                    // if (isset($_POST['themmoi'])&&($_POST['themmoi'])) {
-                    //     $ma_hh = $_POST['ma_hh'];
-                    //     $totalfiles = count($_FILES['hinh']['name']);
-                    //     for ($i=0; $i<$totalfiles; $i++) {
-                    //         $img = $_FILES['hinh']['name'][$i];
-
-                    //         if (move_uploaded_file($_FILES["hinh"]["tmp_name"][$i], '../upload/' .$img)) {
-                    //             insert_img($ma_hh, $img);
-                    //         } else {
-                    //             echo 'Error in uploading file - '.$_FILES['hinh']['name'][$i].'<br/>';
-                    //         }
-                    //     }
-                    //     $thongbao = "Thêm mới thành công";
-                    // }
-                    // include "hinhanh/add.php";
+                    $i = new ImageController();
+                    $i -> add_img_admin();
+                    break;
+                case 'save-img':
+                    $i = new ImageController();
+                    $i -> saveaddImg();
                     break;
                 case 'imglist':
                     $i = new ImageController();
@@ -266,12 +257,14 @@
                 case 'deleteimg':
                     $i = new ImageController();
                     $i -> delete_img_admin();
-                    // if (isset($_GET['id'])&&($_GET['id']>0)) {
-                    //     delete_img($_GET['id']);
-                    // }
-                    // $listimg = loadall_img($_GET['id']);
-                    // include "hinhanh/list.php";
-                    // header('location: index.php?act=listsp');
+                    break;
+                case 'updateimg':
+                    $pr = new ImageController();
+                    $pr -> add_img_pro();
+                    break;
+                case 'updatesp':
+                    $pr = new ProductController();
+                    $pr -> editprosave();
                     break;
                 case 'donhanglist':
                     $listbill = loadall_bill();

@@ -18,9 +18,9 @@
         <h3>Danh sách hình ảnh</h3>
     </div>
     <div class="table-responsive-sm">
-        <div class="d-flex ">
+        {{-- <div class="d-flex ">
             <a href="index.php?act=addimg"><input type="submit" value="Thêm hình ảnh mới" class="btn btn-default border-0" style="margin:0 0 15px 15px; width:120px; background: linear-gradient(131deg, rgba(255,117,0,1) 12%, rgba(255,184,0,1) 86%); color:#fff;"></a>
-        </div>
+        </div> --}}
         <table class="table table-bordered">
             <thead class="thead-light">
                 <tr>

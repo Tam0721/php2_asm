@@ -39,7 +39,7 @@
                     </div>
                     <div class="form-group">
                         <label for="pwd">Tên sản phẩm</label>
-                        <input type="search" name="name" id="" class=" form-control" required>
+                        <input type="text" name="name" id="" class=" form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="pwd">Giá</label>
