@@ -11,7 +11,7 @@
         
         public function load_blogs_admin(){
             $blogs = Blogs::all();
-            include './admin/views/tintuc.php';
+            include '../admin/views/tintuc.php';
         }
     }
 ?>

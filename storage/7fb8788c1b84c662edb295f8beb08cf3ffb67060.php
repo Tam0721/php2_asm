@@ -41,4 +41,4 @@
                 </form>
             </div>
         </div>
-    </div>
+    </div><?php /**PATH D:\xampp\htdocs\php2_asm\app\views\admin/category/add-cate.blade.php ENDPATH**/ ?>

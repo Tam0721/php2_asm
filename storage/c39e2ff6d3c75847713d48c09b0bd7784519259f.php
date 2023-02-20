@@ -27,21 +27,21 @@
                     </tr>
                 </thead> 
                 <tbody>
-                    @foreach($cates as $c)
+                    <?php $__currentLoopData = $cates; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $c): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <tr>
-                        <td>{{$c->ma_loai}}</td>
-                        <td>{{$c->ten_loai}}</td>
+                        <td><?php echo e($c->ma_loai); ?></td>
+                        <td><?php echo e($c->ten_loai); ?></td>
                         <td>
-                            <a href="./updatecate&id={{$c->ma_loai}}"><input type="button" value="Sửa" ></a> 
-                            <a href="./index.php?act=removecate&id={{$c->ma_loai}}"><input type="button" value="Xóa"></a>
+                            <a href="./updatecate&id=<?php echo e($c->ma_loai); ?>"><input type="button" value="Sửa" ></a> 
+                            <a href="./index.php?act=removecate&id=<?php echo e($c->ma_loai); ?>"><input type="button" value="Xóa"></a>
                         </td>
                     </tr>
-                    @endforeach
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </tbody>
-                {{-- <p>{{$errmsg}}</p>  --}}
+                
             </table>
                 <div class="d-flex justify-content-center">
                 <a href="index.php?act=adddm"><input type="submit" value="Thêm mới" name="themmoi" class="btn btn-default border-0" style="margin:0 0 15px 15px; width:120px; background: linear-gradient(131deg, rgba(255,117,0,1) 12%, rgba(255,184,0,1) 86%); color:#fff;"></a>
             </div>
         </div>
-    </div>
+    </div><?php /**PATH D:\xampp\htdocs\php2_asm\app\views\admin/category/category.blade.php ENDPATH**/ ?>

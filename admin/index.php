@@ -10,6 +10,7 @@
     use App\Controllers\CategoryController;
     use App\Controllers\AccountController;
     use App\Controllers\BlogController;
+use App\Models\Categories;
 
     session_start();
     ob_start();
@@ -106,35 +107,41 @@
                     $c = new CategoryController();
                     $c -> loadcateadmin();
                     break;
-                case 'xoadm':
-                    if (isset($_GET['ma_loai'])&&($_GET['ma_loai']>0)) {
-                        $sql = "DELETE from loai where ma_loai=".$_GET['ma_loai'];
-                        pdo_execute($sql);
-                    }
-                    $sql = "SELECT * FROM loai ORDER BY ten_loai DESC";
-                    $listdanhmuc= pdo_query($sql);
-                    include "danhmuc/list.php";
+                case 'removecate':
+                    $c = new CategoryController();
+                    $c -> remove_cate_admin();
+                    // if (isset($_GET['ma_loai'])&&($_GET['ma_loai']>0)) {
+                    //     $sql = "DELETE from loai where ma_loai=".$_GET['ma_loai'];
+                    //     pdo_execute($sql);
+                    // }
+                    // $sql = "SELECT * FROM loai ORDER BY ten_loai DESC";
+                    // $listdanhmuc= pdo_query($sql);
+                    // include "danhmuc/list.php";
                     break;
                 // code thành phần sản phẩm
-                case 'suadm':
-                    if(isset($_GET['ma_loai'])&&($_GET['ma_loai']>0)){
-                        // $id=$_GET['id'];
-                        $sql = "SELECT * FROM loai WHERE ma_loai =".$_GET['ma_loai'];
-                        $dm = pdo_query_one($sql);
-                    }
-                    include "danhmuc/update.php";
+                case 'editcate':
+                    $c = new CategoryController();
+                    $c-> editcateform();
+                    // if(isset($_GET['ma_loai'])&&($_GET['ma_loai']>0)){
+                    //     // $id=$_GET['id'];
+                    //     $sql = "SELECT * FROM loai WHERE ma_loai =".$_GET['ma_loai'];
+                    //     $dm = pdo_query_one($sql);
+                    // }
+                    // include "danhmuc/update.php";
                     break;
                 case 'updatedm':
-                    if (isset($_POST['capnhapdm'])&&($_POST['capnhapdm'])) {
-                        $tenloai = $_POST['tenloai'];
-                        $id = $_POST['id'];
-                        $sql="UPDATE loai SET ten_loai = '$tenloai' WHERE ma_loai = '$id'";
-                        pdo_execute($sql);
-                        // echo $tenloai;
-                    }
-                    $sql = "SELECT * FROM loai ORDER BY ten_loai DESC";
-                    $listdanhmuc= pdo_query($sql);
-                    include "danhmuc/list.php";
+                    $c= new CategoryController();
+                    $c->editcatesave();
+                    // if (isset($_POST['capnhapdm'])&&($_POST['capnhapdm'])) {
+                    //     $tenloai = $_POST['tenloai'];
+                    //     $id = $_POST['id'];
+                    //     $sql="UPDATE loai SET ten_loai = '$tenloai' WHERE ma_loai = '$id'";
+                    //     pdo_execute($sql);
+                    //     // echo $tenloai;
+                    // }
+                    // $sql = "SELECT * FROM loai ORDER BY ten_loai DESC";
+                    // $listdanhmuc= pdo_query($sql);
+                    // include "danhmuc/list.php";
                     break;
                 case 'addtk':
                     if(isset($_POST['themtk'])&&($_POST['themtk'])){
@@ -245,29 +252,35 @@
                     break;
                 // -----------------------------------------------------thuộc về sản phẩm
                 case 'addsp':
-                    //kiểm tra click nút add
-                    if (isset($_POST['themmoi'])&&($_POST['themmoi'])) {
-                        $iddm = $_POST['iddm'];
-                        $tensp = $_POST['tensp'];
-                        $giasp = $_POST['giasp'];
-                        $giaspnew = $_POST['giaspnew'];
-                        $mota = $_POST['mota'];
-                        $hinh = $_FILES['hinh']['name'];
-                        $target_dir = "../upload/";
-                        $target_file = $target_dir . basename($_FILES["hinh"]["name"]);
-                        if (move_uploaded_file($_FILES["hinh"]["tmp_name"], $target_file)) {
-                            // echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
-                        } else {
-                            // echo "Sorry, there was an error uploading your file.";
-                        }
-                        insert_sanpham($tensp,$giasp,$giaspnew,$hinh,$mota,$iddm);
-                        $thongbao = "Thêm mới thành công";
-                    }
-                    $sql = "select * from loai order by ten_loai desc";
-                    $listdanhmuc= pdo_query($sql);
-                    // var_dump($listdanhmuc);
-                    include "sanpham/add.php";
+                    $pr = new ProductController();
+                    $pr -> add_pro_admin();
                     break;
+                    //kiểm tra click nút add
+                    // if (isset($_POST['themmoi'])&&($_POST['themmoi'])) {
+                    //     $iddm = $_POST['iddm'];
+                    //     $tensp = $_POST['tensp'];
+                    //     $giasp = $_POST['giasp'];
+                    //     $giaspnew = $_POST['giaspnew'];
+                    //     $mota = $_POST['mota'];
+                    //     $hinh = $_FILES['hinh']['name'];
+                    //     $target_dir = "../upload/";
+                    //     $target_file = $target_dir . basename($_FILES["hinh"]["name"]);
+                    //     if (move_uploaded_file($_FILES["hinh"]["tmp_name"], $target_file)) {
+                    //         // echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+                    //     } else {
+                    //         // echo "Sorry, there was an error uploading your file.";
+                    //     }
+                    //     insert_sanpham($tensp,$giasp,$giaspnew,$hinh,$mota,$iddm);
+                    //     $thongbao = "Thêm mới thành công";
+                    // }
+                    // $sql = "select * from loai order by ten_loai desc";
+                    // $listdanhmuc= pdo_query($sql);
+                    // var_dump($listdanhmuc);
+                    // include "sanpham/add.php";
+                    break;
+                case 'save-add-pro':
+                    $pr = new ProductController();
+                    $pr -> saveaddPro();
                 case 'listsp':
                     $pr = new ProductController();
                     $pr->load_pro_admin();

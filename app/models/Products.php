@@ -4,6 +4,8 @@
     
     class Products extends Model {
         protected $table = "hang_hoa";
+        public $fillable = ['id','name','price_old','price_new','img','mota','iddm','luotxem','trangthai'];
+
         public $timestamps = false;
 
         // public static function loadone_product($id) {

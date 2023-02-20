@@ -1,6 +1,7 @@
 <?php
     namespace App\Controllers;
     use App\Models\Products;
+    use App\Models\Categories;
     use App\Models\Images;
     use App\Controllers\BaseController;
 
@@ -15,8 +16,38 @@
             $this -> render('product.detail', compact('detail_product', 'listImages'));
         }
 
-        public function load_pro_admin(){
+        // public function load_pro_admin(){
+        //     $pro = Products::all();
+        //     include"../admin/views/sanpham.php";       
+        // }
+        public function load_pro_admin() {
             $pro = Products::all();
-            include"../admin/views/sanpham.php";        }
+            $this -> renderAdmin('product.product', ['product' => $pro]);
+        }
+
+        public function add_pro_admin(){
+            $cates = Categories::all();
+            $this -> renderAdmin('product.add-pro',['cates'=>$cates]);
+        }
+
+        public function saveaddPro(){
+            $requestDB = $_POST;
+            $model = new Products();
+            $imgFile = $_FILES['img'];
+
+    
+            $model->fill($requestDB);
+            $filename = "";
+            // nếu có ảnh up lên thì lưu ảnh
+            if($imgFile['size'] > 0){
+                $filename = uniqid() . '-' . $imgFile['name'];
+                move_uploaded_file($imgFile['tmp_name'], './uploads/'. $filename);
+                $filename = './uploads/' . $filename;
+            }
+            $model->image = $filename;
+    
+            $model->save();
+            header('location: ./index.php?act=listsp');
+        }  
     }
 ?>
