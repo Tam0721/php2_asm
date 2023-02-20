@@ -75,7 +75,7 @@
                         <td class="text-center">
                             <a href="./index.php?act=updatepro&id={{$sanpham->id}}"><input type="button" value="Sửa" style="width:120px; margin:5px; border:none;" ></a>
                             <a href="./index.php?act=deletepro&id={{$sanpham->id}}"><input type="button" value="Xóa" style="width:120px;margin:5px; border:none;"></a>
-                            <a href="'.$imgsp.'"><input type="button" value="Hình ảnh" style="width:120px;margin:5px; border:none;"></a>
+                            <a href="./index.php?act=imglist&idsp={{$sanpham->id}}"><input type="button" value="Hình ảnh" style="width:120px;margin:5px; border:none;"></a>
                         </td>
                     </tr>
                 </tbody>

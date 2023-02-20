@@ -10,6 +10,7 @@
     use App\Controllers\CategoryController;
     use App\Controllers\AccountController;
     use App\Controllers\BlogController;
+    use App\Controllers\ImageController;
 
     session_start();
     ob_start();
@@ -233,46 +234,44 @@
                     $pr = new ProductController();
                     $pr -> remove_pro_admin();
                     break;
-                // code thành phần sản phẩm
                 case 'updatepro':
-                    $p = new ProductController();
-                    $p -> editproform();
+                    $pr = new ProductController();
+                    $pr -> editproform();
                     break;
                 case 'updatesp':
-                    $p = new ProductController();
-                    $p -> editprosave();
+                    $pr = new ProductController();
+                    $pr -> editprosave();
                     break;
                 case 'addimg':
-                    if (isset($_POST['themmoi'])&&($_POST['themmoi'])) {
-                        $ma_hh = $_POST['ma_hh'];
-                        $totalfiles = count($_FILES['hinh']['name']);
-                        for ($i=0; $i<$totalfiles; $i++) {
-                            $img = $_FILES['hinh']['name'][$i];
+                    // if (isset($_POST['themmoi'])&&($_POST['themmoi'])) {
+                    //     $ma_hh = $_POST['ma_hh'];
+                    //     $totalfiles = count($_FILES['hinh']['name']);
+                    //     for ($i=0; $i<$totalfiles; $i++) {
+                    //         $img = $_FILES['hinh']['name'][$i];
 
-                            if (move_uploaded_file($_FILES["hinh"]["tmp_name"][$i], '../upload/' .$img)) {
-                                insert_img($ma_hh, $img);
-                            } else {
-                                echo 'Error in uploading file - '.$_FILES['hinh']['name'][$i].'<br/>';
-                            }
-                        }
-                        $thongbao = "Thêm mới thành công";
-                    }
-                    include "hinhanh/add.php";
+                    //         if (move_uploaded_file($_FILES["hinh"]["tmp_name"][$i], '../upload/' .$img)) {
+                    //             insert_img($ma_hh, $img);
+                    //         } else {
+                    //             echo 'Error in uploading file - '.$_FILES['hinh']['name'][$i].'<br/>';
+                    //         }
+                    //     }
+                    //     $thongbao = "Thêm mới thành công";
+                    // }
+                    // include "hinhanh/add.php";
                     break;
-                case 'listimg':
-                    if(isset($_GET['id'])&&($_GET['id']>0)){
-                        $sanpham = loadone_sanpham($_GET['id']);
-                    }
-                    $listimg = loadall_img($_GET['id']);
-                    include "hinhanh/list.php";
+                case 'imglist':
+                    $i = new ImageController();
+                    $i -> load_img_admin();
                     break;
-                case 'xoaimg':
-                    if (isset($_GET['id'])&&($_GET['id']>0)) {
-                        delete_img($_GET['id']);
-                    }
-                    $listimg = loadall_img($_GET['id']);
-                    include "hinhanh/list.php";
-                    header('location: index.php?act=listsp');
+                case 'deleteimg':
+                    $i = new ImageController();
+                    $i -> delete_img_admin();
+                    // if (isset($_GET['id'])&&($_GET['id']>0)) {
+                    //     delete_img($_GET['id']);
+                    // }
+                    // $listimg = loadall_img($_GET['id']);
+                    // include "hinhanh/list.php";
+                    // header('location: index.php?act=listsp');
                     break;
                 case 'donhanglist':
                     $listbill = loadall_bill();

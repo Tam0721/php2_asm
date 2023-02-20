@@ -5,25 +5,7 @@
     class Products extends Model {
         protected $table = "hang_hoa";
         public $fillable = ['name','price_old','price_new','mota','iddm','trang_thai'];
-
         public $timestamps = false;
-
-        // public static function loadone_product($id) {
-        //     $model = new static;
-        //     $cate = new Categories();
-        //     $sql = "SELECT * FROM " . $model -> table . " join " . $cate -> table . " ON iddm = ma_loai WHERE id = " . $id;
-        //     $stmt = $model -> conn -> prepare($sql);
-        //     $stmt -> execute();
-        //     return $stmt -> fetchAll();
-        // }
-
-        // public static function updateview($id) {
-        //     $model = new static;
-        //     $sql = "UPDATE " . $model -> table . " SET luotxem = luotxem + 1 WHERE id = " . $id;
-        //     $stmt = $model -> conn -> prepare($sql);
-        //     $stmt -> execute();
-        // }
-
     }
 
     // function insert_sanpham($tensp,$giasp,$giaspnew,$hinh,$mota,$iddm){
