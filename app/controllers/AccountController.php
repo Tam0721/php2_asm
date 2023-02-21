@@ -20,9 +20,6 @@
                     if ($role == 1) {
                         // $_SESSION['role'] = $role;
                         header('location: admin/index.php'); //note
-                    } elseif ($role == 2) { 
-                        // $_SESSION['role'] = $role;
-                        header('location: admin/index.php'); 
                     } elseif ($role == 0) {
                         // $_SESSION['role'] = $role;
                         $_SESSION['id'] = $account->id;
@@ -122,7 +119,5 @@
             
             header('location: ./index.php?act=dskh');
         }
-
-        
     }
 ?>
