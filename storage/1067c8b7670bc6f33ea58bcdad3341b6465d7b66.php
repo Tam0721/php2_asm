@@ -19,39 +19,39 @@
 			<h3>Cập nhật tài khoản</h3>
 		</div>
 		
-            <form action="index.php?act=editusersave&id={{$acc->id}}" method="POST" enctype="multipart/form-data" >
+            <form action="index.php?act=editusersave&id=<?php echo e($acc->id); ?>" method="POST" enctype="multipart/form-data" >
                 <div class="form-cow">
 				<div class="col form-group">
 					<label for="exampleInputEmail1">Họ tên</label>
-                    <input type="text" class="form-control" name="ho_ten" placeholder="Họ tên" value="{{$acc->ho_ten}}">
+                    <input type="text" class="form-control" name="ho_ten" placeholder="Họ tên" value="<?php echo e($acc->ho_ten); ?>">
                 </div>
                 <div class="col form-group">
 					<label for="exampleInputEmail1">Username</label>
-                    <input type="text" class="form-control" name="user" placeholder="Username" value="{{$acc->user}}">
+                    <input type="text" class="form-control" name="user" placeholder="Username" value="<?php echo e($acc->user); ?>">
                 </div>
                 <div class="col form-group">
 					<label for="exampleInputEmail1">Mật khẩu</label>
-                    <input type="password" class="form-control" name="pass" placeholder="Mật khẩu" value="{{$acc->pass}}">
+                    <input type="password" class="form-control" name="pass" placeholder="Mật khẩu" value="<?php echo e($acc->pass); ?>">
                 </div>
                 <div class="col form-group">
 					<label for="exampleInputEmail1">Email</label>
-                    <input type="text" class="form-control" name="email" placeholder="Email" value="{{$acc->email}}">
+                    <input type="text" class="form-control" name="email" placeholder="Email" value="<?php echo e($acc->email); ?>">
                 </div>
                 <div class="col form-group">
 					<label for="exampleInputEmail1">Địa chỉ</label>
-                    <input type="text" class="form-control" name="address" placeholder="Địa chỉ" value="{{$acc->address}}">
+                    <input type="text" class="form-control" name="address" placeholder="Địa chỉ" value="<?php echo e($acc->address); ?>">
                 </div>
                 <div class="col form-group ">
 					<label for="exampleInputEmail1">Số điện thoại</label>
-                    <input type="text" class="form-control" name="tel" placeholder="Số điện thoại" value="{{$acc->tel}}">
+                    <input type="text" class="form-control" name="tel" placeholder="Số điện thoại" value="<?php echo e($acc->tel); ?>">
                 </div>
             <!-- <div class="d-flex justify-content-center">
                 <input type="submit" value="Cập nhập" name="capnhap" class="form-control" style=" width:120px;background: linear-gradient(131deg, rgba(255,117,0,1) 12%, rgba(255,184,0,1) 86%); color:#fff;margin-bottom:15px">
             </div> -->
                             
                 <div class="d-flex justify-content-center">
-                    <input type="hidden" name="id" value="{{$acc->id}}">
-            {{-- <input type="hidden" name="role" value="{{$acc->role}}"> --}}
+                    <input type="hidden" name="id" value="<?php echo e($acc->id); ?>">
+            
                     <input type="submit" value="Cập nhật" name="capnhap" class="form-control" style=" width:120px;background: linear-gradient(131deg, rgba(255,117,0,1) 12%, rgba(255,184,0,1) 86%); color:#fff;margin-bottom:15px">
                 </div>
 			</div>
@@ -60,4 +60,4 @@
 				
 
 	<!--================End Login Box Area =================-->
-    
+    <?php /**PATH C:\xampp\htdocs\PHP2\php2_asm\app\views\admin/accounts/edit.blade.php ENDPATH**/ ?>

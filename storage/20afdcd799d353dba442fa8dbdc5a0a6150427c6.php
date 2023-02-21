@@ -34,26 +34,26 @@
                     <th style="width:200px;">Cài đặt</th>
                 </tr>
             </thead>
-            @foreach ($accounts as $acc)
+            <?php $__currentLoopData = $accounts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $acc): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <tr>
-                    <td>{{$acc->id}}</td>
-                    <td>{{$acc->ho_ten}}</td>
-                    <td>{{$acc->user}}</td>
-                    <td>{{$acc->email}}</td>
-                    <td>{{$acc->address}}</td>
-                    <td>{{$acc->tel}}</td>
-                    {{-- (($role==1)? "Admin":(($role==0)? "Khách hàng":"Nhân viên")) --}}
-                    <td>{{($acc->role==1)? 'Admin': (($acc->role==0)? 'Khách hàng':'Nhân viên')}}</td>
+                    <td><?php echo e($acc->id); ?></td>
+                    <td><?php echo e($acc->ho_ten); ?></td>
+                    <td><?php echo e($acc->user); ?></td>
+                    <td><?php echo e($acc->email); ?></td>
+                    <td><?php echo e($acc->address); ?></td>
+                    <td><?php echo e($acc->tel); ?></td>
+                    
+                    <td><?php echo e(($acc->role==1)? 'Admin': (($acc->role==0)? 'Khách hàng':'Nhân viên')); ?></td>
                     <td>
-                        <a href="./index.php?act=updateuser&id={{$acc->id}}">
-                            <input type='button' value='Sửa' style='width:120px; margin:5px; border:none;' {{($acc->role==1)? '': (($acc->role==0)? 'disabled':'')}}>
+                        <a href="./index.php?act=updateuser&id=<?php echo e($acc->id); ?>">
+                            <input type='button' value='Sửa' style='width:120px; margin:5px; border:none;' <?php echo e(($acc->role==1)? '': (($acc->role==0)? 'disabled':'')); ?>>
                         </a> 
-                        <a href="./index.php?act=deleteuser&id={{$acc->id}}">
-                            <input type="button" value="Xóa" style="width:120px;margin:5px; border:none;" {{($acc->role==1)? 'disabled' : ''}}>
+                        <a href="./index.php?act=deleteuser&id=<?php echo e($acc->id); ?>">
+                            <input type="button" value="Xóa" style="width:120px;margin:5px; border:none;" <?php echo e(($acc->role==1)? 'disabled' : ''); ?>>
                         </a>
                     </td>
                 </tr>
-             @endforeach
+             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             <?php
                 // foreach ($listtaikhoan as $taikhoan) {
                 //     extract($taikhoan);
@@ -84,4 +84,4 @@
             ?>
         </table>
     </div>
-</div>
+</div><?php /**PATH C:\xampp\htdocs\PHP2\php2_asm\app\views\admin/accounts/accounts.blade.php ENDPATH**/ ?>

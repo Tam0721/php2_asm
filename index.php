@@ -149,29 +149,15 @@
                 break;
             case 'updateuser':
                 $acc = new AccountController();
-                $acc-> editAccform();
+                $acc-> editAccForm();
                 break;  
             case 'saveupdateuser':
                 $acc = new AccountController();
                 $acc -> editAccSave();
-                break;   
-            case 'capnhat_tk':
-                $acc = new AccountController();
-                $acc-> editAcc();
-                // if(isset($_POST['capnhap'])&&($_POST['capnhap'])){
-                //     $ma_tk = $_POST['ma_tk'];
-                //     $fullname = $_POST['fullname'];
-                //     $user = $_POST['user']; 
-                //     $pass = $_POST['pass'];
-                //     $address = $_POST['address'];
-                //     $tel = $_POST['tel'];
-                //     update_taikhoan($ma_tk,$fullname,$user,$pass,$address,$tel); 
-                // }
-                // include 'app/views/capnhat_tk.php';
                 break;
-            case 'quenmk':
-                include "app/views/quenmk.php";
-                break;
+            // case 'quenmk':
+            //     include "app/views/quenmk.php";
+            //     break;
             case 'thoat':
                 unset($_SESSION['user']);
                 unset($_SESSION['iduser']);

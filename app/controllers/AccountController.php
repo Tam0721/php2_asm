@@ -57,7 +57,7 @@
             $this -> renderAdmin('accounts.accounts',['accounts'=>$acc]);
         }
 
-        public function editAccform(){
+        public function editAccForm(){
             $user = $_GET['user'];
             $user = isset($_GET['user']) ?  $_GET['user'] : null;
 
@@ -67,17 +67,6 @@
         }
 
         public function editAccSave() {
-            // public function editcatesave(){
-            //     $id = $_GET['id'];
-            //     $id = isset($_GET['id']) ? $_GET['id']: null;
-                
-            //     $model = Categories::find($id);
-            //     $requestDB = $_POST;    
-            //     $model->fill($requestDB);
-        
-            //     $model->save();
-            //     header('location: ./index.php?act=listdm');
-            // }
             $user = $_GET['user'];
             $user = isset($_GET['user']) ?  $_GET['user']:null;
             
@@ -90,20 +79,39 @@
             header('location: index.php?url=updateuser&user='.$model->user.'');
         }
 
-        public function EditForm(){
-
-            if(isset($_POST['capnhat'])) {
-                $id = $_POST['id'];
-                $user = $_POST['user'];
-                $_SESSION['user'] = $user;
+        public function addAdminForm() {
+            if(isset($_POST['add-admin'])) {
                 $requestData = $_POST;
                 $model = new Accounts();
                 $model -> fill($requestData);
+                $thongbao = "Thêm tài khoản thành công.";
                 $model -> save();
-                $this->render('account.edit-form-acc',compact('user','model'));
-
+                $this -> renderAdmin('accounts.add', compact('model', 'thongbao'));
+            } else {
+                $model = [];
+                $this -> renderAdmin('accounts.add', compact('model'));
             }
+        }
+
+        public function editAccAdminForm(){
+            $id = $_GET['id'];
+            $id = isset($_GET['id']) ?  $_GET['id'] : null;
+
+            $acc = Accounts::where('id', $id)->first();
+
+            $this -> renderAdmin('accounts.edit', compact('acc'));
+        }
+
+        public function editAccAdminSave() {
+            $id = $_GET['id'];
+            $id = isset($_GET['id']) ?  $_GET['id']:null;
             
+            $model = Accounts::where('id', $id)->first();
+            $requestDB = $_POST;    
+            $model->fill($requestDB);
+
+            $model->save();
+            header('location: index.php?act=updateuser&id='.$model->id.'');
         }
 
         public function deleteAccAdmin(){
