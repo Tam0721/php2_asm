@@ -50,7 +50,7 @@
             </div> -->
                             
                 <div class="d-flex justify-content-center">
-                    <input type="hidden" name="ma_tk" value="{{$acc->id}}">
+                    <input type="hidden" name="id" value="{{$acc->id}}">
             {{-- <input type="hidden" name="role" value="{{$acc->role}}"> --}}
                     <input type="submit" value="Cập nhật" name="capnhap" class="form-control" style=" width:120px;background: linear-gradient(131deg, rgba(255,117,0,1) 12%, rgba(255,184,0,1) 86%); color:#fff;margin-bottom:15px">
                 </div>

@@ -101,7 +101,7 @@
 									<div class="col-lg-4 col-md-6">
 										<div class="single-product">
 											<a href="index.php?url=sanphamct&idsp=<?php echo e($sp->id); ?>">
-												<img class="img-fluid" src="upload/<?php echo e($sp->img); ?>" alt="" style="height:250px; width:250px;">
+												<img class="img-fluid" src="./public/upload/<?php echo e($sp->img); ?>" alt="" style="height:250px; width:250px;">
 											</a>
 											<div class="product-details">
 												<h6><?php echo e($sp->name); ?></h6>
@@ -182,7 +182,7 @@
 						<?php $__currentLoopData = $listProd; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $sp): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 							<div class="col-lg-4 col-md-4 col-sm-6 mb-20">
 								<div class="single-related-product d-flex" id="imgDeal">
-									<a href="index.php?url=sanphamct&idsp=<?php echo e($sp->id); ?>"><img src="upload/<?php echo e($sp->img); ?>" alt=""></a>
+									<a href="index.php?url=sanphamct&idsp=<?php echo e($sp->id); ?>"><img src="./public/upload/<?php echo e($sp->img); ?>" alt=""></a>
 									<div class="desc">
 										<a href="index.php?url=sanphamct&idsp=<?php echo e($sp->id); ?>" class="title"><?php echo e($sp->name); ?></a>
 										<div class="price">

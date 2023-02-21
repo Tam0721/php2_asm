@@ -144,29 +144,17 @@
                 $acc -> loginForm();
                 break;
             case 'signup':
-                // if(isset($_POST['dangky'])&&($_POST['dangky'])){
-                //     $email = $_POST['email'];
-                //     $fullname = $_POST['fullname'];
-                //     $user = $_POST['user'];
-                //     $pass = $_POST['pass'];
-                //     $address = $_POST['address'];
-                //     $tel = $_POST['tel'];
-                //     insert_taikhoan($email,$fullname,$user,$pass,$address,$tel);    
-                //     $thongbao="Đăng ký thành công. Vui lòng <a href='index.php?act=login'>đăng nhập</a>";
-                // }
-                // include 'app/views/signup.php';
                 $acc = new AccountController();
                 $acc -> registForm();
                 break;
-            case 'suatk':
+            case 'updateuser':
                 $acc = new AccountController();
-                $acc-> EditForm();
-                // if(isset($_GET['ma_tk'])&&($_GET['ma_tk'])){
-                //     $sql = "SELECT * FROM tai_khoan WHERE ma_tk =".$_GET['ma_tk'];
-                //     $dm = pdo_query_one($sql);
-                // }
-                // include "app/views/capnhat_tk.php";
-                break;     
+                $acc-> editAccform();
+                break;  
+            case 'saveupdateuser':
+                $acc = new AccountController();
+                $acc -> editAccSave();
+                break;   
             case 'capnhat_tk':
                 $acc = new AccountController();
                 $acc-> editAcc();

@@ -25,7 +25,7 @@
                         header('location: admin/index.php'); 
                     } elseif ($role == 0) {
                         // $_SESSION['role'] = $role;
-                        $_SESSION['iduser'] = $account->id;
+                        $_SESSION['id'] = $account->id;
                         $_SESSION['user']= $account->user;
                         header('location: ./'); //note
                         // break;
@@ -46,15 +46,6 @@
                 $thongbao = "Đăng ký thành công. Vui lòng <a href='index.php?url=login'>đăng nhập</a>";
                 $model -> save();
                 $this -> render('account.signup', compact('model', 'thongbao'));
-                // header('Location: ./');
-                // $email = $_POST['email'];
-                // $fullname = $_POST['fullname'];
-                // $user = $_POST['user'];
-                // $pass = $_POST['pass'];
-                // $address = $_POST['address'];
-                // $tel = $_POST['tel'];
-                // insert_taikhoan($email,$fullname,$user,$pass,$address,$tel);    
-                // $thongbao="Đăng ký thành công. Vui lòng <a href='index.php?act=login'>đăng nhập</a>";
             } else {
                 $model = [];
                 $this -> render('account.signup', compact('model'));
@@ -67,20 +58,36 @@
         }
 
         public function editAccform(){
-            $id = isset($_GET['id']) ?  $_GET['id']:null;
-            $model = Accounts::find($id);
-            $this->renderAdmin('accounts.form-acc',['acc'=>$model]);
-            
+            $user = $_GET['user'];
+            $user = isset($_GET['user']) ?  $_GET['user'] : null;
+
+            $acc = Accounts::where('user', $user)->first();
+
+            $this -> render('account.edit', compact('acc'));
         }
-        public function editAccSave(){
-            $id = $_GET['id'];
-            $id = isset($_GET['id']) ?  $_GET['id']:null;
+
+        public function editAccSave() {
+            // public function editcatesave(){
+            //     $id = $_GET['id'];
+            //     $id = isset($_GET['id']) ? $_GET['id']: null;
+                
+            //     $model = Categories::find($id);
+            //     $requestDB = $_POST;    
+            //     $model->fill($requestDB);
+        
+            //     $model->save();
+            //     header('location: ./index.php?act=listdm');
+            // }
+            $user = $_GET['user'];
+            $user = isset($_GET['user']) ?  $_GET['user']:null;
             
-            $model = Accounts::find($id);
-            $requestData = $_POST;
-            $model->fill($requestData);
+            $model = Accounts::where('user', $user)->first();
+            $requestDB = $_POST;    
+            $model->fill($requestDB);
+
             $model->save();
-            header('location: ./index.php?act=dskh');
+            $_SESSION['user'] = $model->user;
+            header('location: index.php?url=updateuser&user='.$model->user.'');
         }
 
         public function EditForm(){

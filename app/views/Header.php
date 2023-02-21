@@ -83,7 +83,7 @@
 							<li class="nav-item submenu dropdown">
 								<?php
 										if(isset($_SESSION['user']) && ($_SESSION['user'] != "")){
-											echo '<a href="index.php?url=suatk&user='.$_SESSION['user'].'" class="nav-link"><span style="color:red;font-weight:800;"> '.$_SESSION['user'].'</span></a>';
+											echo '<a href="index.php?url=updateuser&user='.$_SESSION['user'].'" class="nav-link"><span style="color:red;font-weight:800;"> '.$_SESSION['user'].'</span></a>';
 											echo'<li class="nav-item"><a href="index.php?url=thoat" class="nav-link"><span>Đăng xuất</span></a></li>';
 										}else{
 									?>

@@ -144,8 +144,8 @@
                     // }
                     // include "taikhoann/edit.php";
                     break; 
-                case'update_tk':
-                    $acc = new AccountController;
+                case'updateuser':
+                    $acc = new AccountController();
                     $acc -> editAccform();
                     break;
                 case 'xoatk':

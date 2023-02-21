@@ -33,31 +33,31 @@
                             // $sql = "SELECT * FROM tai_khoan WHERE user = '".$_SESSION['user']."'";
                             // extract(pdo_query_one($sql));
                         ?>
-                        <form action="index.php?url=suatk&user={{$acc->$_SESSION['user']}}" method="POST" enctype="multipart/form-data" class="row login_form requires-validation">
-                                <div class="col-md-12 form-group">
-                                    <input type="text" class="form-control" name="ho_ten" placeholder="Họ tên" value="{{$acc->ho_ten}}">
-                                </div>
-                                <div class="col-md-12 form-group">
-                                    <input type="text" class="form-control" name="user" placeholder="Username" value="{{$acc->user}}">
-                                </div>
-                                <div class="col-md-12 form-group">
-                                    <input type="password" class="form-control" name="pass" placeholder="Mật khẩu" value="{{$acc->pass}}">
-                                </div>
-                                <div class="col-md-12 form-group">
-                                    <input type="text" class="form-control" name="email" placeholder="Email" value="{{$acc->email}}">
-                                </div>
-                                <div class="col-md-12 form-group">
-                                    <input type="text" class="form-control" name="address" placeholder="Địa chỉ" value="{{$acc->address}}">
-                                </div>
-                                <div class="col-md-12 form-group">
-                                    <input type="text" class="form-control" name="tel" placeholder="Số điện thoại" value="{{$acc->tel}}">
-                                </div>
+                        <form action="index.php?url=saveupdateuser&user=<?php echo e($acc->user); ?>" method="post" enctype="multipart/form-data" class="row login_form requires-validation">
+                            <div class="col-md-12 form-group">
+								<input type="text" class="form-control" name="user" placeholder="Username" value="<?php echo e($acc->user); ?>">
+							</div>    
+							<div class="col-md-12 form-group">
+                                <input type="text" class="form-control" name="ho_ten" placeholder="Họ tên" value="<?php echo e($acc->ho_ten); ?>">
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <input type="password" class="form-control" name="pass" placeholder="Mật khẩu" value="<?php echo e($acc->pass); ?>">
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <input type="text" class="form-control" name="email" placeholder="Email" value="<?php echo e($acc->email); ?>">
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <input type="text" class="form-control" name="address" placeholder="Địa chỉ" value="<?php echo e($acc->address); ?>">
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <input type="text" class="form-control" name="tel" placeholder="Số điện thoại" value="<?php echo e($acc->tel); ?>">
+                            </div>
             <!-- <div class="d-flex justify-content-center">
                 <input type="submit" value="Cập nhập" name="capnhap" class="form-control" style=" width:120px;background: linear-gradient(131deg, rgba(255,117,0,1) 12%, rgba(255,184,0,1) 86%); color:#fff;margin-bottom:15px">
             </div> -->
                             
                                 <div class="d-flex justify-content-center">
-                                    <input type="hidden" name="id" value="{{$acc->id}}">
+                                    <input type="hidden" name="id" value="<?php echo e($acc->id); ?>">
                                     <input type="submit" value="Cập nhật" name="capnhap" class="form-control" style=" width:120px;background: linear-gradient(131deg, rgba(255,117,0,1) 12%, rgba(255,184,0,1) 86%); color:#fff;margin-bottom:15px">
                         </div>
                         </form>
@@ -67,4 +67,4 @@
 		</div>
 	</section>
 	<!--================End Login Box Area =================-->
-    
+    <?php /**PATH C:\xampp\htdocs\PHP2\php2_asm\app\views/account/edit.blade.php ENDPATH**/ ?>
