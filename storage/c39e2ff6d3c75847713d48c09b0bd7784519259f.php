@@ -29,11 +29,11 @@
                 <tbody>
                     <?php $__currentLoopData = $cates; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $c): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <tr>
-                        <td><?php echo e($c->ma_loai); ?></td>
+                        <td><?php echo e($c->id); ?></td>
                         <td><?php echo e($c->ten_loai); ?></td>
                         <td>
-                            <a href="./updatecate&id=<?php echo e($c->ma_loai); ?>"><input type="button" value="Sửa" ></a> 
-                            <a href="./index.php?act=removecate&id=<?php echo e($c->ma_loai); ?>"><input type="button" value="Xóa"></a>
+                            <a href="./index.php?act=updatecate&id=<?php echo e($c->id); ?>"><input type="button" value="Sửa" ></a> 
+                            <a href="./index.php?act=removecate&id=<?php echo e($c->id); ?>"><input type="button" value="Xóa"></a>
                         </td>
                     </tr>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

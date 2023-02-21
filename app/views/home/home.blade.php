@@ -182,7 +182,7 @@
 						<div class="col-lg-3 col-md-6">
 							<div class="single-product">
 								<a href="index.php?url=sanphamct&idsp={{$sp->id}}">
-									<img class="img-fluid" src="upload/{{$sp->img}}" alt="" style="height:270px; width:260;">
+									<img class="img-fluid" src="./public/upload/{{$sp->img}}" alt="" style="height:270px; width:260;">
 								</a>
 								<div class="product-details">
 									<h6>{{$sp->name}}</h6>
@@ -243,7 +243,7 @@
 							<div class="col-lg-3 col-md-6">
 								<div class="single-product">
 									<a href="index.php?url=sanphamct&idsp={{$sp->id}}">
-										<img class="img-fluid" src="upload/{{$sp->img}}" alt="" style="height:270px; width:260;">
+										<img class="img-fluid" src="./public/upload/{{$sp->img}}" alt="" style="height:270px; width:260;">
 									</a>
 									<div class="product-details">
 										<h6>{{$sp->name}}</h6>
@@ -339,7 +339,7 @@
 				@foreach ($listItem as $sp)
 					@if ($sp->special == 1)
 						<a href="index.php?url=sanphamct&idsp={{$sp->id}}">
-							<img class="special-img" class="img-product" src="upload/{{$sp->img}}" alt="" width="30%">
+							<img class="special-img" class="img-product" src="./public/upload/{{$sp->img}}" alt="" width="30%">
 						</a>
 						<div class="infor-recipe1">
 							<h1 style="color:white">{{$sp->name}}</h1>
@@ -377,7 +377,7 @@
 							<div class="col-lg-4 col-md-4 col-sm-6 mb-20">
 								<div class="single-related-product d-flex" id="imgTop">
 									<a href="index.php?url=sanphamct&idsp={{$sp->id}}">
-										<img src="upload/{{$sp->img}}" alt="">
+										<img src="./public/upload/{{$sp->img}}" alt="">
 									</a>
 									<div class="desc">
 										<a href="index.php?url=sanphamct&idsp={{$sp->id}}" class="title">{{$sp['name']}}</a>

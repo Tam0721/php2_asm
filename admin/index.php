@@ -125,46 +125,54 @@
                     }
                     include 'taikhoann/add.php';
                     break;
-                case 'tklist':
-                    $sql = "select * from tai_khoan order by ma_tk desc";
-                    $listtaikhoan= pdo_query($sql);
-                    include "taikhoann/list.php";
-                    break;
-                case 'xoatk':
-                    if (isset($_GET['ma_tk'])&&($_GET['ma_tk']>0)) {
-                        $sql = "delete from tai_khoan where ma_tk=".$_GET['ma_tk'];
-                        pdo_execute($sql);
-                    }
-                    $sql = "select * from tai_khoan order by ma_tk desc";
-                    $listtaikhoan= pdo_query($sql);
-                    include "taikhoann/list.php";
-                    break; 
+                // case 'tklist':
+                //     $sql = "select * from tai_khoan order by ma_tk desc";
+                //     $listtaikhoan= pdo_query($sql);
+                //     include "taikhoann/list.php";
+                //     break;
                 case 'dskh':
                     $acc = new AccountController();
                     $acc -> load_acc_admin();
                     break;
-                case 'suatk':
-                    if(isset($_GET['ma_tk'])&&($_GET['ma_tk'])){
-                        // $id=$_GET['id'];
-                        $sql = "SELECT * FROM tai_khoan WHERE ma_tk =".$_GET['ma_tk'];
-                        $dm = pdo_query_one($sql);
-                    }
-                    include "taikhoann/edit.php";
+                case 'edit_tk':
+                    $acc = new AccountController();
+                    $acc-> editAccSave();
+                    // if(isset($_GET['ma_tk'])&&($_GET['ma_tk'])){
+                    //     // $id=$_GET['id'];
+                    //     $sql = "SELECT * FROM tai_khoan WHERE ma_tk =".$_GET['ma_tk'];
+                    //     $dm = pdo_query_one($sql);
+                    // }
+                    // include "taikhoann/edit.php";
                     break; 
-                case 'edittk': 
-                    if(isset($_POST['capnhap'])&&($_POST['capnhap'])){
-                        $ma_tk = $_POST['ma_tk'];
-                        $fullname = $_POST['fullname'];
-                        $user = $_POST['user']; 
-                        $pass = $_POST['pass'];
-                        $address = $_POST['address'];
-                        $tel = $_POST['tel'];
-                        update_taikhoan($ma_tk,$fullname,$user,$pass,$address,$tel); 
-                    }
-                    $sql = "select * from tai_khoan order by ma_tk desc";
-                    $listtaikhoan= pdo_query($sql);
-                    include "taikhoann/list.php";
+                case'update_tk':
+                    $acc = new AccountController;
+                    $acc -> editAccform();
                     break;
+                case 'xoatk':
+                    $acc = new AccountController();
+                    $acc -> deleteAccAdmin();
+                    // if (isset($_GET['ma_tk'])&&($_GET['ma_tk']>0)) {
+                    //     $sql = "delete from tai_khoan where ma_tk=".$_GET['ma_tk'];
+                    //     pdo_execute($sql);
+                    // }
+                    // $sql = "select * from tai_khoan order by ma_tk desc";
+                    // $listtaikhoan= pdo_query($sql);
+                    // include "taikhoann/list.php";
+                    break; 
+                // case 'edittk': 
+                //     if(isset($_POST['capnhap'])&&($_POST['capnhap'])){
+                //         $ma_tk = $_POST['ma_tk'];
+                //         $fullname = $_POST['fullname'];
+                //         $user = $_POST['user']; 
+                //         $pass = $_POST['pass'];
+                //         $address = $_POST['address'];
+                //         $tel = $_POST['tel'];
+                //         update_taikhoan($ma_tk,$fullname,$user,$pass,$address,$tel); 
+                //     }
+                //     $sql = "select * from tai_khoan order by ma_tk desc";
+                //     $listtaikhoan= pdo_query($sql);
+                //     include "taikhoann/list.php";
+                //     break;
                 // case 'addmgg':
                 //     if (isset($_POST['themma'])&&($_POST['themma'])) {
                 //         $ma_gg="Z".rand(0,99999);

@@ -60,5 +60,54 @@
                 $this -> render('account.signup', compact('model'));
             }
         }
+
+        public function load_acc_admin() {
+            $acc = Accounts::all();
+            $this -> renderAdmin('accounts.accounts',['accounts'=>$acc]);
+        }
+
+        public function editAccform(){
+            $id = isset($_GET['id']) ?  $_GET['id']:null;
+            $model = Accounts::find($id);
+            $this->renderAdmin('accounts.form-acc',['acc'=>$model]);
+            
+        }
+        public function editAccSave(){
+            $id = $_GET['id'];
+            $id = isset($_GET['id']) ?  $_GET['id']:null;
+            
+            $model = Accounts::find($id);
+            $requestData = $_POST;
+            $model->fill($requestData);
+            $model->save();
+            header('location: ./index.php?act=dskh');
+        }
+
+        public function EditForm(){
+
+            if(isset($_POST['capnhat'])) {
+                $id = $_POST['id'];
+                $user = $_POST['user'];
+                $_SESSION['user'] = $user;
+                $requestData = $_POST;
+                $model = new Accounts();
+                $model -> fill($requestData);
+                $model -> save();
+                $this->render('account.edit-form-acc',compact('user','model'));
+
+            }
+            
+        }
+
+        public function deleteAccAdmin(){
+            $removeId = isset($_GET['id'])? $_GET['id']:"";
+
+            $model = Accounts::find($removeId);
+            Accounts::destroy($removeId);
+            
+            header('location: ./index.php?act=dskh');
+        }
+
+        
     }
 ?>
