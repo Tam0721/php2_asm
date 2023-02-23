@@ -95,7 +95,7 @@
 										
 								</ul>
 							</li> <?php } ?>
-							<!-- <li class="nav-item"><a class="nav-link" href="index.php?url=contact">Liên hệ</a></li> -->
+							<li class="nav-item"><a class="nav-link" href="index.php?url=contact">Liên hệ</a></li>
 						</ul>
 						<ul class="nav navbar-nav navbar-right">
 							<?php
